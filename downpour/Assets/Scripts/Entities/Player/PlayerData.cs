@@ -38,6 +38,8 @@ namespace Downpour.Entity.Player
             [field: SerializeField, Range(0f, 0.5f)] public float JumpBufferTime;
             [field: SerializeField] public bool HasDoubleJump;
 
+
+            // what's the 4 there for?? where are these variables getting initialized??
             public int SlashDamage => (int)(4 * damageMultiplier);
             // [field: SerializeField, Range(0, 4)] public int SlashLevel;
             // [field: SerializeField] public int[] BaseSlashDamageValues { get; private set; }
@@ -50,7 +52,7 @@ namespace Downpour.Entity.Player
             [field: SerializeField] public float SlashKnockbackMultiplier;
             [field: SerializeField] public float SlashKnockbackTime;
 
-            public float damageMultiplier;
+            public float damageMultiplier; 
         }
     }
 }
