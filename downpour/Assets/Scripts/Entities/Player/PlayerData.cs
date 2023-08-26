@@ -27,28 +27,30 @@ namespace Downpour.Entity.Player
 
         [Serializable]
         public struct PlayerStats {
-            [field: SerializeField] public int MaxHealth { get; private set; }
-            [field: SerializeField] public int MaxSpirit { get; private set; }
+            [field: SerializeField] public int MaxHealth;
+            [field: SerializeField] public int MaxSpirit;
 
-            [field: SerializeField, Range(0f, 100f)] public float MoveSpeed { get; private set; }
+            [field: SerializeField, Range(0f, 100f)] public float MoveSpeed;
 
-            [field: SerializeField, Range(0f, 10f)] public float JumpHeight { get; private set; }
-            [field: SerializeField, Range(0f, 100f)] public float MaxFallSpeed { get; private set; }
-            [field: SerializeField, Range(0f, 1f)] public float CoyoteTime { get; private set; }
-            [field: SerializeField, Range(0f, 0.5f)] public float JumpBufferTime { get; private set; }
+            [field: SerializeField, Range(0f, 10f)] public float JumpHeight;
+            [field: SerializeField, Range(0f, 100f)] public float MaxFallSpeed;
+            [field: SerializeField, Range(0f, 1f)] public float CoyoteTime;
+            [field: SerializeField, Range(0f, 0.5f)] public float JumpBufferTime;
             [field: SerializeField] public bool HasDoubleJump;
 
-            public int SlashDamage => BaseSlashDamageValues[SlashLevel];
-            [field: SerializeField, Range(0, 4)] public int SlashLevel { get; private set; }
-            [field: SerializeField] public int[] BaseSlashDamageValues { get; private set; }
-            [field: SerializeField] public float SlashSpeed { get; private set; }
-            [field: SerializeField] public float SlashCooldown { get; private set; }
-            [field: SerializeField] public float SlashRange { get; private set; }
-            [field: SerializeField] public float ComboTime { get; private set; }
-            [field: SerializeField] public float SlashBufferTime { get; private set; }
+            public int SlashDamage => (int)(4 * damageMultiplier);
+            // [field: SerializeField, Range(0, 4)] public int SlashLevel;
+            // [field: SerializeField] public int[] BaseSlashDamageValues { get; private set; }
+            [field: SerializeField] public float SlashSpeed;
+            [field: SerializeField] public float SlashCooldown;
+            [field: SerializeField] public float SlashRange;
+            [field: SerializeField] public float ComboTime;
+            [field: SerializeField] public float SlashBufferTime;
 
-            [field: SerializeField] public float SlashKnockbackMultiplier { get; private set; }
-            [field: SerializeField] public float SlashKnockbackTime { get; private set; }
+            [field: SerializeField] public float SlashKnockbackMultiplier;
+            [field: SerializeField] public float SlashKnockbackTime;
+
+            public float damageMultiplier;
         }
     }
 }

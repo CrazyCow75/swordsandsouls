@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Downpour.Combat;
+using Downpour;
 
 namespace Downpour.Entity.Player
 {
@@ -18,6 +19,8 @@ namespace Downpour.Entity.Player
         public event Action PlayerDeathEvent;
 
         public CardType[] ownedCards;
+
+        public Card[] cards;
 
         protected override void Awake() {
             base.Awake();
@@ -42,6 +45,12 @@ namespace Downpour.Entity.Player
 
         private PlayerData.PlayerStats _updatePlayerStats() {
             m_currentPlayerStats = _playerData.BasePlayerStats;
+
+            foreach(Card c in cards) { // Update based on cards
+                if(c != null) {
+                    m_currentPlayerStats = c.getPlayerStatBuffs(m_currentPlayerStats);
+                }
+            }
             // TODO: Update based on beads, buffs/debuffs
             return m_currentPlayerStats;
         }
