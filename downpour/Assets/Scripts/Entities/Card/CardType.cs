@@ -1,0 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Downpour
+{
+    public enum CardType {
+        DASH, DOUBLE_JUMP, FIREBALL, AIR_DASH, CHARGE_DASH, MOVEMENT_SPEED, SWORD_SPEED, HEALTH, SWORD_SLASH, FIRE_SHOTGUN, HOMING_BULLET, BINGO_BONANZA, CRIT_CHANCE, MAGIC_DAMAGE, HEALTH_REGEN, SUMMON, RETALIATION, EXPLORATION, EVASION
+    }
+}

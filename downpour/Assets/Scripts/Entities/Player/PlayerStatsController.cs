@@ -17,6 +17,8 @@ namespace Downpour.Entity.Player
         public event Action<int> PlayerDamagedEvent;
         public event Action PlayerDeathEvent;
 
+        public CardType[] ownedCards;
+
         protected override void Awake() {
             base.Awake();
             
