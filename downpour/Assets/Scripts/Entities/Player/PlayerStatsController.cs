@@ -95,6 +95,8 @@ namespace Downpour.Entity.Player
                     return;
                 }
             }
+
+            _updatePlayerStats();
         }
     }
 }
