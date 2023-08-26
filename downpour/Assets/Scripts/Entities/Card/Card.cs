@@ -7,34 +7,16 @@ namespace Downpour
 
     using Downpour.Entity.Player;
 
-    public class Card : PlayerComponent
+    public abstract class Card
     {
-
-
-        public CardType cardType;
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
+        public CardData m_CardData;
 
         //on going
-        public void whileActive(Player player, CardType cardType) {
-            switch(cardType) {
-                
-            }
-        }
+        public abstract void whileActive(Player player);
 
         //on reveal
-        public void onUse(Player player, CardType cardType) {
-            switch(cardType) {
+        public abstract void onUse(Player player);
 
-            }
-        }
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+        public abstract PlayerData.PlayerStats getPlayerStatBuffs(PlayerData.PlayerStats playerStats);
     }
 }
