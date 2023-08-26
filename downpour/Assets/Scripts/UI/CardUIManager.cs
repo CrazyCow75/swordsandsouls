@@ -10,7 +10,7 @@ namespace Downpour
     public class CardUIManager : MonoBehaviour
     {
         public CardUI[] cardUIs;
-        public CardUI[] equipped;
+        public Image[] equipped;
         public CardData[] cardDatas;
 
         public Image cardImage;
@@ -25,6 +25,18 @@ namespace Downpour
         public void onEquip() {
             player.PlayerStatsController.equipCard(selectedCard);
             _onCardSelect(selectedCard);
+
+            int i = 0;
+
+            foreach(Card c in player.PlayerStatsController.cards) {
+                if(c == null) {
+                    equipped[i].gameObject.SetActive(false);
+                } else {
+                    equipped[i].gameObject.SetActive(true);
+                    equipped[i].sprite = c.m_CardData.image;
+                }
+                i++;
+            }
         }
         private void Awake() {
             foreach(CardUI c in cardUIs) {
@@ -32,10 +44,25 @@ namespace Downpour
             }
 
             registerCards();
+            
         }
 
         private void Start() {
             player = Player.Instance;
+
+            selectedCard = cardUIs[0].c;
+            
+            int i = 0;
+
+            foreach(Card c in player.PlayerStatsController.cards) {
+                if(c == null) {
+                    equipped[i].gameObject.SetActive(false);
+                } else {
+                    equipped[i].gameObject.SetActive(true);
+                    equipped[i].sprite = c.m_CardData.image;
+                }
+                i++;
+            }
         }
 
         private void _onCardSelect(Card c) {
