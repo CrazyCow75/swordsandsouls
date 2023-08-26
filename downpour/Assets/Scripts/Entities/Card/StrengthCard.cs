@@ -5,8 +5,10 @@ using UnityEngine;
 namespace Downpour
 {
     using Downpour.Entity.Player;
+
     public class StrengthCard : Card
     {
+        public StrengthCard(CardData _cardData) : base(_cardData) { }
         public override void whileActive(Player player) {
             return;
         }
