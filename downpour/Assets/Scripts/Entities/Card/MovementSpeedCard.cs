@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Downpour
 {
     using Downpour.Entity.Player;
-    public class StrengthCard : Card
+    public class MovementSpeedCard : Card
     {
         public override void whileActive(Player player) {
             return;
@@ -19,8 +19,9 @@ namespace Downpour
         //dont think we need a reference to player here?
 
         //other note; im not using ur overriden method thing bc i think its handled differently for movement
-        public static float getMovementSpeedCardBuff() {
-            return 1.5f;
+        public override PlayerData.PlayerStats getPlayerStatBuffs(PlayerData.PlayerStats playerStats) {
+            playerStats.MoveSpeed *= 1.5f;
+            return playerStats;
         }
     }
 }

@@ -16,7 +16,8 @@ namespace Downpour
             return;
         }
         public override PlayerData.PlayerStats getPlayerStatBuffs(PlayerData.PlayerStats playerStats) {
-            playerStats.swingSpeed *= 1.5f;
+            playerStats.SlashSpeed *= 1.5f;
+            playerStats.SlashCooldown *= 0.5f;
             return playerStats;
         }
     }
