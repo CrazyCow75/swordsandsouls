@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9bc430f662a51468c698d2ba22d3c7, type: 3}
   m_Name: StrengthData
   m_EditorClassIdentifier: 
-  CardName: Muscle Soul
+  CardName: Gobloid Soul
   id: 0
   image: {fileID: 21300000, guid: 3e08160eaad29114299a141550fe39e3, type: 3}
-  cardDesc: Increases your physical strength.
+  cardDesc: The muscles of the goblins fill your arm. Increases your physical strength.

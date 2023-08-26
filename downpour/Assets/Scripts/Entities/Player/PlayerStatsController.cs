@@ -22,6 +22,10 @@ namespace Downpour.Entity.Player
 
         public Card[] cards;
 
+        public bool Invincible;
+        public float iframeTime;
+        public float iframeCounter;
+
         protected override void Awake() {
             base.Awake();
 
@@ -38,12 +42,31 @@ namespace Downpour.Entity.Player
             _healthSystem.DamageEvent += _invokeDamageEvent;
         }
 
+        private void Update() {
+            if(iframeCounter > 0f) {
+                iframeCounter -= Time.deltaTime;
+                Invincible = true;
+            } else {
+                Invincible = false;
+            }
+        }
+
         private void _invokeDeathEvent() {
             PlayerDeathEvent?.Invoke();
         }
 
         private void _invokeDamageEvent(int damage) {
             PlayerDamagedEvent?.Invoke(damage);
+        }
+
+        public void TakeDamage(int damage) {
+            if(Invincible) {
+                return;
+            }
+
+            iframeCounter = iframeTime;
+
+            _healthSystem.TakeDamage(damage);
         }
 
         private PlayerData.PlayerStats _updatePlayerStats() {

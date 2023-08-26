@@ -19,7 +19,7 @@ namespace Downpour.Entity.Enemy
 
         protected Vector2 _velocity;
 
-        Rigidbody2D _rb;
+        private Rigidbody2D _rb;
         private void Awake() {
             _rb = GetComponent<Rigidbody2D>();
 
@@ -43,6 +43,10 @@ namespace Downpour.Entity.Enemy
         private void Update() {
             _velocity = _rb.velocity;
 
+            if(_knockbackCounter <= 0) { // TODO: Move To State Machine
+                _velocity.x = 0;
+            }
+
             OnUpdate();
 
             if(_knockbackCounter > 0) {
@@ -50,9 +54,7 @@ namespace Downpour.Entity.Enemy
                 _velocity.x = _knockbackDirection * _knockbackMultiplier;
             }
 
-            if(_knockbackCounter <= 0) { // TODO: Move To State Machine
-                _velocity.x = 0;
-            }
+            
 
             
 
