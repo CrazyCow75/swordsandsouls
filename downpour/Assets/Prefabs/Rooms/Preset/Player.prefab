@@ -74,12 +74,12 @@ SpriteRenderer:
   m_SortingLayerID: -983949825
   m_SortingLayer: 8
   m_SortingOrder: 1
-  m_Sprite: {fileID: 934683637, guid: d1a012bdbe02b264a93a6ca029c89ac6, type: 3}
+  m_Sprite: {fileID: 775191333, guid: b701cea3fc1b84c44b76349f1e3ada45, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.28, y: 1.28}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -165,6 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CoyoteCounter>k__BackingField: 0
   <JumpBufferCounter>k__BackingField: 0
+  _playerSpriteTransform: {fileID: 1759742620944987079}
 --- !u!50 &4843140819076506085
 Rigidbody2D:
   serializedVersion: 4
@@ -224,7 +225,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.05}
+  m_Offset: {x: 0, y: -0.025}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -235,7 +236,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.63, y: 1.7}
+  m_Size: {x: 0.5, y: 0.6}
   m_EdgeRadius: 0.025
 --- !u!114 &403957929166302478
 MonoBehaviour:
@@ -289,23 +290,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PlayerAnimator>k__BackingField: {fileID: 4494213900057620601}
   <IdleAnimationClip>k__BackingField:
-    <RightClip>k__BackingField: IdleRight
-    <LeftClip>k__BackingField: IdleLeft
-  <RunAnimationClip>k__BackingField:
-    <RightClip>k__BackingField: RunRight
-    <LeftClip>k__BackingField: RunLeft
-  <JumpAnimationClip>k__BackingField:
-    <RightClip>k__BackingField: JumpRight
-    <LeftClip>k__BackingField: JumpLeft
-  <FallAnimationClip>k__BackingField:
-    <RightClip>k__BackingField: FallRight
-    <LeftClip>k__BackingField: FallLeft
+    <Clip>k__BackingField: Idle
   <SlashAnimationClip>k__BackingField:
-    <RightClip>k__BackingField: SlashRight
-    <LeftClip>k__BackingField: SlashLeft
-  <Slash2AnimationClip>k__BackingField:
-    <RightClip>k__BackingField: Slash2Right
-    <LeftClip>k__BackingField: Slash2Left
+    <Clip>k__BackingField: Slash
 --- !u!114 &8582994930062142451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,6 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a50cbcd5c53f904b9fbbdfd2801fc72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ownedCards: 
 --- !u!114 &3717422133346305259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,7 +491,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0025, y: 1.8}
+  m_Size: {x: 0.0025, y: 0.5}
   m_EdgeRadius: 0
 --- !u!1 &5361760000044530951
 GameObject:

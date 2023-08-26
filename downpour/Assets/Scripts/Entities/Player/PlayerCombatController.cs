@@ -147,7 +147,6 @@ namespace Downpour.Entity.Player
         }
 
         private void _emitSlashParticle(Vector3 position) {
-            
 
             var emitParams = new ParticleSystem.EmitParams();
             emitParams.startSize = 2.5f;
@@ -161,9 +160,9 @@ namespace Downpour.Entity.Player
                 emitParams.rotation = 245f;
             }
 
-            if(CurrentSlashComboAttack == 1) {
-                emitParams.rotation += (_playerMovementController.FacingDirection == 1) ? 75f : -75f;
-            }
+            // if(CurrentSlashComboAttack == 1) {
+            //     emitParams.rotation += (_playerMovementController.FacingDirection == 1) ? 75f : -75f;
+            // }
 
             // Debug.Log(emitParams.position.y);
             // Debug.Log(position.y);

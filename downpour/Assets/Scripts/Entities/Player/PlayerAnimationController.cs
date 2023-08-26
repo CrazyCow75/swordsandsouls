@@ -9,23 +9,19 @@ namespace Downpour.Entity.Player
     {
         [field: SerializeField] public Animator PlayerAnimator { get; private set; }
 
-        [field: SerializeField] public AsymmetricalAnimationClip IdleAnimationClip { get; private set; }
-        [field: SerializeField] public AsymmetricalAnimationClip RunAnimationClip { get; private set; }
-        [field: SerializeField] public AsymmetricalAnimationClip JumpAnimationClip { get; private set; }
-        [field: SerializeField] public AsymmetricalAnimationClip FallAnimationClip { get; private set; }
-        [field: SerializeField] public AsymmetricalAnimationClip SlashAnimationClip { get; private set; }
-        [field: SerializeField] public AsymmetricalAnimationClip Slash2AnimationClip { get; private set; }
+        [field: SerializeField] public PlayerAnimationClip IdleAnimationClip { get; private set; }
+        [field: SerializeField] public PlayerAnimationClip SlashAnimationClip { get; private set; }
 
         public string CurrentAnimation { get; private set; }
 
-        public void PlayAnimation(AsymmetricalAnimationClip animationClip) {
+        public void PlayAnimation(PlayerAnimationClip animationClip) {
             _resetAnimationSpeed(); // Reset Animation Speed
-            animationClip.PlayAnimation(PlayerAnimator, _playerMovementController.SpriteFacingRight);
+            animationClip.PlayAnimation(PlayerAnimator);
         }
 
-        public void PlayAnimation(AsymmetricalAnimationClip animationClip, float speed) {
+        public void PlayAnimation(PlayerAnimationClip animationClip, float speed) {
             _setAnimationSpeed(speed); // Reset Animation Speed
-            animationClip.PlayAnimation(PlayerAnimator, _playerMovementController.SpriteFacingRight);
+            animationClip.PlayAnimation(PlayerAnimator);
         }
 
         private void _resetAnimationSpeed() {
@@ -37,12 +33,11 @@ namespace Downpour.Entity.Player
         }
 
         [Serializable]
-        public struct AsymmetricalAnimationClip {
-            [field: SerializeField] public string RightClip { get; private set; }
-            [field: SerializeField] public string LeftClip { get; private set; }
+        public struct PlayerAnimationClip {
+            [field: SerializeField] public string Clip { get; private set; }
 
-            public void PlayAnimation(Animator animator, bool facingRight) {
-                animator.Play(facingRight ? RightClip : LeftClip);
+            public void PlayAnimation(Animator animator) {
+                animator.Play(Clip);
             }
         }
     }

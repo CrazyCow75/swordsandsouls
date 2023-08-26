@@ -70,7 +70,7 @@ namespace Downpour.Entity.Player
         }
 
         public override void PlayStateAnimation() {
-            _playerAnimationController.PlayAnimation(_playerAnimationController.RunAnimationClip);
+            _playerAnimationController.PlayAnimation(_playerAnimationController.IdleAnimationClip);
         }
 
         public override void Update() {
@@ -127,7 +127,7 @@ namespace Downpour.Entity.Player
         }
 
         public override void PlayStateAnimation() {
-            _playerAnimationController.PlayAnimation(_playerAnimationController.JumpAnimationClip);
+            _playerAnimationController.PlayAnimation(_playerAnimationController.IdleAnimationClip);
         }
 
         public override void Update() {
@@ -228,7 +228,7 @@ namespace Downpour.Entity.Player
         }
 
         public override void PlayStateAnimation() {
-            _playerAnimationController.PlayAnimation(_playerAnimationController.FallAnimationClip);
+            _playerAnimationController.PlayAnimation(_playerAnimationController.IdleAnimationClip);
         }
 
         public override void Update() {
@@ -286,14 +286,7 @@ namespace Downpour.Entity.Player
         }
 
         public override void PlayStateAnimation() {
-            switch(_playerCombatController.CurrentSlashComboAttack) {
-                case 0:
-                    _playerAnimationController.PlayAnimation(_playerAnimationController.SlashAnimationClip, _playerStatsController.CurrentPlayerStats.SlashSpeed);
-                    break;
-                case 1:
-                    _playerAnimationController.PlayAnimation(_playerAnimationController.Slash2AnimationClip, _playerStatsController.CurrentPlayerStats.SlashSpeed);
-                    break;
-            }
+            _playerAnimationController.PlayAnimation(_playerAnimationController.SlashAnimationClip, _playerStatsController.CurrentPlayerStats.SlashSpeed);
         }
 
         private void _enterDefaultState() {

@@ -17,13 +17,13 @@ MonoBehaviour:
     bounds:
       serializedVersion: 2
       x: 0
-      y: -0.1
+      y: 0
       width: 0.63
-      height: 1.6
+      height: 0.6
     feetRect:
       serializedVersion: 2
       x: 0
-      y: -0.858
+      y: -0.3
       width: 0.63
       height: 0.15
     slashRightRect:
@@ -62,7 +62,7 @@ MonoBehaviour:
     <SlashLevel>k__BackingField: 0
     <BaseSlashDamageValues>k__BackingField: 04000000090000000d0000001100000015000000
     <SlashSpeed>k__BackingField: 0.175
-    <SlashCooldown>k__BackingField: 0.275
+    <SlashCooldown>k__BackingField: 0.25
     <SlashRange>k__BackingField: 1
     <ComboTime>k__BackingField: 0.5
     <SlashBufferTime>k__BackingField: 0.25

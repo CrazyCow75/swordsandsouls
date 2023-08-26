@@ -28,7 +28,7 @@ namespace Downpour.Entity.Player {
         public int MovingDirection { get; private set; }
 
         // Variable to keep track of true direction of the sprite. Used for flipping/
-        private bool _spriteFacingRight = true;
+        private bool _spriteFacingRight = false;
         public bool SpriteFacingRight { get { return _spriteFacingRight; } }
 
         // Rigidbody with getters
@@ -56,6 +56,7 @@ namespace Downpour.Entity.Player {
 
         private PlayerData.ColliderBounds _colliderBoundsSource;
 
+        [SerializeField] private Transform _playerSpriteTransform;
 
         // Initialization
         protected override void Awake() {
@@ -172,6 +173,7 @@ namespace Downpour.Entity.Player {
         private void _flip() {
             _spriteFacingRight=!_spriteFacingRight;
             FacingDirection *= -1;
+            _playerSpriteTransform.localScale = new Vector3(_playerSpriteTransform.localScale.x*-1f, 1f, 1f);
 
             if((_playerStateMachine.CurrentState as PlayerState).CanFlip)
                 _playerStateMachine.PlayStateAnimation();
