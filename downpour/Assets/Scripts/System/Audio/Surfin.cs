@@ -7,7 +7,7 @@ namespace Downpour
     public class Surfin : SingletonPersistent<Surfin>
     {   
 
-        public playSurfin() {
+        public void playSurfin() {
             // filename.Play();
         }
         // Start is called before the first frame update
