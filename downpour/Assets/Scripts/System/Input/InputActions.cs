@@ -55,6 +55,15 @@ namespace Downpour.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenInventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""713cebe8-24b6-4405-8eca-5d00cb8d0d8d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -134,6 +143,17 @@ namespace Downpour.Input
                     ""action"": ""Slash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bb6bff5a-2302-407b-9ce1-fd7a44e92686"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -145,6 +165,7 @@ namespace Downpour.Input
             m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
             m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
             m_Gameplay_Slash = m_Gameplay.FindAction("Slash", throwIfNotFound: true);
+            m_Gameplay_OpenInventory = m_Gameplay.FindAction("OpenInventory", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -209,6 +230,7 @@ namespace Downpour.Input
         private readonly InputAction m_Gameplay_Movement;
         private readonly InputAction m_Gameplay_Jump;
         private readonly InputAction m_Gameplay_Slash;
+        private readonly InputAction m_Gameplay_OpenInventory;
         public struct GameplayActions
         {
             private @InputActions m_Wrapper;
@@ -216,6 +238,7 @@ namespace Downpour.Input
             public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
             public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
             public InputAction @Slash => m_Wrapper.m_Gameplay_Slash;
+            public InputAction @OpenInventory => m_Wrapper.m_Gameplay_OpenInventory;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -234,6 +257,9 @@ namespace Downpour.Input
                 @Slash.started += instance.OnSlash;
                 @Slash.performed += instance.OnSlash;
                 @Slash.canceled += instance.OnSlash;
+                @OpenInventory.started += instance.OnOpenInventory;
+                @OpenInventory.performed += instance.OnOpenInventory;
+                @OpenInventory.canceled += instance.OnOpenInventory;
             }
 
             private void UnregisterCallbacks(IGameplayActions instance)
@@ -247,6 +273,9 @@ namespace Downpour.Input
                 @Slash.started -= instance.OnSlash;
                 @Slash.performed -= instance.OnSlash;
                 @Slash.canceled -= instance.OnSlash;
+                @OpenInventory.started -= instance.OnOpenInventory;
+                @OpenInventory.performed -= instance.OnOpenInventory;
+                @OpenInventory.canceled -= instance.OnOpenInventory;
             }
 
             public void RemoveCallbacks(IGameplayActions instance)
@@ -269,6 +298,7 @@ namespace Downpour.Input
             void OnMovement(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
             void OnSlash(InputAction.CallbackContext context);
+            void OnOpenInventory(InputAction.CallbackContext context);
         }
     }
 }

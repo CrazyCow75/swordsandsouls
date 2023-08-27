@@ -7,6 +7,7 @@ namespace Downpour
     using Downpour.Entity.Player;
     public class MovementSpeedCard : Card
     {
+        public MovementSpeedCard(CardData _cardData) : base(_cardData) { }
         public override void whileActive(Player player) {
             return;
         }

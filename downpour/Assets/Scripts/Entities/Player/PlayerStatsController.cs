@@ -108,6 +108,7 @@ namespace Downpour.Entity.Player
 
                 if(cards[i].m_CardData.id == c.m_CardData.id) { // unequips
                     cards[i] = null;
+                    _updatePlayerStats();
                     return;
                 }
             }
@@ -115,11 +116,13 @@ namespace Downpour.Entity.Player
              for(int i = 0; i < cards.Length; i++) {
                 if(cards[i] == null) {
                     cards[i] = c;
+                    Debug.Log(i);
+                    _updatePlayerStats();
                     return;
                 }
             }
 
-            _updatePlayerStats();
+            
         }
     }
 }

@@ -7,6 +7,7 @@ namespace Downpour
     using Downpour.Entity.Player;
     public class SwingSpeedCard : Card
     {
+        public SwingSpeedCard(CardData _cardData) : base(_cardData) { }
         public override void whileActive(Player player) {
             return;
         }
@@ -16,7 +17,7 @@ namespace Downpour
             return;
         }
         public override PlayerData.PlayerStats getPlayerStatBuffs(PlayerData.PlayerStats playerStats) {
-            playerStats.SlashSpeed *= 1.5f;
+            playerStats.SlashSpeed *= 0.5f;
             playerStats.SlashCooldown *= 0.5f;
             return playerStats;
         }
