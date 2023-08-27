@@ -64,6 +64,15 @@ namespace Downpour.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pickup"",
+                    ""type"": ""Button"",
+                    ""id"": ""fefa76bb-a939-4470-af9c-b1167bdd205f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -154,6 +163,17 @@ namespace Downpour.Input
                     ""action"": ""OpenInventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""83cc7e6c-6d13-420a-9cda-cd226b15028a"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pickup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -166,6 +186,7 @@ namespace Downpour.Input
             m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
             m_Gameplay_Slash = m_Gameplay.FindAction("Slash", throwIfNotFound: true);
             m_Gameplay_OpenInventory = m_Gameplay.FindAction("OpenInventory", throwIfNotFound: true);
+            m_Gameplay_Pickup = m_Gameplay.FindAction("Pickup", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -231,6 +252,7 @@ namespace Downpour.Input
         private readonly InputAction m_Gameplay_Jump;
         private readonly InputAction m_Gameplay_Slash;
         private readonly InputAction m_Gameplay_OpenInventory;
+        private readonly InputAction m_Gameplay_Pickup;
         public struct GameplayActions
         {
             private @InputActions m_Wrapper;
@@ -239,6 +261,7 @@ namespace Downpour.Input
             public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
             public InputAction @Slash => m_Wrapper.m_Gameplay_Slash;
             public InputAction @OpenInventory => m_Wrapper.m_Gameplay_OpenInventory;
+            public InputAction @Pickup => m_Wrapper.m_Gameplay_Pickup;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -260,6 +283,9 @@ namespace Downpour.Input
                 @OpenInventory.started += instance.OnOpenInventory;
                 @OpenInventory.performed += instance.OnOpenInventory;
                 @OpenInventory.canceled += instance.OnOpenInventory;
+                @Pickup.started += instance.OnPickup;
+                @Pickup.performed += instance.OnPickup;
+                @Pickup.canceled += instance.OnPickup;
             }
 
             private void UnregisterCallbacks(IGameplayActions instance)
@@ -276,6 +302,9 @@ namespace Downpour.Input
                 @OpenInventory.started -= instance.OnOpenInventory;
                 @OpenInventory.performed -= instance.OnOpenInventory;
                 @OpenInventory.canceled -= instance.OnOpenInventory;
+                @Pickup.started -= instance.OnPickup;
+                @Pickup.performed -= instance.OnPickup;
+                @Pickup.canceled -= instance.OnPickup;
             }
 
             public void RemoveCallbacks(IGameplayActions instance)
@@ -299,6 +328,7 @@ namespace Downpour.Input
             void OnJump(InputAction.CallbackContext context);
             void OnSlash(InputAction.CallbackContext context);
             void OnOpenInventory(InputAction.CallbackContext context);
+            void OnPickup(InputAction.CallbackContext context);
         }
     }
 }

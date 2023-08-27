@@ -11,5 +11,10 @@ namespace Downpour
         
         public List<DataManager.RoomData> RoomDatas = new List<DataManager.RoomData>();
         
+        public List<int> UnlockedCards = new List<int>();
+
+        public int EquippedCard1;
+        public int EquippedCard2;
+        public int EquippedCard3;
     }
 }

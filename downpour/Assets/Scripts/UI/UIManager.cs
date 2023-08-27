@@ -7,9 +7,10 @@ namespace Downpour.UI
     using Downpour.Input;
     public class UIManager : SingletonPersistent<UIManager>
     {
-        public GameObject inventory;
+        public CardUIManager inventory;
         private void Start() {
             InputReader.Instance.OpenInventoryEvent += _onOpenInventory;
+            
         }
         
         private void Update() {
@@ -18,7 +19,7 @@ namespace Downpour.UI
 
         private void _onOpenInventory(bool clicking) {
             if(clicking) {
-                inventory.SetActive(!inventory.activeInHierarchy);
+                inventory.inventoryDisplay.SetActive(!inventory.inventoryDisplay.activeInHierarchy);
             }
         }
     }

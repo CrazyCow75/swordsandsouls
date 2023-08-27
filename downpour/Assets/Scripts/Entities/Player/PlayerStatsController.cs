@@ -18,7 +18,7 @@ namespace Downpour.Entity.Player
         public event Action<int> PlayerDamagedEvent;
         public event Action PlayerDeathEvent;
 
-        public CardType[] ownedCards;
+        public HashSet<int> UnlockedCards = new HashSet<int>();
 
         public Card[] cards;
 
@@ -113,8 +113,13 @@ namespace Downpour.Entity.Player
                 }
             }
 
+            if(!UnlockedCards.Contains(c.m_CardData.id)) {
+                return;
+            }
+
              for(int i = 0; i < cards.Length; i++) {
                 if(cards[i] == null) {
+                    
                     cards[i] = c;
                     Debug.Log(i);
                     _updatePlayerStats();
@@ -124,5 +129,10 @@ namespace Downpour.Entity.Player
 
             
         }
+
+        public void unlockCard(CardData c) {
+            UnlockedCards.Add(c.id);
+        }
+
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using Downpour.Scenes;
 using System.IO;
+using Downpour.Entity.Player;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Downpour
@@ -39,8 +40,6 @@ namespace Downpour
             BinaryFormatter bf = new BinaryFormatter(); 
         FileStream file = File.Create(Application.persistentDataPath 
                     + "/SwordsAndSoulsSave.dat"); 
-
-            
 
             bf.Serialize(file, GameData);
             file.Close();
@@ -79,6 +78,26 @@ namespace Downpour
                 r.areaName = RoomManager.Instance.AreaName;
 
                 AddRoomData(r);
+            }
+            
+            foreach(int i in Player.Instance.PlayerStatsController.UnlockedCards) {
+                GameData.UnlockedCards.Add(i);
+            }
+
+            if(Player.Instance.PlayerStatsController.cards[0] != null) {
+                GameData.EquippedCard1 = Player.Instance.PlayerStatsController.cards[0].m_CardData.id;
+            } else {
+                GameData.EquippedCard1 = -1;
+            }
+            if(Player.Instance.PlayerStatsController.cards[1] != null) {
+                GameData.EquippedCard2 = Player.Instance.PlayerStatsController.cards[1].m_CardData.id;
+            } else {
+                GameData.EquippedCard2 = -1;
+            }
+            if(Player.Instance.PlayerStatsController.cards[2] != null) {
+                GameData.EquippedCard3 = Player.Instance.PlayerStatsController.cards[2].m_CardData.id;
+            } else {
+                GameData.EquippedCard3 = -1;
             }
 
             Save();

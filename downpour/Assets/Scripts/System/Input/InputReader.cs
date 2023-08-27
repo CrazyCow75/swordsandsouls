@@ -16,6 +16,7 @@ namespace Downpour.Input {
         public event Action<float, float, bool> MovementEvent;
         public event Action<bool> JumpEvent;
         public event Action<bool> SlashEvent;
+        public event Action<bool> PickupEvent;
         public event Action<bool> OpenInventoryEvent;
 
         // Initialization
@@ -65,6 +66,10 @@ namespace Downpour.Input {
 
         void InputActions.IGameplayActions.OnOpenInventory(InputAction.CallbackContext context) {
             OpenInventoryEvent?.Invoke(context.phase == InputActionPhase.Performed ? true : false);
+        }
+
+        void InputActions.IGameplayActions.OnPickup(InputAction.CallbackContext context) {
+            PickupEvent?.Invoke(context.phase == InputActionPhase.Performed ? true : false);
         }
     }
 }

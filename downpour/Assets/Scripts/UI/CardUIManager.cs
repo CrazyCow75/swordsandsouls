@@ -22,6 +22,8 @@ namespace Downpour
 
         private Player player;
 
+        public GameObject inventoryDisplay;
+
         public void onEquip() {
             player.PlayerStatsController.equipCard(selectedCard);
             _onCardSelect(selectedCard);
@@ -50,7 +52,7 @@ namespace Downpour
         private void Start() {
             player = Player.Instance;
 
-            selectedCard = cardUIs[0].c;
+            // selectedCard = cardUIs[0].c;
             
             int i = 0;
 
@@ -63,6 +65,8 @@ namespace Downpour
                 }
                 i++;
             }
+
+            _onCardSelect(cardUIs[0].c);
         }
 
         private void _onCardSelect(Card c) {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Downpour.Entity.Enemy;
 using System;
+using Downpour.UI;
+using Downpour.Entity.Player;
 
 namespace Downpour
 {
@@ -14,7 +16,9 @@ namespace Downpour
         public bool[] FirstTimeKill;
         public Enemy[] Enemies;
 
-        
+        protected override void Awake() {
+            base.Awake();
+        }
 
         private void Start() {
             Enemies = FindObjectsOfType<Enemy>() as Enemy[];
@@ -26,7 +30,7 @@ namespace Downpour
                 e.EnemyDeathEvent += _handleEnemyDeath;
             }
 
-            DataManager.Instance.LoadEvent += _handleLoadEvent;
+            DataManager.Instance.LoadEvent += _handleLoadEvent; // TODO move this to another script that is made for handeling loads
             DataManager.Instance.Load();
             
 
@@ -42,7 +46,25 @@ namespace Downpour
                 if(roomData.areaName == AreaName && roomData.roomID == RoomNumber) { // Found Existing Room
                     FirstTimeKill = roomData.firstTimeKill;
 
-                    return;
+                    break;
+                }
+            }
+
+            PlayerStatsController p = Player.Instance.PlayerStatsController;
+            
+            foreach(int i in g.UnlockedCards) {
+                p.UnlockedCards.Add(i);
+            }
+            
+            foreach(CardUI c in UIManager.Instance.inventory.GetComponent<CardUIManager>().cardUIs) {
+                if(c.c.m_CardData.id == g.EquippedCard1) {
+                    p.cards[0] = c.c;
+                }
+                if(c.c.m_CardData.id == g.EquippedCard2) {
+                    p.cards[1] = c.c;
+                }
+                if(c.c.m_CardData.id == g.EquippedCard3) {
+                    p.cards[2] = c.c;
                 }
             }
         }

@@ -55,8 +55,9 @@ MonoBehaviour:
     MaxSpirit: 99
     MoveSpeed: 4
     JumpHeight: 5
+    MinJumpTime: 0.1
     MaxFallSpeed: 40
-    CoyoteTime: 0.2
+    CoyoteTime: 0.1
     JumpBufferTime: 0.2
     HasDoubleJump: 0
     SlashSpeed: 0.175

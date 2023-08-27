@@ -8,8 +8,11 @@ namespace Downpour
     public class IteractableItem : MonoBehaviour, IInteractable
     {
         [SerializeField] private int _itemId;
+
+        public CardData cardData;
         public void OnInteract(Player player) {
-            Debug.Log(_itemId);
+            player.PlayerStatsController.unlockCard(cardData);
+            Destroy(this.gameObject);
         }
 
         public bool CanInteract(Player player) {
@@ -17,7 +20,7 @@ namespace Downpour
         }
 
         public string InteractText(Player player) {
-            return "INSPECT";
+            return "TAKE";
         }
     }
 }

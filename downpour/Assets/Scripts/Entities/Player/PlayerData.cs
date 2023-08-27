@@ -33,6 +33,8 @@ namespace Downpour.Entity.Player
             [field: SerializeField, Range(0f, 100f)] public float MoveSpeed;
 
             [field: SerializeField, Range(0f, 10f)] public float JumpHeight;
+
+            public float MinJumpTime;
             [field: SerializeField, Range(0f, 100f)] public float MaxFallSpeed;
             [field: SerializeField, Range(0f, 1f)] public float CoyoteTime;
             [field: SerializeField, Range(0f, 0.5f)] public float JumpBufferTime;
