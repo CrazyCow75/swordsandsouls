@@ -101,7 +101,7 @@ namespace Downpour.Entity.Player
 
             public void SetDesiredVelocity(PlayerMovementController playerMovementController, PlayerStatsController playerStatsController) {
                 _direction.x = playerMovementController.MovingDirection;
-                _desiredVelocity = new Vector2(_direction.x * playerStatsController.CurrentPlayerStats.MoveSpeed, 0f);
+                _desiredVelocity = new Vector2((_direction.x * playerStatsController.CurrentPlayerStats.MoveSpeed), 0f);
             }
 
             public float GetVelocityX() {
