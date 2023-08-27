@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using Downpour.Combat;
 
 namespace Downpour.Entity.Enemy
@@ -20,6 +21,9 @@ namespace Downpour.Entity.Enemy
         protected Vector2 _velocity;
 
         private Rigidbody2D _rb;
+
+        public event Action<Enemy> EnemyDeathEvent;
+
         private void Awake() {
             _rb = GetComponent<Rigidbody2D>();
 
@@ -37,6 +41,7 @@ namespace Downpour.Entity.Enemy
         }
 
         public virtual void OnDeath() {
+            EnemyDeathEvent?.Invoke(this);
             Destroy(gameObject);
         }
 

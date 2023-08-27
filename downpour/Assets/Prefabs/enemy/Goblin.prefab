@@ -89,7 +89,6 @@ GameObject:
   - component: {fileID: 8116107947790692217}
   - component: {fileID: 6355936676949244689}
   - component: {fileID: 6294524308232359518}
-  - component: {fileID: 6286160678488906850}
   - component: {fileID: 6929026386312157327}
   - component: {fileID: 4963956487853384539}
   - component: {fileID: 6049554141623765964}
@@ -114,7 +113,7 @@ Transform:
   m_Children:
   - {fileID: 4113143167836755474}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8116107947790692217
 Rigidbody2D:
@@ -204,21 +203,6 @@ MonoBehaviour:
   <HealthPointsAreTrueHitAmount>k__BackingField: 0
   <CurrentHealthPoints>k__BackingField: 0
   <Invincible>k__BackingField: 0
---- !u!114 &6286160678488906850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8340105003061760989}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 030de5e42b9831b4bb57ecbba46e9087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _knockbackMultiplier: 5
-  _knockbackCounter: 0
-  _knockbackTime: 0.15
 --- !u!114 &6929026386312157327
 MonoBehaviour:
   m_ObjectHideFlags: 0

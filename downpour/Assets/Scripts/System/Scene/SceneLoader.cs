@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 namespace Downpour.Scenes
 {
-    public class SceneLoader
+    public class SceneLoader : SingletonPersistent<SceneLoader>
     {
         public struct SceneTransitionData {
             public string spawnPoint;
@@ -20,25 +20,32 @@ namespace Downpour.Scenes
             public SceneReference nextScene;
         }
 
-        public static event Action SceneLoadEvent;
-        public static event Action BeforeSceneLoadEvent;
-        public static readonly string MAIN_MENU = "MainMenu";
+        public event Action SceneLoadEvent;
+        public event Action BeforeSceneLoadEvent;
+        [SerializeField] private SceneReference _mainMenu;
 
         public SceneReference activeScene { get; private set; }
 
-        public static void LoadMainMenu() {
-            LoadScene(MAIN_MENU);
+        public static SceneTransitionData FromSpawnPoint(string spawnPoint) {
+            return new SceneTransitionData() { spawnPoint = spawnPoint };
         }
 
-        public static void LoadScene(string sceneName) {
+        public void LoadMainMenu() {
+            LoadScene(_mainMenu, FromSpawnPoint("MainMenu"));
+        }
+         private IEnumerator _doSceneLoad(SceneReference sceneReference, SceneTransitionData transitionData) {
+            
+
+            OnUnloadScene(sceneReference);
+            // TODO: add load transition
+            yield return null;
             SceneLoadEvent?.Invoke();
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(sceneReference);
         }
 
-        public static void LoadScene(SceneReference sceneReference) {
+        public void LoadScene(SceneReference sceneReference, SceneTransitionData transitionData) {
             if(sceneReference != null) {
-                SceneLoadEvent?.Invoke();
-                SceneManager.LoadScene(sceneReference);
+                StartCoroutine(_doSceneLoad(sceneReference, transitionData));
             }
         }
 

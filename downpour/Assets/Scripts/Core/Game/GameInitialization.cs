@@ -8,7 +8,7 @@ namespace Downpour
     public class GameInitialization : MonoBehaviour
     {
         private void Start() {
-            SceneLoader.LoadMainMenu();
+            SceneLoader.Instance.LoadMainMenu();
         }
     }
 }

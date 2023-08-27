@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Downpour
 {
-    public partial class GameData : System.ICloneable
+    [Serializable]
+    public partial class GameData
     {
-        public int userId;
-        public long lastSerialization;
-
-        public GameData Clone() => MemberwiseClone() as GameData;
-        object System.ICloneable.Clone() => Clone();
+        
+        public List<DataManager.RoomData> RoomDatas = new List<DataManager.RoomData>();
+        
     }
 }

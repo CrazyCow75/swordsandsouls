@@ -851,7 +851,7 @@ GameObject:
   - component: {fileID: 2304683146612039075}
   - component: {fileID: 5966803407474528779}
   m_Layer: 0
-  m_Name: buriedkingdom1
+  m_Name: area1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

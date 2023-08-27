@@ -9,9 +9,11 @@ namespace Downpour
     {
         [SerializeField] private SceneReference sceneReference;
 
+        [field: SerializeField] private string _spawnPoint;
+
         private void OnTriggerEnter2D(Collider2D other) {
             if(other.CompareTag("Player")) {
-                SceneLoader.LoadScene(sceneReference);
+                SceneLoader.Instance.LoadScene(sceneReference, SceneLoader.FromSpawnPoint(_spawnPoint));
             }
         }
     }

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardName: Chomper Soul
   id: 2
-  image: {fileID: 21300000, guid: 69aa09129ab62af4c80bb65012c9c1cb, type: 3}
+  image: {fileID: 21300000, guid: 86fdc0177638bd54ea2d1ace421590bb, type: 3}
   cardDesc: The quick bites of the chopper empowers you. Increases attack speed.
