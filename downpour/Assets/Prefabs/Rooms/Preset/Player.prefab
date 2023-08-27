@@ -182,7 +182,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1.5
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 25de65cb88c6b51499582994671d8afb, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -306,6 +306,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownedCards: 
+  Invincible: 0
+  iframeTime: 0.1
+  iframeCounter: 0
 --- !u!114 &3717422133346305259
 MonoBehaviour:
   m_ObjectHideFlags: 0

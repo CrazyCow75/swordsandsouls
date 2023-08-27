@@ -10,7 +10,7 @@ namespace Downpour.Entity.Player
     [RequireComponent(typeof(HealthSystem))]
     public class PlayerStatsController : PlayerComponent
     {
-        public PlayerData.PlayerStats CurrentPlayerStats { get { return _updatePlayerStats(); } }
+        public PlayerData.PlayerStats CurrentPlayerStats { get { return m_currentPlayerStats; } }
         private PlayerData.PlayerStats m_currentPlayerStats;
 
         private HealthSystem _healthSystem;
@@ -22,10 +22,17 @@ namespace Downpour.Entity.Player
 
         public Card[] cards;
 
+        public bool Invincible;
+        public float iframeTime;
+        public float iframeCounter;
+
         protected override void Awake() {
             base.Awake();
+
+            cards = new Card[3];
             
             _updatePermanentBuffs();
+            _updatePlayerStats();
 
             _healthSystem = GetComponent<HealthSystem>();
             _healthSystem.SetMaxHealth(CurrentPlayerStats.MaxHealth);
@@ -33,6 +40,15 @@ namespace Downpour.Entity.Player
 
             _healthSystem.DeathEvent += _invokeDeathEvent;
             _healthSystem.DamageEvent += _invokeDamageEvent;
+        }
+
+        private void Update() {
+            if(iframeCounter > 0f) {
+                iframeCounter -= Time.deltaTime;
+                Invincible = true;
+            } else {
+                Invincible = false;
+            }
         }
 
         private void _invokeDeathEvent() {
@@ -43,10 +59,21 @@ namespace Downpour.Entity.Player
             PlayerDamagedEvent?.Invoke(damage);
         }
 
+        public void TakeDamage(int damage) {
+            if(Invincible) {
+                return;
+            }
+
+            iframeCounter = iframeTime;
+
+            _healthSystem.TakeDamage(damage);
+        }
+
         private PlayerData.PlayerStats _updatePlayerStats() {
             m_currentPlayerStats = _playerData.BasePlayerStats;
 
-            foreach(Card c in cards) { // Update based on cards
+            for(int i = 0; i < cards.Length; i++) { // Update based on cards
+                Card c = cards[i];
                 if(c != null) {
                     m_currentPlayerStats = c.getPlayerStatBuffs(m_currentPlayerStats);
                 }
@@ -57,6 +84,42 @@ namespace Downpour.Entity.Player
 
         private void _updatePermanentBuffs() {
             // TODO: check for movement abilities, health upgrades, lighter upgrades, ranged, melee upgrades, mana upgrade
+        }
+
+        public bool hasCardEquipped(Card c) {
+            
+            for(int i = 0; i < cards.Length; i++) {
+                if(cards[i] == null) {
+                    continue;
+                }
+                if(cards[i].m_CardData.id == c.m_CardData.id) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public void equipCard(Card c) {
+            for(int i = 0; i < cards.Length; i++) {
+                if(cards[i] == null) {
+                    continue;
+                }
+
+                if(cards[i].m_CardData.id == c.m_CardData.id) { // unequips
+                    cards[i] = null;
+                    return;
+                }
+            }
+
+             for(int i = 0; i < cards.Length; i++) {
+                if(cards[i] == null) {
+                    cards[i] = c;
+                    return;
+                }
+            }
+
+            _updatePlayerStats();
         }
     }
 }

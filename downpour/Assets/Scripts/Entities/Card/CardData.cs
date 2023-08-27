@@ -10,5 +10,7 @@ namespace Downpour
         public string CardName;
         public int id;
         public Sprite image;
+
+        public string cardDesc;
     }
 }
