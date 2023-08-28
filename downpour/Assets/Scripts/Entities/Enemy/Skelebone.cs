@@ -24,6 +24,7 @@ namespace Downpour
         }
 
         public override void OnUpdate() {
+            _velocity = new Vector2(0f, 0f);
             if(canDamagePlayer) {
                 Collider2D c = Physics2D.OverlapBox(hitArea.offset * transform.localScale.x + (Vector2)(hitArea.transform.position), hitArea.size, 0f, Layers.PlayerLayer);
 
@@ -49,6 +50,8 @@ namespace Downpour
                 canDamagePlayer = true;
                 animator.SetTrigger("attack");
             }
+
+            
         }
     }
 }
