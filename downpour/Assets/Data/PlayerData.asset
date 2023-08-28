@@ -68,7 +68,7 @@ MonoBehaviour:
     SlashKnockbackMultiplier: 3
     SlashKnockbackTime: 0.1
     DashCooldown: 0.25
-    DashSpeed: 7
+    DashSpeed: 15
     DashLength: 0.15
     DashBufferTime: 0.15
     damageMultiplier: 1
