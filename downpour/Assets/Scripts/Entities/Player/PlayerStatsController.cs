@@ -51,6 +51,10 @@ namespace Downpour.Entity.Player
             }
         }
 
+        public float getHealth() {
+            return _healthSystem.CurrentHealthPoints;
+        }
+
         private void _invokeDeathEvent() {
             PlayerDeathEvent?.Invoke();
         }
