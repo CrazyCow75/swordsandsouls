@@ -43,6 +43,10 @@ namespace Downpour.Entity.Enemy
             return transform.position;
         }
 
+        protected Rigidbody2D getRb() {
+            return _rb;
+        }
+
         public virtual void OnDeath() {
             EnemyDeathEvent?.Invoke(this);
             Destroy(gameObject);
@@ -70,7 +74,7 @@ namespace Downpour.Entity.Enemy
                 _velocity.x = _knockbackDirection * _knockbackMultiplier;
             }
 
-            
+           // Debug.Log(_velocity);
 
             
 

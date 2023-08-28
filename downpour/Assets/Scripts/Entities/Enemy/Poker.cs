@@ -48,8 +48,10 @@ namespace Downpour
                 }
 
                 
-                if(!(windupCounter > 0f))
-                    transform.Translate(new Vector3(speed*Time.deltaTime, 0, 0));
+                if(!(windupCounter > 0f)) {
+                    
+                    _velocity = (Vector2)transform.right * speed;
+                }
             }
             if(idleCounter > 0f) {
                 idleCounter -= Time.deltaTime;
