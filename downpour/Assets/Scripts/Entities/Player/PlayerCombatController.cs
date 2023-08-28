@@ -69,13 +69,13 @@ namespace Downpour.Entity.Player
                 CanSlash = true;
             }
 
-            if(!(_playerStateMachine.CurrentState is PlayerSlashState) && _slashBuffered) {
+            if(!((_playerStateMachine.CurrentState is PlayerSlashState) || (_playerStateMachine.CurrentState is PlayerDashState)) && _slashBuffered) {
                 DesiredSlash = true;
             }
         }
 
         private void _handleSlashInput(bool startingSlash) {
-            if(_playerStateMachine.CurrentState is PlayerSlashState &&  !_slashBuffered && startingSlash) {
+            if(((_playerStateMachine.CurrentState is PlayerSlashState) || (_playerStateMachine.CurrentState is PlayerDashState)) &&  !_slashBuffered && startingSlash) {
                 _slashBuffered = true;
                 SlashBufferCounter = _playerStatsController.CurrentPlayerStats.SlashBufferTime;
             }

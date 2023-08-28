@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Downpour.Input;
 using Downpour.Scenes;
+using System;
 
 namespace Downpour.Entity.Player {
     [RequireComponent(typeof(Rigidbody2D))]
@@ -59,6 +60,16 @@ namespace Downpour.Entity.Player {
 
         [SerializeField] private Transform _playerSpriteTransform;
 
+        public bool DesiredDash { get; private set; }
+        public float DashCooldownCounter { get; private set; }
+        public bool CanDash { get; private set; }
+
+        public float DashBufferCounter { get; private set; }
+        private bool _dashBuffered;
+
+        public event Action<float> DashEvent;
+        public event Action FinishDashEvent;
+
         // Initialization
         protected override void Awake() {
             base.Awake();
@@ -72,9 +83,12 @@ namespace Downpour.Entity.Player {
             if(this.enabled) {
                 _inputReader.MovementEvent += _handleMovementInput;
                 _inputReader.JumpEvent += _handleJumpInput;
+                _inputReader.DashEvent += _handleDashInput;
             }
 
             SceneLoader.Instance.BeforeSceneLoadEvent += _disableInput;
+
+            _playerStateMachine.StateChangeEvent += _onStateChange;
 
             FacingDirection = 1;
         }
@@ -82,12 +96,34 @@ namespace Downpour.Entity.Player {
         private void _disableInput() {
             _inputReader.MovementEvent -= _handleMovementInput;
             _inputReader.JumpEvent -= _handleJumpInput;
+            _inputReader.DashEvent -= _handleDashInput;
+
+            SceneLoader.Instance.BeforeSceneLoadEvent -= _disableInput;
         }
 
         private void FixedUpdate() {
             _checkCollisions();
 
             _handleJumpData();
+        }
+
+        private void Update() {
+            if(DashBufferCounter > 0) {
+                DashBufferCounter -= Time.deltaTime;
+            } else {
+                _dashBuffered = false;
+            }
+
+            if(DashCooldownCounter > 0) {
+                CanDash = false;
+                DashCooldownCounter -= Time.deltaTime;
+            } else {
+                CanDash = true;
+            }
+
+            if(!((_playerStateMachine.CurrentState is PlayerSlashState) || (_playerStateMachine.CurrentState is PlayerDashState)) && _dashBuffered) {
+                DesiredDash = true;
+            }
         }
 
         // <summary>
@@ -164,10 +200,15 @@ namespace Downpour.Entity.Player {
             }
         }
 
+        private void _onStateChange(PlayerState p) {
+            _flipCheck();
+        }
+
         // <summary>
         // Flips sprite if needed.
         // <summary/>
         private void _flipCheck() {
+          //  Debug.Log(FacingDirection + " " + _spriteFacingRight);
             if(FacingDirection>0 && !_spriteFacingRight) {
                 _flip();
             } else if(FacingDirection < 0 && _spriteFacingRight) {
@@ -179,12 +220,12 @@ namespace Downpour.Entity.Player {
         // Flips sprite.
         // <summary/>
         private void _flip() {
-            _spriteFacingRight=!_spriteFacingRight;
-            FacingDirection *= -1;
-            //Debug.Log(_playerSpriteTransform);
             
+            FacingDirection *= -1;
+            //Debug.Log(_playerStateMachine.CurrentState + " " + (_playerStateMachine.CurrentState as PlayerState).CanFlip);
 
             if((_playerStateMachine.CurrentState as PlayerState).CanFlip) {
+                _spriteFacingRight=!_spriteFacingRight;
                 _playerStateMachine.PlayStateAnimation();
                 _playerSpriteTransform.localScale = new Vector3(_playerSpriteTransform.localScale.x*-1f, 1f, 1f);
             }
@@ -212,6 +253,31 @@ namespace Downpour.Entity.Player {
             Vector2 charPosition = transform.position;
             Vector2 boundsPosition = _colliderBoundsSource.feetRect.position * transform.localScale;
             _grounded = Physics2D.OverlapBox(charPosition + boundsPosition, _colliderBoundsSource.feetRect.size, 0, Layers.GroundLayer);
+        }
+
+        private void _handleDashInput(bool startingDash) {
+            if((_playerStateMachine.CurrentState is PlayerSlashState || _playerStateMachine.CurrentState is PlayerDashState) &&  !_dashBuffered && startingDash) {
+                _dashBuffered = true;
+                DashBufferCounter = _playerStatsController.CurrentPlayerStats.DashBufferTime;
+            }
+            DesiredDash = startingDash;
+        }
+
+        public IEnumerator Dash() {
+            DashEvent?.Invoke(_playerStatsController.CurrentPlayerStats.DashSpeed);
+            
+            _dashBuffered = false;
+
+            DashCooldownCounter = _playerStatsController.CurrentPlayerStats.DashCooldown;
+            CanDash = false;
+
+            _playerStatsController.iframeCounter = _playerStatsController.CurrentPlayerStats.DashLength;
+            
+            yield return new WaitForSeconds(_playerStatsController.CurrentPlayerStats.DashLength);
+
+            FinishDashEvent?.Invoke();
+
+            DesiredDash = false;
         }
     }
 }

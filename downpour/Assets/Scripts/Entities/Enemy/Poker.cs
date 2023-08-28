@@ -28,6 +28,10 @@ namespace Downpour
         }
 
         public override void OnUpdate() {
+            if(!detectedPlayer) {
+                return;
+            }
+
             if(windupCounter > 0f) {
                 windupCounter -= Time.deltaTime;
 

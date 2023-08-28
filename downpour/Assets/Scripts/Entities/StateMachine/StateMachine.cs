@@ -22,7 +22,7 @@ namespace Downpour.Entity
             }
         }
 
-        public void ChangeState(State newState) {
+        public virtual void ChangeState(State newState) {
             if(_logStates) {
                 Debug.Log(newState);
             }

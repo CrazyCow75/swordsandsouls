@@ -19,6 +19,10 @@ namespace Downpour
         public int damage;
         public BoxCollider2D slashBox;
         public override void OnUpdate() {
+            if(!detectedPlayer) {
+                return;
+            }
+
             Vector2 pos = Player.Instance.transform.position;
             
             if(!isSlashing)

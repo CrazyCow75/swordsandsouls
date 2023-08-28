@@ -18,6 +18,7 @@ namespace Downpour.Input {
         public event Action<bool> SlashEvent;
         public event Action<bool> PickupEvent;
         public event Action<bool> OpenInventoryEvent;
+        public event Action<bool> DashEvent;
 
         // Initialization
         protected override void Awake() {
@@ -70,6 +71,10 @@ namespace Downpour.Input {
 
         void InputActions.IGameplayActions.OnPickup(InputAction.CallbackContext context) {
             PickupEvent?.Invoke(context.phase == InputActionPhase.Performed ? true : false);
+        }
+
+        void InputActions.IGameplayActions.OnDash(InputAction.CallbackContext context) {
+            DashEvent?.Invoke(context.phase == InputActionPhase.Performed ? true : false);
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using Downpour.Entity.Player;
 
@@ -13,8 +14,11 @@ namespace Downpour.Entity.Player
         public PlayerJumpState JumpState { get; private set; }
         public PlayerFallState FallState { get; private set; }
         public PlayerSlashState SlashState { get; private set; }
+        public PlayerDashState DashState { get; private set; }
 
         public Player Player { get; private set; }
+
+        public event Action<PlayerState> StateChangeEvent;
 
         private void Awake() {
             IdleState = new PlayerIdleState(this);
@@ -22,6 +26,7 @@ namespace Downpour.Entity.Player
             JumpState = new PlayerJumpState(this);
             FallState = new PlayerFallState(this);
             SlashState = new PlayerSlashState(this);
+            DashState = new PlayerDashState(this);
 
             Player = GetComponent<Player>();
         }
@@ -32,6 +37,11 @@ namespace Downpour.Entity.Player
 
         public void PlayStateAnimation() {
             (CurrentState as PlayerState).PlayStateAnimation();
+        }
+
+        public override void ChangeState(State state) {
+            base.ChangeState(state);
+            StateChangeEvent?.Invoke(state as PlayerState);
         }
         
         public bool EnterDefaultState() {
@@ -67,6 +77,15 @@ namespace Downpour.Entity.Player
             }
 
             ChangeState(SlashState);
+            return true;
+        }
+
+        public bool EnterDashState() {
+            if(!Player.PlayerMovementController.DesiredDash || !Player.PlayerMovementController.CanDash) {
+                return false;
+            }
+
+            ChangeState(DashState);
             return true;
         }
     }

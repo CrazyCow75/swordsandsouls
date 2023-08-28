@@ -218,6 +218,7 @@ MonoBehaviour:
   _knockbackMultiplier: 5
   _knockbackCounter: 0
   _knockbackTime: 0.15
+  detectRad: 5
   slashTime: 1.083
   isSlashing: 0
   slashDistance: 1

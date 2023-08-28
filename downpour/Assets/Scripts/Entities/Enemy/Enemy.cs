@@ -22,6 +22,9 @@ namespace Downpour.Entity.Enemy
 
         private Rigidbody2D _rb;
 
+        protected bool detectedPlayer = false;
+        public float detectRad;
+
         public event Action<Enemy> EnemyDeathEvent;
 
         private void Awake() {
@@ -50,6 +53,14 @@ namespace Downpour.Entity.Enemy
 
             if(_knockbackCounter <= 0) { // TODO: Move To State Machine
                 _velocity.x = 0;
+            }
+
+            if(!detectedPlayer) {
+                Collider2D c = Physics2D.OverlapCircle(transform.position, detectRad, Layers.PlayerLayer);
+                if(c != null) {
+                    if(c.GetComponent<Player>() != null)
+                        detectedPlayer = true;
+                }
             }
 
             OnUpdate();
