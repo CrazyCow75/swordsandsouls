@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6a0a79acbcfb16a4fbbfb4dc618467f4
+guid: 27a52d597d4f13b449f92033cdd53da8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,7 +119,91 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerSlash_0
+      name: gobloid-sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08ce684548df0c41b6fdce3ab9059c8
+      internalID: -646985580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gobloid-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36d2c85514c92ca478512243a10c7f1b
+      internalID: 1820307567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gobloid-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 175d20c00e8883a49a4371b97a999d27
+      internalID: -2101869705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gobloid-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec4a2890d97eec54eb7151bb8bce5f02
+      internalID: -1814711387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gobloid-sheet_4
       rect:
         serializedVersion: 2
         x: 0
@@ -133,14 +217,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1706f15c3c21d54193068796d57f727
-      internalID: 1233545734
+      spriteID: b2b53d458f73c7b4693572f2e8acdc73
+      internalID: -117225897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSlash_1
+      name: gobloid-sheet_5
       rect:
         serializedVersion: 2
         x: 64
@@ -154,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c6040f663854c045a2529911e05d27e
-      internalID: 537421368
+      spriteID: d26f5e44dc93d234d93ce390b1a44427
+      internalID: 1507299086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSlash_2
+      name: gobloid-sheet_6
       rect:
         serializedVersion: 2
         x: 128
@@ -175,14 +259,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe87fbfb11c1c6743819fb98c32c458b
-      internalID: 672651593
+      spriteID: 9df4f2aca4f8e33449059319491edbc2
+      internalID: -298196289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSlash_3
+      name: gobloid-sheet_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d217b1c930398a4e9bed1ead6ae89f6
+      internalID: 348257159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gobloid-sheet_8
       rect:
         serializedVersion: 2
         x: 0
@@ -196,14 +301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57b9192c1d4c590469b1dc66156020c9
-      internalID: -1555425425
+      spriteID: 7acb88c48010e9e43b410fd2aff1c79e
+      internalID: 1515348462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSlash_4
+      name: gobloid-sheet_9
       rect:
         serializedVersion: 2
         x: 64
@@ -217,14 +322,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7ccf0a22780ad04cb8f63585c5dcde0
-      internalID: -1533997289
+      spriteID: 3a623af167ba38b43a3725c4089846ff
+      internalID: -1631019578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSlash_5
+      name: gobloid-sheet_10
       rect:
         serializedVersion: 2
         x: 128
@@ -238,14 +343,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e37b9ff0b8f848747b7a5aa4a5e451e1
-      internalID: -1249744196
+      spriteID: aa412b21c19b9714484b2d817dab3156
+      internalID: -1908321683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerSlash_6
+      name: gobloid-sheet_11
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19cc6a1bfad2f86449d151677626fd71
+      internalID: 1913914273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gobloid-sheet_12
       rect:
         serializedVersion: 2
         x: 0
@@ -259,8 +385,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 329441b8e58688c4284adcd1903bf091
-      internalID: -335745006
+      spriteID: 261db96b2696fc44e9440d9901ca6c89
+      internalID: 616838910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gobloid-sheet_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eddbb47b0eee8a748a03b6652519cb11
+      internalID: 2032277084
       vertices: []
       indices: 
       edges: []
@@ -276,13 +423,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlayerSlash_0: 1233545734
-      PlayerSlash_1: 537421368
-      PlayerSlash_2: 672651593
-      PlayerSlash_3: -1555425425
-      PlayerSlash_4: -1533997289
-      PlayerSlash_5: -1249744196
-      PlayerSlash_6: -335745006
+      gobloid-sheet_0: -646985580
+      gobloid-sheet_1: 1820307567
+      gobloid-sheet_10: -1908321683
+      gobloid-sheet_11: 1913914273
+      gobloid-sheet_12: 616838910
+      gobloid-sheet_13: 2032277084
+      gobloid-sheet_2: -2101869705
+      gobloid-sheet_3: -1814711387
+      gobloid-sheet_4: -117225897
+      gobloid-sheet_5: 1507299086
+      gobloid-sheet_6: -298196289
+      gobloid-sheet_7: 348257159
+      gobloid-sheet_8: 1515348462
+      gobloid-sheet_9: -1631019578
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

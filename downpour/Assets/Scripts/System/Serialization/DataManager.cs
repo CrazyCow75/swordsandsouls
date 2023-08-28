@@ -27,6 +27,10 @@ namespace Downpour
             SceneLoader.Instance.BeforeSceneLoadEvent += AutoSave;
         }
 
+        private void OnApplicationQuit() {
+            AutoSave();
+        }
+
         private void Update() {
             if(UnityEngine.Input.GetKeyDown(KeyCode.J)) {
                 AutoSave();

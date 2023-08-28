@@ -181,11 +181,13 @@ namespace Downpour.Entity.Player {
         private void _flip() {
             _spriteFacingRight=!_spriteFacingRight;
             FacingDirection *= -1;
-            Debug.Log(_playerSpriteTransform);
-            _playerSpriteTransform.localScale = new Vector3(_playerSpriteTransform.localScale.x*-1f, 1f, 1f);
+            //Debug.Log(_playerSpriteTransform);
+            
 
-            if((_playerStateMachine.CurrentState as PlayerState).CanFlip)
+            if((_playerStateMachine.CurrentState as PlayerState).CanFlip) {
                 _playerStateMachine.PlayStateAnimation();
+                _playerSpriteTransform.localScale = new Vector3(_playerSpriteTransform.localScale.x*-1f, 1f, 1f);
+            }
         }
 
         // Colliders

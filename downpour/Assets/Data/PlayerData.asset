@@ -63,7 +63,7 @@ MonoBehaviour:
     SlashSpeed: 0.175
     SlashCooldown: 0.25
     SlashRange: 1
-    ComboTime: 0.25
+    ComboTime: 0.4
     SlashBufferTime: 0.25
     SlashKnockbackMultiplier: 3
     SlashKnockbackTime: 0.1

@@ -46,7 +46,8 @@ namespace Downpour
         }
 
         public void slash() {
-            Collider2D c = Physics2D.OverlapBox(slashBox.offset + (Vector2)(this.transform.position), slashBox.size, 0f, Layers.PlayerLayer);
+            Collider2D c = Physics2D.OverlapBox(slashBox.offset * transform.localScale.x + (Vector2)(slashBox.transform.position), slashBox.size, 0f, Layers.PlayerLayer);
+
             if(c!=null) {
                 if(c.transform.TryGetComponent(out Player player)) {
                     player.PlayerStatsController.TakeDamage(damage);
