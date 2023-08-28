@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using Downpour.Input;
 using Downpour.Combat;
+using Downpour.Scenes;
 
 namespace Downpour.Entity.Player
 {
@@ -42,6 +43,12 @@ namespace Downpour.Entity.Player
             if(this.enabled) {
                 _inputReader.SlashEvent += _handleSlashInput;
             }
+
+            SceneLoader.Instance.BeforeSceneLoadEvent += _disableInput;
+        }
+
+        private void _disableInput() {
+            _inputReader.SlashEvent -= _handleSlashInput;
         }
         
         private void Update() {

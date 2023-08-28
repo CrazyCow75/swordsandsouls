@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Downpour;
 using Downpour.Input;
+using Downpour.Scenes;
 
 namespace Downpour.Entity.Player
 {
@@ -19,6 +20,11 @@ namespace Downpour.Entity.Player
         protected void Start() {
             _interactablePrompt = InteractablePrompt.Instance;
             InputReader.Instance.PickupEvent += _handlePickupInput;
+
+            SceneLoader.Instance.BeforeSceneLoadEvent += _disableInput;
+        }
+        private void _disableInput() {
+            InputReader.Instance.PickupEvent -= _handlePickupInput;
         }
         private void OnTriggerEnter2D(Collider2D other) {
             if(other.CompareTag("Interactable")) {

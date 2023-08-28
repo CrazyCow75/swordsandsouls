@@ -5,6 +5,7 @@ using Downpour.Entity.Enemy;
 using System;
 using Downpour.UI;
 using Downpour.Entity.Player;
+using Downpour.Scenes;
 
 namespace Downpour
 {
@@ -15,6 +16,8 @@ namespace Downpour
 
         public bool[] FirstTimeKill;
         public Enemy[] Enemies;
+
+        public Transform[] SpawnPoints;
 
         protected override void Awake() {
             base.Awake();
@@ -65,6 +68,12 @@ namespace Downpour
                 }
                 if(c.c.m_CardData.id == g.EquippedCard3) {
                     p.cards[2] = c.c;
+                }
+            }
+
+            foreach(Transform t in SpawnPoints) {
+                if(t.gameObject.name == SceneLoader.Instance.currentSceneTransitionData.spawnPoint) {
+                    Player.Instance.transform.position = t.position;
                 }
             }
         }

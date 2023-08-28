@@ -26,6 +26,8 @@ namespace Downpour.Scenes
 
         public SceneReference activeScene { get; private set; }
 
+        public SceneTransitionData currentSceneTransitionData;
+
         public static SceneTransitionData FromSpawnPoint(string spawnPoint) {
             return new SceneTransitionData() { spawnPoint = spawnPoint };
         }
@@ -39,8 +41,11 @@ namespace Downpour.Scenes
             OnUnloadScene(sceneReference);
             // TODO: add load transition
             yield return null;
-            SceneLoadEvent?.Invoke();
+            
+            currentSceneTransitionData = transitionData;
             SceneManager.LoadScene(sceneReference);
+            SceneLoadEvent?.Invoke();
+            
         }
 
         public void LoadScene(SceneReference sceneReference, SceneTransitionData transitionData) {

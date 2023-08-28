@@ -22,6 +22,7 @@ namespace Downpour.Entity.Player
         public PlayerCombatController PlayerCombatController { get; private set; }
 
         protected override void Awake() {
+            
             base.Awake();
             PlayerMovementController = GetComponent<PlayerMovementController>();
             PlayerStateMachine = GetComponent<PlayerStateMachine>();
@@ -29,6 +30,8 @@ namespace Downpour.Entity.Player
             PlayerAnimationController = GetComponent<PlayerAnimationController>();
             PlayerStatsController = GetComponent<PlayerStatsController>();
             PlayerCombatController = GetComponent<PlayerCombatController>();
+
+            //gameObject.SetActive(false);
         }
 
         // Handles gizmos rendering in editor, if enabled

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Downpour.Input;
+using Downpour.Scenes;
 
 namespace Downpour.Entity.Player {
     [RequireComponent(typeof(Rigidbody2D))]
@@ -73,7 +74,14 @@ namespace Downpour.Entity.Player {
                 _inputReader.JumpEvent += _handleJumpInput;
             }
 
+            SceneLoader.Instance.BeforeSceneLoadEvent += _disableInput;
+
             FacingDirection = 1;
+        }
+
+        private void _disableInput() {
+            _inputReader.MovementEvent -= _handleMovementInput;
+            _inputReader.JumpEvent -= _handleJumpInput;
         }
 
         private void FixedUpdate() {
@@ -173,6 +181,7 @@ namespace Downpour.Entity.Player {
         private void _flip() {
             _spriteFacingRight=!_spriteFacingRight;
             FacingDirection *= -1;
+            Debug.Log(_playerSpriteTransform);
             _playerSpriteTransform.localScale = new Vector3(_playerSpriteTransform.localScale.x*-1f, 1f, 1f);
 
             if((_playerStateMachine.CurrentState as PlayerState).CanFlip)
