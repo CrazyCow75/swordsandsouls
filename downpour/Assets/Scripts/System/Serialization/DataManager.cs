@@ -17,6 +17,7 @@ namespace Downpour
 
         public event Action SaveEvent;
         public event Action LoadEvent;
+
         protected override void Awake() {
             base.Awake();
             if(GameData == null) {
@@ -78,6 +79,9 @@ namespace Downpour
             if(RoomManager.Instance != null) {
                 RoomData r = new RoomData();
                 r.firstTimeKill = RoomManager.Instance.FirstTimeKill;
+                r.killed = RoomManager.Instance.Killed;
+                r.broken = RoomManager.Instance.Broken;
+
                 r.roomID = RoomManager.Instance.RoomNumber;
                 r.areaName = RoomManager.Instance.AreaName;
 
@@ -104,6 +108,8 @@ namespace Downpour
                 GameData.EquippedCard3 = -1;
             }
 
+            GameData.PlayerHealth = Player.Instance.PlayerStatsController.getHealth();
+
             Save();
         }
 
@@ -112,6 +118,8 @@ namespace Downpour
                 RoomData roomData = GameData.RoomDatas[i];
                 if(roomData.areaName == r.areaName && roomData.roomID == r.roomID) { // Found Existing Room
                     roomData.firstTimeKill = r.firstTimeKill;
+                    roomData.killed = r.killed;
+                    roomData.broken = r.broken;
 
                     return;
                 }
@@ -123,6 +131,8 @@ namespace Downpour
         [Serializable]
         public struct RoomData {
             public bool[] firstTimeKill;
+            public bool[] killed;
+            public bool[] broken;
             public int roomID;
             public string areaName;
 

@@ -15,7 +15,11 @@ namespace Downpour
         [field: SerializeField] public string AreaName { get; private set; }
 
         public bool[] FirstTimeKill;
+        public bool[] Killed;
         public Enemy[] Enemies;
+
+        public bool[] Broken;
+        public BreakableWall[] BreakableWalls;
 
         public Transform[] SpawnPoints;
 
@@ -28,9 +32,19 @@ namespace Downpour
             System.Array.Sort(Enemies, (a, b) => a.name.CompareTo(b.name));
 
             FirstTimeKill = new bool[Enemies.Length];
+            Killed = new bool[Enemies.Length];
+
+            BreakableWalls = FindObjectsOfType<BreakableWall>() as BreakableWall[];
+            System.Array.Sort(BreakableWalls, (a, b) => a.name.CompareTo(b.name));
+
+            Broken = new bool[BreakableWalls.Length];
 
             foreach(Enemy e in Enemies) {
                 e.EnemyDeathEvent += _handleEnemyDeath;
+            }
+
+            foreach(BreakableWall e in BreakableWalls) {
+                e.BreakableWallBreakEvent += _handleWallBreak;
             }
 
             DataManager.Instance.LoadEvent += _handleLoadEvent; // TODO move this to another script that is made for handeling loads
@@ -48,6 +62,10 @@ namespace Downpour
 
                 if(roomData.areaName == AreaName && roomData.roomID == RoomNumber) { // Found Existing Room
                     FirstTimeKill = roomData.firstTimeKill;
+                    Killed = roomData.killed;
+                    Broken = roomData.broken;
+
+                    
 
                     break;
                 }
@@ -76,6 +94,20 @@ namespace Downpour
                     Player.Instance.transform.position = t.position;
                 }
             }
+
+            Player.Instance.PlayerStatsController.setHealth(g.PlayerHealth);
+
+            for(int i = 0; i < BreakableWalls.Length; i++) {
+                if(Broken[i]) {
+                    Destroy(BreakableWalls[i].gameObject);
+                }
+            }
+
+            for(int i = 0; i < Killed.Length; i++) {
+                if(Killed[i]) {
+                    Destroy(Enemies[i].gameObject);
+                }
+            }
         }
 
         private void _handleEnemyDeath(Enemy e) {
@@ -88,7 +120,34 @@ namespace Downpour
                 if(_e.gameObject.GetInstanceID() == e.gameObject.GetInstanceID()) {
                     Debug.Log("Found Enemy");
 
+                    if(!FirstTimeKill[i]) {
+                        Instantiate(e.soul, e.soulSpawnPoint.position, Quaternion.identity);
+                    }
+
                     FirstTimeKill[i] = true;
+
+                    Killed[i] = true;
+
+                    return;
+                }
+                i++;
+            }
+            
+        }
+
+        private void _handleWallBreak(BreakableWall e) {
+            int i = 0;
+            foreach(BreakableWall _e in BreakableWalls) {
+                if(_e == null) {
+                    i++;
+                    continue;
+                }
+                if(_e.gameObject.GetInstanceID() == e.gameObject.GetInstanceID()) {
+                    // Debug.Log("Found Enemy");
+
+                    Broken[i] = true;
+
+                    return;
                 }
                 i++;
             }

@@ -338,7 +338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6344712766586987168
 RectTransform:
   m_ObjectHideFlags: 0
@@ -376,6 +376,7 @@ MonoBehaviour:
   - {fileID: 4613566259144919668}
   - {fileID: 6226347548463585132}
   - {fileID: 257854628138301485}
+  - {fileID: 5640809888562035944}
   equipped:
   - {fileID: 7440901452954432007}
   - {fileID: 6994830832662097985}
@@ -384,6 +385,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 767245d4b7a35ff43aa1fc16278f5fee, type: 2}
   - {fileID: 11400000, guid: 3377a59064d3dbb498247bb182a0db1a, type: 2}
   - {fileID: 11400000, guid: f73a8f3d44bc2bf40b1347ddc0b01e23, type: 2}
+  - {fileID: 11400000, guid: 61c7744511cf49d49ad8bee9c4875fda, type: 2}
   cardImage: {fileID: 8974593466582364714}
   cardName: {fileID: 2456743739233815092}
   cardDesc: {fileID: 5917919286191100281}
@@ -720,7 +722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &992777373689145187
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4135,6 +4137,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8472752403355921197, guid: 4693fd12259d75f42aec853d9737d1d8, type: 3}
   m_PrefabInstance: {fileID: 8648508379775643396}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5640809888562035944 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3912926835276780524, guid: 4693fd12259d75f42aec853d9737d1d8, type: 3}
+  m_PrefabInstance: {fileID: 8648508379775643396}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc00c7262b2299a45aadc3260b38b131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8897212509436281577
 PrefabInstance:
   m_ObjectHideFlags: 0

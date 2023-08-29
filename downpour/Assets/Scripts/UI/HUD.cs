@@ -12,7 +12,8 @@ namespace Downpour
         void Update()
         {
             if(Player.Instance != null) {
-                healthBar.value = Player.Instance.PlayerStatsController.getHealth() / Player.Instance.PlayerStatsController.CurrentPlayerStats.MaxHealth;
+                //Debug.Log( Player.Instance.PlayerStatsController.getHealth() / (float)Player.Instance.PlayerStatsController.CurrentPlayerStats.MaxHealth) ;
+                healthBar.value = (float)(Player.Instance.PlayerStatsController.getHealth()) / Player.Instance.PlayerStatsController.CurrentPlayerStats.MaxHealth;
             }
         }
     }

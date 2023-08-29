@@ -9,10 +9,12 @@ namespace Downpour
     {
         [SerializeField] private int _itemId;
 
+        public GameObject delete;
+
         public CardData cardData;
         public void OnInteract(Player player) {
             player.PlayerStatsController.unlockCard(cardData);
-            Destroy(this.gameObject);
+            Destroy(delete);
         }
 
         public bool CanInteract(Player player) {

@@ -48,5 +48,9 @@ namespace Downpour.Combat
                 DeathEvent?.Invoke();
             }
         }
+
+        public void SetHealth(int health) {
+            CurrentHealthPoints = health;
+        }
     }
 }

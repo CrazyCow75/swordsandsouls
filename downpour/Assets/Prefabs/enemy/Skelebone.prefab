@@ -113,7 +113,7 @@ Transform:
   m_Children:
   - {fileID: 998881478154462842}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &9205212057087445422
 Rigidbody2D:
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d18874d4ab4e140a4783a3c505df7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealthPoints>k__BackingField: 60
+  <MaxHealthPoints>k__BackingField: 30
   <HealthPointsAreTrueHitAmount>k__BackingField: 0
   <CurrentHealthPoints>k__BackingField: 0
   <Invincible>k__BackingField: 0
@@ -292,7 +292,9 @@ MonoBehaviour:
   _knockbackCounter: 0
   _knockbackTime: 0.1
   detectRad: 0
-  idleTime: 1
+  soul: {fileID: 5654458951118179606, guid: 60be9275816aa2a469b1d8cb20c73fd3, type: 3}
+  soulSpawnPoint: {fileID: 4628406896008236966}
+  idleTime: 2
   attackTime: 1.8166
   animator: {fileID: 3165560757338133885}
   damage: 10

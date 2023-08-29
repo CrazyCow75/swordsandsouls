@@ -15,4 +15,4 @@ MonoBehaviour:
   CardName: Gobloid Soul
   id: 0
   image: {fileID: 21300000, guid: 3e08160eaad29114299a141550fe39e3, type: 3}
-  cardDesc: The muscles of the goblins fill your arm. Increases your physical strength.
+  cardDesc: The muscles of the Gobloids fill your arm. Increases your physical strength.

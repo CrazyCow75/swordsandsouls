@@ -42,6 +42,10 @@ namespace Downpour.Entity.Player
             _healthSystem.DamageEvent += _invokeDamageEvent;
         }
 
+        private void Start() {
+           // _healthSystem.SetHealth(DataManager.Instance.currentPlayerHealth);
+        }
+
         private void Update() {
             if(iframeCounter > 0f) {
                 iframeCounter -= Time.deltaTime;
@@ -51,7 +55,7 @@ namespace Downpour.Entity.Player
             }
         }
 
-        public float getHealth() {
+        public int getHealth() {
             return _healthSystem.CurrentHealthPoints;
         }
 
@@ -69,6 +73,8 @@ namespace Downpour.Entity.Player
             }
 
             iframeCounter = iframeTime;
+
+            // DataManager.Instance.currentPlayerHealth = getHealth();
 
             _healthSystem.TakeDamage(damage);
         }
@@ -138,5 +144,8 @@ namespace Downpour.Entity.Player
             UnlockedCards.Add(c.id);
         }
 
+        public void setHealth(int h) {
+            _healthSystem.SetHealth(h);
+        }
     }
 }

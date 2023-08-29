@@ -27,6 +27,9 @@ namespace Downpour.Entity.Enemy
 
         public event Action<Enemy> EnemyDeathEvent;
 
+        public GameObject soul;
+        public Transform soulSpawnPoint;
+
         private void Awake() {
             _rb = GetComponent<Rigidbody2D>();
 
