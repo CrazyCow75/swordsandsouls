@@ -26,6 +26,7 @@ namespace Downpour
         }
         private void Start() {
             SceneLoader.Instance.BeforeSceneLoadEvent += AutoSave;
+            
         }
 
         private void OnApplicationQuit() {
@@ -120,6 +121,7 @@ namespace Downpour
                     roomData.firstTimeKill = r.firstTimeKill;
                     roomData.killed = r.killed;
                     roomData.broken = r.broken;
+                    
 
                     return;
                 }
@@ -128,6 +130,8 @@ namespace Downpour
             GameData.RoomDatas.Add(r);
         }
 
+        
+
         [Serializable]
         public struct RoomData {
             public bool[] firstTimeKill;
@@ -135,7 +139,6 @@ namespace Downpour
             public bool[] broken;
             public int roomID;
             public string areaName;
-
         }
     }
 }

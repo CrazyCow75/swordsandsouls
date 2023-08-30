@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using Downpour.Combat;
 using Downpour;
+using Downpour.Scenes;
 
 namespace Downpour.Entity.Player
 {
@@ -25,6 +26,8 @@ namespace Downpour.Entity.Player
         public bool Invincible;
         public float iframeTime;
         public float iframeCounter;
+
+        public event Action RestEvent;
 
         protected override void Awake() {
             base.Awake();
@@ -61,6 +64,13 @@ namespace Downpour.Entity.Player
 
         private void _invokeDeathEvent() {
             PlayerDeathEvent?.Invoke();
+
+            GameData g = DataManager.Instance.GameData;
+
+            string aN = g.SpawnAreaName;
+            int rN = g.SpawnRoomId;
+
+            SceneLoader.Instance.LoadScene(aN + "" + rN, SceneLoader.FromSpawnPoint("RespawnPoint"));
         }
 
         private void _invokeDamageEvent(int damage) {
@@ -146,6 +156,14 @@ namespace Downpour.Entity.Player
 
         public void setHealth(int h) {
             _healthSystem.SetHealth(h);
+        }
+
+        public void Rest(Respawn rPoint) {
+            RestEvent?.Invoke();
+        }
+
+        public void ResetHealth() {
+            _healthSystem.ResetHealth();
         }
     }
 }

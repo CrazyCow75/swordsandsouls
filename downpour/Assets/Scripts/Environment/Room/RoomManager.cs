@@ -23,11 +23,16 @@ namespace Downpour
 
         public Transform[] SpawnPoints;
 
+        public SceneReference thisScene;
+
         protected override void Awake() {
             base.Awake();
         }
 
         private void Start() {
+            SceneLoader.Instance.BeforeSceneLoadEvent += _disableInput;
+            Player.Instance.PlayerStatsController.RestEvent += OnRest;
+
             Enemies = FindObjectsOfType<Enemy>() as Enemy[];
             System.Array.Sort(Enemies, (a, b) => a.name.CompareTo(b.name));
 
@@ -49,9 +54,34 @@ namespace Downpour
 
             DataManager.Instance.LoadEvent += _handleLoadEvent; // TODO move this to another script that is made for handeling loads
             DataManager.Instance.Load();
+
+
             
 
             // TODO load firstime kill from save
+        }
+
+        public void OnRest() {
+            DataManager.Instance.AutoSave();
+
+            for(int i = 0; i < DataManager.Instance.GameData.RoomDatas.Count; i++) {
+                DataManager.RoomData roomData = DataManager.Instance.GameData.RoomDatas[i];
+
+                for(int j = 0; j < roomData.killed.Length; j++) {
+                    roomData.killed[j] = false;
+                }
+            }
+
+            Player.Instance.PlayerStatsController.ResetHealth();
+
+            DataManager.Instance.GameData.SpawnAreaName = AreaName;
+            DataManager.Instance.GameData.SpawnRoomId = RoomNumber;
+
+            DataManager.Instance.Save();
+        }
+
+        private void _disableInput() {
+            DataManager.Instance.LoadEvent -= _handleLoadEvent;
         }
 
         private void _handleLoadEvent() {
@@ -90,6 +120,9 @@ namespace Downpour
             }
 
             foreach(Transform t in SpawnPoints) {
+                if(t == null) {
+                    Debug.Log(t);
+                }
                 if(t.gameObject.name == SceneLoader.Instance.currentSceneTransitionData.spawnPoint) {
                     Player.Instance.transform.position = t.position;
                 }
@@ -108,6 +141,8 @@ namespace Downpour
                     Destroy(Enemies[i].gameObject);
                 }
             }
+
+            
         }
 
         private void _handleEnemyDeath(Enemy e) {

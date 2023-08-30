@@ -18,5 +18,8 @@ namespace Downpour
         public int EquippedCard3;
 
         public int PlayerHealth;
+
+        public string SpawnAreaName;
+        public int SpawnRoomId;
     }
 }

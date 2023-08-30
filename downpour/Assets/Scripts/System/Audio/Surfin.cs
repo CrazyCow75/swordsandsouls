@@ -4,11 +4,13 @@ using UnityEngine;
 
 namespace Downpour
 {
-    public class Surfin : SingletonPersistent<Surfin>
+    public class Surfin : MonoBehaviour
     {   
+        
+        public AudioSource audioSource;
 
         public void playSurfin() {
-            // filename.Play();
+            audioSource.Play();
         }
         // Start is called before the first frame update
         void Start()
@@ -16,10 +18,15 @@ namespace Downpour
         
         }
 
+        public void OnSliderChange(float newValue)
+        {
+            GetComponent<AudioSource>().volume = newValue;
+        }
+
         // Update is called once per frame
         void Update()
         {
-        
+            
         }
     }
 }

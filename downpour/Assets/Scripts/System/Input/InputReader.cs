@@ -31,9 +31,9 @@ namespace Downpour.Input {
             }
         }
 
-        private void OnDisable() {
-            DisableAllInput();
-        }
+        // private void OnDisable() {
+        //     DisableAllInput();
+        // }
 
         // <summary>
         // Enables input reader for action map Gameplay.

@@ -19,7 +19,6 @@ namespace Downpour
 
         //dont think we need a reference to player here?
 
-        //other note; im not using ur overriden method thing bc i think its handled differently for movement
         public override PlayerData.PlayerStats getPlayerStatBuffs(PlayerData.PlayerStats playerStats) {
             playerStats.MaxHealth += 50;
             return playerStats;
