@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Downpour.UI
-{
+{   
+    using UnityEngine.UI;
     using Downpour.Input;
     public class UIManager : SingletonPersistent<UIManager>
-    {
+    {   
+
+        public Slider s;
+
         public CardUIManager inventory;
         private void Start() {
             InputReader.Instance.OpenInventoryEvent += _onOpenInventory;

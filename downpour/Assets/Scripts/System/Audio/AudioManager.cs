@@ -6,31 +6,37 @@ namespace Downpour
 {
     public class AudioManager : MonoBehaviour
     {
-        //i have no idea why i need the <> - something to do with audiosource like not being a type or something??? idk but it compiles with no errors :skull:
 
-        private AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
-
+        //slider reference: AudioManager.Instance.s
 
         void Awake() {
-            allAudioSources = FindObjectsOfType<AudioSource>() as AudioSource[];
+
         }
         
+        AudioSource[] allAudioSources;
+
+        // Start is called before the first frame update
+        void Start()
+        {
         
+             //i have no idea why i need the <> - something to do with audiosource like not being a type or something??? idk but it compiles with no errors :skull:
+
+            allAudioSources = FindObjectsOfType<AudioSource>();
+
+            //allAudioSources = FindObjectsOfType<AudioSource>() as AudioSource[];
+            
+        }
+
         public void StopAllAudio() {
             foreach(AudioSource audioS in allAudioSources) {
                 audioS.Stop();
             }
         }
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
 
         // Update is called once per frame
         void Update()
         {
-        
+            
         }
     }
 }
