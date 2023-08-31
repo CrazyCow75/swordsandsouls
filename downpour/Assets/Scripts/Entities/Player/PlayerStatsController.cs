@@ -35,11 +35,12 @@ namespace Downpour.Entity.Player
             base.Awake();
 
             cards = new Card[3];
+
+            _healthSystem = GetComponent<HealthSystem>();
             
             _updatePermanentBuffs();
             _updatePlayerStats();
 
-            _healthSystem = GetComponent<HealthSystem>();
             _healthSystem.SetMaxHealth(CurrentPlayerStats.MaxHealth);
             _healthSystem.ResetHealth();
 
@@ -101,6 +102,8 @@ namespace Downpour.Entity.Player
                 }
             }
             // TODO: Update based on beads, buffs/debuffs
+            _healthSystem.SetMaxHealth(CurrentPlayerStats.MaxHealth);
+
             return m_currentPlayerStats;
         }
 

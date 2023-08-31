@@ -21,6 +21,10 @@ namespace Downpour
         public bool[] Broken;
         public BreakableWall[] BreakableWalls;
 
+
+        public bool[] Looted;
+        public Coins[] CoinPiles;
+
         public Transform[] SpawnPoints;
 
         public SceneReference thisScene;
@@ -44,12 +48,21 @@ namespace Downpour
 
             Broken = new bool[BreakableWalls.Length];
 
+            CoinPiles = FindObjectsOfType<Coins>() as Coins[];
+            System.Array.Sort(CoinPiles, (a, b) => a.name.CompareTo(b.name));
+
+            Looted = new bool[CoinPiles.Length];
+
             foreach(Enemy e in Enemies) {
                 e.EnemyDeathEvent += _handleEnemyDeath;
             }
 
             foreach(BreakableWall e in BreakableWalls) {
                 e.BreakableWallBreakEvent += _handleWallBreak;
+            }
+
+            foreach(Coins e in CoinPiles) {
+                e.CoinDeathEvent += _handleCoinDeath;
             }
 
             DataManager.Instance.LoadEvent += _handleLoadEvent; // TODO move this to another script that is made for handeling loads
@@ -94,7 +107,7 @@ namespace Downpour
                     FirstTimeKill = roomData.firstTimeKill;
                     Killed = roomData.killed;
                     Broken = roomData.broken;
-
+                    Looted = roomData.looted;
                     
 
                     break;
@@ -138,6 +151,12 @@ namespace Downpour
                 }
             }
 
+            for(int i = 0; i < CoinPiles.Length; i++) {
+                if(Looted[i]) {
+                    Destroy(CoinPiles[i].gameObject);
+                }
+            }
+
             for(int i = 0; i < Killed.Length; i++) {
                 if(Killed[i]) {
                     Destroy(Enemies[i].gameObject);
@@ -160,7 +179,8 @@ namespace Downpour
                     Debug.Log("Found Enemy");
 
                     if(!FirstTimeKill[i]) {
-                        Instantiate(e.soul, e.soulSpawnPoint.position, Quaternion.identity);
+                        if(e.soul != null)
+                            Instantiate(e.soul, e.soulSpawnPoint.position, Quaternion.identity);
                     }
 
                     FirstTimeKill[i] = true;
@@ -187,6 +207,26 @@ namespace Downpour
                     // Debug.Log("Found Enemy");
 
                     Broken[i] = true;
+
+                    return;
+                }
+                i++;
+            }
+            
+        }
+
+        private void _handleCoinDeath(Coins e) {
+            int i = 0;
+            foreach(Coins _e in CoinPiles) {
+                if(_e == null) {
+                    i++;
+                    continue;
+                }
+                if(_e.gameObject.GetInstanceID() == e.gameObject.GetInstanceID()) {
+                    // Debug.Log("Found Enemy");
+
+                    Looted[i] = true;
+                    Player.Instance.PlayerStatsController.money += 300;
 
                     return;
                 }

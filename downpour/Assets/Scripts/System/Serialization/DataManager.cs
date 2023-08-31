@@ -91,6 +91,7 @@ namespace Downpour
                 r.firstTimeKill = RoomManager.Instance.FirstTimeKill;
                 r.killed = RoomManager.Instance.Killed;
                 r.broken = RoomManager.Instance.Broken;
+                r.looted = RoomManager.Instance.Looted;
 
                 r.roomID = RoomManager.Instance.RoomNumber;
                 r.areaName = RoomManager.Instance.AreaName;
@@ -131,6 +132,9 @@ namespace Downpour
             g.SpawnRoomId = 0;
             g.PlayerHealth = 100;
             GameData = g;
+            g.EquippedCard1 = -1;
+            g.EquippedCard2 = -1;
+            g.EquippedCard3 = -1;
             Debug.Log(GameData.SpawnAreaName);
             Save();
         }
@@ -142,6 +146,7 @@ namespace Downpour
                     roomData.firstTimeKill = r.firstTimeKill;
                     roomData.killed = r.killed;
                     roomData.broken = r.broken;
+                    roomData.looted = r.looted;
                     
 
                     return;
@@ -158,6 +163,7 @@ namespace Downpour
             public bool[] firstTimeKill;
             public bool[] killed;
             public bool[] broken;
+            public bool[] looted;
             public int roomID;
             public string areaName;
         }

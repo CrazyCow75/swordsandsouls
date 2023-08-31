@@ -59,7 +59,7 @@ MonoBehaviour:
     MaxFallSpeed: 40
     CoyoteTime: 0.1
     JumpBufferTime: 0.2
-    HasDoubleJump: 0
+    HasDoubleJump: 1
     SlashSpeed: 0.175
     SlashCooldown: 0.25
     SlashRange: 1
