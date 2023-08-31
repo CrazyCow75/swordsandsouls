@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OuterCity/OuterCity2.unity
     guid: ed8939d0580639c408819252f35ac574
+  - enabled: 1
+    path: Assets/Scenes/NeonCity/NeonCity0.unity
+    guid: 17b917a975de2114fb9b4fea4b3d15e7
+  - enabled: 1
+    path: Assets/Scenes/NeonCity/NeonCity1.unity
+    guid: 3b6476c4887ba07438e4d9963b2e2f1a
   m_configObjects: {}

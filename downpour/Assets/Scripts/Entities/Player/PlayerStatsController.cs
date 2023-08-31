@@ -29,6 +29,8 @@ namespace Downpour.Entity.Player
 
         public event Action RestEvent;
 
+        public int money;
+
         protected override void Awake() {
             base.Awake();
 
@@ -89,7 +91,7 @@ namespace Downpour.Entity.Player
             _healthSystem.TakeDamage(damage);
         }
 
-        private PlayerData.PlayerStats _updatePlayerStats() {
+        public PlayerData.PlayerStats _updatePlayerStats() {
             m_currentPlayerStats = _playerData.BasePlayerStats;
 
             for(int i = 0; i < cards.Length; i++) { // Update based on cards
@@ -102,7 +104,7 @@ namespace Downpour.Entity.Player
             return m_currentPlayerStats;
         }
 
-        private void _updatePermanentBuffs() {
+        public void _updatePermanentBuffs() {
             // TODO: check for movement abilities, health upgrades, lighter upgrades, ranged, melee upgrades, mana upgrade
         }
 

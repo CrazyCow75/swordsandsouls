@@ -25,7 +25,7 @@ namespace Downpour
             }
         }
         private void Start() {
-            // SceneLoader.Instance.BeforeSceneLoadEvent += AutoSave;
+           SceneLoader.Instance.BeforeSceneLoadEvent += AutoSave;
             
         }
 
@@ -119,6 +119,8 @@ namespace Downpour
             }
 
             GameData.PlayerHealth = Player.Instance.PlayerStatsController.getHealth();
+
+            GameData.money = Player.Instance.PlayerStatsController.money;
 
             Save();
         }

@@ -327,6 +327,7 @@ MonoBehaviour:
   detectRad: 2
   soul: {fileID: 221191194946865541, guid: c33f33b37927ea140bde5082d82e1da6, type: 3}
   soulSpawnPoint: {fileID: 7023398843109241192}
+  moneyDrop: 150
   animator: {fileID: 1429485162666391070}
   damage: 10
   slashBox: {fileID: 7744641448127129713}

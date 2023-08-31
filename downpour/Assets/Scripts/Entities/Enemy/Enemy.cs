@@ -29,6 +29,7 @@ namespace Downpour.Entity.Enemy
 
         public GameObject soul;
         public Transform soulSpawnPoint;
+        public int moneyDrop;
 
         private void Awake() {
             _rb = GetComponent<Rigidbody2D>();

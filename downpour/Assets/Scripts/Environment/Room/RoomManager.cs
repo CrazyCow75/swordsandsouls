@@ -52,11 +52,11 @@ namespace Downpour
                 e.BreakableWallBreakEvent += _handleWallBreak;
             }
 
-            // DataManager.Instance.LoadEvent += _handleLoadEvent; // TODO move this to another script that is made for handeling loads
-            // DataManager.Instance.Load();
+            DataManager.Instance.LoadEvent += _handleLoadEvent; // TODO move this to another script that is made for handeling loads
+            DataManager.Instance.Load();
 
 
-            _handleLoadEvent();
+            //_handleLoadEvent();
 
             // TODO load firstime kill from save
         }
@@ -119,6 +119,8 @@ namespace Downpour
                 }
             }
 
+            p.money = g.money;
+
             foreach(Transform t in SpawnPoints) {
                 if(t == null) {
                     Debug.Log(t);
@@ -142,7 +144,9 @@ namespace Downpour
                 }
             }
 
-            
+            UIManager.Instance.inventory.refresh();
+
+            Player.Instance.PlayerStatsController._updatePlayerStats();
         }
 
         private void _handleEnemyDeath(Enemy e) {
@@ -162,6 +166,8 @@ namespace Downpour
                     FirstTimeKill[i] = true;
 
                     Killed[i] = true;
+
+                    Player.Instance.PlayerStatsController.money += _e.moneyDrop;
 
                     return;
                 }

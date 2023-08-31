@@ -21,7 +21,8 @@ namespace Downpour
 
         //other note; im not using ur overriden method thing bc i think its handled differently for movement
         public override PlayerData.PlayerStats getPlayerStatBuffs(PlayerData.PlayerStats playerStats) {
-            playerStats.MoveSpeed *= 1.5f;
+            if(Player.Instance.PlayerMovementController.Grounded)
+                playerStats.MoveSpeed *= 1.25f;
             return playerStats;
         }
     }

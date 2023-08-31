@@ -11,6 +11,7 @@ namespace Downpour.UI
     {   
 
         public Slider s;
+        
 
         public CardUIManager inventory;
         public GameObject HUD;

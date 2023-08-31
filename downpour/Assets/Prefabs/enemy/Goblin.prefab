@@ -221,6 +221,7 @@ MonoBehaviour:
   detectRad: 5
   soul: {fileID: 3961502656733078879, guid: 7bcd3e8c5a81e634798ea5b6dbcf9576, type: 3}
   soulSpawnPoint: {fileID: 8365119835516876946}
+  moneyDrop: 100
   slashTime: 1.083
   isSlashing: 0
   slashDistance: 1

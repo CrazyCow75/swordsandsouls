@@ -294,6 +294,7 @@ MonoBehaviour:
   detectRad: 0
   soul: {fileID: 5654458951118179606, guid: 60be9275816aa2a469b1d8cb20c73fd3, type: 3}
   soulSpawnPoint: {fileID: 4628406896008236966}
+  moneyDrop: 200
   idleTime: 2
   attackTime: 1.8166
   animator: {fileID: 3165560757338133885}

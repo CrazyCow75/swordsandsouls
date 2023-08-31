@@ -51,14 +51,14 @@ namespace Downpour
         }
 
         private void Start() {
-            SceneManager.sceneLoaded += onInit;
+            GameManager.Instance.sceneLoaded += onInit;
         }
 
         private void onInit(Scene scene, LoadSceneMode s) {
             if(GameManager.Instance.CurrentGameState == GameManager.GameState.Gameplay) {
 
             
-                
+                Debug.Log("!!!!!");
                 player = Player.Instance;
 
                 // selectedCard = cardUIs[0].c;
@@ -71,6 +71,27 @@ namespace Downpour
                     } else {
                         equipped[i].gameObject.SetActive(true);
                         equipped[i].sprite = c.m_CardData.image;
+                        Debug.Log(equipped[i]);
+                    }
+                    i++;
+                }
+
+                _onCardSelect(cardUIs[0].c);
+            }
+        }
+
+        public void refresh() {
+            if(GameManager.Instance.CurrentGameState == GameManager.GameState.Gameplay) {
+                player = Player.Instance;
+                int i = 0;
+
+                foreach(Card c in player.PlayerStatsController.cards) {
+                    if(c == null) {
+                        equipped[i].gameObject.SetActive(false);
+                    } else {
+                        equipped[i].gameObject.SetActive(true);
+                        equipped[i].sprite = c.m_CardData.image;
+                        Debug.Log(equipped[i]);
                     }
                     i++;
                 }
