@@ -52,11 +52,11 @@ namespace Downpour
                 e.BreakableWallBreakEvent += _handleWallBreak;
             }
 
-            DataManager.Instance.LoadEvent += _handleLoadEvent; // TODO move this to another script that is made for handeling loads
-            DataManager.Instance.Load();
+            // DataManager.Instance.LoadEvent += _handleLoadEvent; // TODO move this to another script that is made for handeling loads
+            // DataManager.Instance.Load();
 
 
-            
+            _handleLoadEvent();
 
             // TODO load firstime kill from save
         }

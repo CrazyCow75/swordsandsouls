@@ -367,7 +367,7 @@ namespace Downpour.Entity.Player
 
         public override void FixedUpdate() {
             float direction = _playerMovementController.FacingDirection;
-            Vector2 velocity = new Vector2(direction * _playerStatsController.CurrentPlayerStats.DashSpeed, _playerMovementController.rbVelocityY);
+            Vector2 velocity = new Vector2(direction * _playerStatsController.CurrentPlayerStats.DashSpeed, 0f);
 
             _playerMovementController.setVelocity(velocity);
         }

@@ -16,7 +16,7 @@ namespace Downpour
         public CinemachineConfiner2D VCameraConfines { get; private set; }
 
         protected override void Awake() {
-            Debug.Log("Awake");
+            //Debug.Log("Awake");
             base.Awake();
             MainCamera = Camera.main;
             
@@ -27,10 +27,20 @@ namespace Downpour
 
         protected void Start() {
             
-            if(GameManager.Instance.CurrentGameState == GameManager.GameState.Gameplay)
+            if(GameManager.Instance.CurrentGameState == GameManager.GameState.Gameplay) {
                 VCamera.m_Follow = Player.Instance.transform;
 
-            SceneManager.sceneLoaded += onInit;
+                VCamera.PreviousStateIsValid = false;
+                
+                VCamera.ForceCameraPosition(Player.Instance.transform.position + new Vector3(0f, 2.75f, 0f), Quaternion.identity);
+
+                VCamera.gameObject.SetActive(false);
+                VCamera.gameObject.SetActive(true);
+
+                
+            }
+
+            GameManager.Instance.sceneLoaded += onInit;
         }
 
         public void SetVCameraConfines(PolygonCollider2D collider2D) {
@@ -39,9 +49,24 @@ namespace Downpour
 
         public void onInit(Scene scene, LoadSceneMode mode) {
             Debug.Log("INIT");
-            Debug.Log(Player.Instance);
-            if(GameManager.Instance.CurrentGameState == GameManager.GameState.Gameplay)
+            VCamera.gameObject.SetActive(false);
+            // Debug.Log(Player.Instance);
+            if(GameManager.Instance.CurrentGameState == GameManager.GameState.Gameplay) {
+                
+
                 VCamera.m_Follow = Player.Instance.transform;
+
+                VCamera.PreviousStateIsValid = false;
+                
+                //VCamera.transform.position = Player.Instance.transform.position + new Vector3(0f, 2.75f, 0f);
+                
+                
+
+                //Debug.Log(VCamera.transform.position);
+
+                //VCamera.m_Follow = Player.Instance.transform;
+            }
+            VCamera.gameObject.SetActive(true);
         }
     }
 }

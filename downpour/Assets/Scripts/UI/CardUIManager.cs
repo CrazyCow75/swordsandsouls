@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 namespace Downpour
@@ -50,23 +51,32 @@ namespace Downpour
         }
 
         private void Start() {
-            player = Player.Instance;
+            SceneManager.sceneLoaded += onInit;
+        }
 
-            // selectedCard = cardUIs[0].c;
+        private void onInit(Scene scene, LoadSceneMode s) {
+            if(GameManager.Instance.CurrentGameState == GameManager.GameState.Gameplay) {
+
             
-            int i = 0;
+                
+                player = Player.Instance;
 
-            foreach(Card c in player.PlayerStatsController.cards) {
-                if(c == null) {
-                    equipped[i].gameObject.SetActive(false);
-                } else {
-                    equipped[i].gameObject.SetActive(true);
-                    equipped[i].sprite = c.m_CardData.image;
+                // selectedCard = cardUIs[0].c;
+                
+                int i = 0;
+
+                foreach(Card c in player.PlayerStatsController.cards) {
+                    if(c == null) {
+                        equipped[i].gameObject.SetActive(false);
+                    } else {
+                        equipped[i].gameObject.SetActive(true);
+                        equipped[i].sprite = c.m_CardData.image;
+                    }
+                    i++;
                 }
-                i++;
-            }
 
-            _onCardSelect(cardUIs[0].c);
+                _onCardSelect(cardUIs[0].c);
+            }
         }
 
         private void _onCardSelect(Card c) {

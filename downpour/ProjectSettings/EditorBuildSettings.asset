@@ -6,15 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TestingScene0.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/Initialization.unity
     guid: a0bafe5bd3263c441abc1ea7aac18e72
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 407a0c951c4c0d844a7398839cba183b
   - enabled: 1
-    path: Assets/Scenes/scene2.unity
-    guid: 4fdd463eab1831f4894913358f301a62
+    path: Assets/Scenes/OuterCity/OuterCity0.unity
+    guid: a7eee64cdc303bb42986198a9e8a9234
+  - enabled: 1
+    path: Assets/Scenes/OuterCity/OuterCity1.unity
+    guid: 2bf48e2375446b4409c6edc71cc4ae5e
+  - enabled: 1
+    path: Assets/Scenes/OuterCity/OuterCity2.unity
+    guid: ed8939d0580639c408819252f35ac574
   m_configObjects: {}

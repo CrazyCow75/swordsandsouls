@@ -25,7 +25,7 @@ namespace Downpour
             }
         }
         private void Start() {
-            SceneLoader.Instance.BeforeSceneLoadEvent += AutoSave;
+            // SceneLoader.Instance.BeforeSceneLoadEvent += AutoSave;
             
         }
 
@@ -54,7 +54,7 @@ namespace Downpour
             Debug.Log("Saved Data");
         }
 
-        public void Load() {
+        public bool Load() {
             if (File.Exists(Application.persistentDataPath 
                     + "/SwordsAndSoulsSave.dat"))
             {
@@ -71,12 +71,21 @@ namespace Downpour
                 Debug.Log("Loaded Data");
 
                 LoadEvent?.Invoke();
+
+                return true;
             } else {
                 Debug.Log("No Save Data Found");
+
+                return false;
             }
         }
 
         public void AutoSave() {
+            if(!(GameManager.Instance.CurrentGameState == GameManager.GameState.Gameplay)) {
+                // Save();
+                return;
+            }
+            
             if(RoomManager.Instance != null) {
                 RoomData r = new RoomData();
                 r.firstTimeKill = RoomManager.Instance.FirstTimeKill;
@@ -111,6 +120,16 @@ namespace Downpour
 
             GameData.PlayerHealth = Player.Instance.PlayerStatsController.getHealth();
 
+            Save();
+        }
+
+        public void FreshSave() {
+            GameData g = new GameData();
+            g.SpawnAreaName = "OuterCity";
+            g.SpawnRoomId = 0;
+            g.PlayerHealth = 100;
+            GameData = g;
+            Debug.Log(GameData.SpawnAreaName);
             Save();
         }
 
