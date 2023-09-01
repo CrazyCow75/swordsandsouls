@@ -119,6 +119,8 @@ namespace Downpour
                 GameData.EquippedCard3 = -1;
             }
 
+            GameData.CardLevels = Player.Instance.PlayerStatsController.CardLevels;
+
             GameData.PlayerHealth = Player.Instance.PlayerStatsController.getHealth();
 
             GameData.money = Player.Instance.PlayerStatsController.money;

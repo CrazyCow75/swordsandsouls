@@ -21,6 +21,6 @@ namespace Downpour
         //on reveal
         public abstract void onUse(Player player);
 
-        public abstract PlayerData.PlayerStats getPlayerStatBuffs(PlayerData.PlayerStats playerStats);
+        public abstract PlayerData.PlayerStats getPlayerStatBuffs(PlayerData.PlayerStats playerStats, int level);
     }
 }

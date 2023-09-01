@@ -21,6 +21,8 @@ namespace Downpour.Entity.Player
 
         public HashSet<int> UnlockedCards = new HashSet<int>();
 
+        public Dictionary<int, int> CardLevels = new Dictionary<int, int>();
+
         public Card[] cards;
 
         public bool Invincible;
@@ -98,7 +100,7 @@ namespace Downpour.Entity.Player
             for(int i = 0; i < cards.Length; i++) { // Update based on cards
                 Card c = cards[i];
                 if(c != null) {
-                    m_currentPlayerStats = c.getPlayerStatBuffs(m_currentPlayerStats);
+                    m_currentPlayerStats = c.getPlayerStatBuffs(m_currentPlayerStats, levelActual(getLevel(c.m_CardData.id)));
                 }
             }
             // TODO: Update based on beads, buffs/debuffs
@@ -109,6 +111,39 @@ namespace Downpour.Entity.Player
 
         public void _updatePermanentBuffs() {
             // TODO: check for movement abilities, health upgrades, lighter upgrades, ranged, melee upgrades, mana upgrade
+        }
+
+        public int getLevel(int id) {
+            int value = 0;
+            CardLevels.TryGetValue(id, out value);
+            return value;
+        }
+
+        public int levelActual(int value) {
+            if(value < 3) {
+                return 1;
+            }else if(value < 8) {
+                return 2;
+            } else if(value < 14) {
+                return 3;
+            } else if(value < 20) {
+                return 4;
+            } else {
+                return 5;
+            }
+        }
+
+        public void setLevel(int id, int i) {
+            try
+            {
+                CardLevels.Add(id, i);
+            }
+            catch (ArgumentException)
+            {
+                CardLevels[id] = i;
+            }
+
+            _updatePlayerStats();
         }
 
         public bool hasCardEquipped(Card c) {
@@ -156,7 +191,10 @@ namespace Downpour.Entity.Player
         }
 
         public void unlockCard(CardData c) {
+            
             UnlockedCards.Add(c.id);
+
+            setLevel(c.id, getLevel(c.id) + 1);
         }
 
         public void setHealth(int h) {

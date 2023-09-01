@@ -134,6 +134,8 @@ namespace Downpour
 
             p.money = g.money;
 
+            p.CardLevels = g.CardLevels;
+
             foreach(Transform t in SpawnPoints) {
                 if(t == null) {
                     Debug.Log(t);

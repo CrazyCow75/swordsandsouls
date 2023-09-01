@@ -19,7 +19,7 @@ namespace Downpour
 
         //dont think we need a reference to player here?
 
-        public override PlayerData.PlayerStats getPlayerStatBuffs(PlayerData.PlayerStats playerStats) {
+        public override PlayerData.PlayerStats getPlayerStatBuffs(PlayerData.PlayerStats playerStats, int level) {
             playerStats.MaxHealth += 50;
             return playerStats;
         }

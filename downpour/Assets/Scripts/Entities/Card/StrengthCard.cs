@@ -17,7 +17,7 @@ namespace Downpour
         public override void onUse(Player player) {
             return;
         }
-        public override PlayerData.PlayerStats getPlayerStatBuffs(PlayerData.PlayerStats playerStats) {
+        public override PlayerData.PlayerStats getPlayerStatBuffs(PlayerData.PlayerStats playerStats, int level) {
             playerStats.damageMultiplier *= 1.5f;
             return playerStats;
         }

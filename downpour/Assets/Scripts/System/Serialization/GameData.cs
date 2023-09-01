@@ -16,6 +16,7 @@ namespace Downpour
         public int EquippedCard1;
         public int EquippedCard2;
         public int EquippedCard3;
+        public Dictionary<int, int> CardLevels = new Dictionary<int, int>();
 
         public int PlayerHealth;
 

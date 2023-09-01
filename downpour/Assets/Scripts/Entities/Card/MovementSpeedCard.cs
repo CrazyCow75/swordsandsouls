@@ -20,7 +20,7 @@ namespace Downpour
         //dont think we need a reference to player here?
 
         //other note; im not using ur overriden method thing bc i think its handled differently for movement
-        public override PlayerData.PlayerStats getPlayerStatBuffs(PlayerData.PlayerStats playerStats) {
+        public override PlayerData.PlayerStats getPlayerStatBuffs(PlayerData.PlayerStats playerStats, int level) {
             if(Player.Instance.PlayerMovementController.Grounded)
                 playerStats.MoveSpeed *= 1.25f;
             return playerStats;
