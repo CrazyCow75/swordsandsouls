@@ -12,9 +12,15 @@ namespace Downpour
     {
         public CardUI[] cardUIs;
         public Image[] equipped;
+        public Image[] equippedBG;
+        public TextMeshProUGUI[] equippedLevel;
         public CardData[] cardDatas;
 
+        public Sprite[] cardBackgrounds;
+
         public Image cardImage;
+        public Image cardBg;
+        public TextMeshProUGUI cardLevel;
         public TextMeshProUGUI cardName;
         public TextMeshProUGUI cardDesc;
 
@@ -24,6 +30,19 @@ namespace Downpour
         private Player player;
 
         public GameObject inventoryDisplay;
+         public int getCardsReq(int value) {
+            if(value < 3) {
+                return 3;
+            }else if(value < 8) {
+                return 8;
+            } else if(value < 14) {
+                return 14;
+            } else if(value < 20) {
+                return 20;
+            } else {
+                return 20;
+            }
+        }
 
         public void onEquip() {
             player.PlayerStatsController.equipCard(selectedCard);
@@ -37,6 +56,12 @@ namespace Downpour
                 } else {
                     equipped[i].gameObject.SetActive(true);
                     equipped[i].sprite = c.m_CardData.image;
+
+                    equippedBG[i].sprite = cardBackgrounds
+                    [Player.Instance.PlayerStatsController.levelActual(Player.Instance.PlayerStatsController.getLevel(c.m_CardData.id)) - 1];
+
+                    equippedLevel[i].text = Player.Instance.PlayerStatsController.getLevel(c.m_CardData.id) + "/" + getCardsReq(Player.Instance.PlayerStatsController.getLevel(c.m_CardData.id));
+                
                 }
                 i++;
             }
@@ -65,13 +90,18 @@ namespace Downpour
                 
                 int i = 0;
 
-                foreach(Card c in player.PlayerStatsController.cards) {
+                 foreach(Card c in player.PlayerStatsController.cards) {
                     if(c == null) {
                         equipped[i].gameObject.SetActive(false);
                     } else {
                         equipped[i].gameObject.SetActive(true);
                         equipped[i].sprite = c.m_CardData.image;
-                        Debug.Log(equipped[i]);
+
+                        equippedBG[i].sprite = cardBackgrounds
+                        [Player.Instance.PlayerStatsController.levelActual(Player.Instance.PlayerStatsController.getLevel(c.m_CardData.id)) - 1];
+                        
+                        equippedLevel[i].text = Player.Instance.PlayerStatsController.getLevel(c.m_CardData.id) + "/" + getCardsReq(Player.Instance.PlayerStatsController.getLevel(c.m_CardData.id));
+                    
                     }
                     i++;
                 }
@@ -85,16 +115,21 @@ namespace Downpour
                 player = Player.Instance;
                 int i = 0;
 
-                foreach(Card c in player.PlayerStatsController.cards) {
-                    if(c == null) {
-                        equipped[i].gameObject.SetActive(false);
-                    } else {
-                        equipped[i].gameObject.SetActive(true);
-                        equipped[i].sprite = c.m_CardData.image;
-                        Debug.Log(equipped[i]);
+                 foreach(Card c in player.PlayerStatsController.cards) {
+                        if(c == null) {
+                            equipped[i].gameObject.SetActive(false);
+                        } else {
+                            equipped[i].gameObject.SetActive(true);
+                            equipped[i].sprite = c.m_CardData.image;
+
+                            equippedBG[i].sprite = cardBackgrounds
+                            [Player.Instance.PlayerStatsController.levelActual(Player.Instance.PlayerStatsController.getLevel(c.m_CardData.id)) - 1];
+                            
+                            equippedLevel[i].text = Player.Instance.PlayerStatsController.getLevel(c.m_CardData.id) + "/" + getCardsReq(Player.Instance.PlayerStatsController.getLevel(c.m_CardData.id));
+                        
+                        }
+                        i++;
                     }
-                    i++;
-                }
 
                 _onCardSelect(cardUIs[0].c);
             }
@@ -102,6 +137,12 @@ namespace Downpour
 
         private void _onCardSelect(Card c) {
             cardImage.sprite = c.m_CardData.image;
+
+            cardBg.sprite = cardBackgrounds
+                        [Player.Instance.PlayerStatsController.levelActual(Player.Instance.PlayerStatsController.getLevel(c.m_CardData.id)) - 1];
+                        
+            cardLevel.text = Player.Instance.PlayerStatsController.getLevel(c.m_CardData.id) + "/" + getCardsReq(Player.Instance.PlayerStatsController.getLevel(c.m_CardData.id));
+
             cardName.text = c.m_CardData.CardName;
             cardDesc.text = c.m_CardData.cardDesc;
             selectedCard = c;

@@ -16,7 +16,7 @@ namespace Downpour
             if(Player.Instance != null) {
                 //Debug.Log( Player.Instance.PlayerStatsController.getHealth() / (float)Player.Instance.PlayerStatsController.CurrentPlayerStats.MaxHealth) ;
                 healthBar.value = (float)(Player.Instance.PlayerStatsController.getHealth()) / Player.Instance.PlayerStatsController.CurrentPlayerStats.MaxHealth;
-                money.text = "$:" + Player.Instance.PlayerStatsController.money;
+                money.text = ": " + Player.Instance.PlayerStatsController.money;
             }
         }
     }
