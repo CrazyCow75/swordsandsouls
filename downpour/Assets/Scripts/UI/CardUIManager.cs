@@ -113,7 +113,7 @@ namespace Downpour
             cardUIs[0].c = new StrengthCard(cardDatas[0]);
             cardUIs[1].c = new MovementSpeedCard(cardDatas[1]);
             cardUIs[2].c = new SwingSpeedCard(cardDatas[2]);
-            cardUIs[3].c = new SwingSpeedCard(cardDatas[3]);
+            cardUIs[3].c = new HealthCard(cardDatas[3]);
         }
     }
 }

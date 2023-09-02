@@ -98,6 +98,7 @@ namespace Downpour
         }
 
         private void _handleLoadEvent() {
+            Debug.Log(gameObject.name);
             GameData g = DataManager.Instance.GameData;
 
             for(int i = 0; i < g.RoomDatas.Count; i++) {
@@ -139,8 +140,12 @@ namespace Downpour
             foreach(Transform t in SpawnPoints) {
                 if(t == null) {
                     Debug.Log(t);
+                    continue;
                 }
                 if(t.gameObject.name == SceneLoader.Instance.currentSceneTransitionData.spawnPoint) {
+                    if(SceneLoader.Instance.currentSceneTransitionData.spawnPoint == "RespawnPoint") {
+                        OnRest();
+                    }
                     Player.Instance.transform.position = t.position;
                 }
             }

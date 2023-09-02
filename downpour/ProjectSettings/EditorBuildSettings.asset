@@ -29,4 +29,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NeonCity/NeonCity2.unity
     guid: 2f21a71833cbbf148924c88bba98ba91
+  - enabled: 1
+    path: Assets/Scenes/NeonCity/NeonCity3.unity
+    guid: 045f51804647f924cae9d4840e12a279
+  - enabled: 1
+    path: Assets/Scenes/NeonCity/NeonCity4.unity
+    guid: 478ff08c17013b745a6b3c50133cb1fc
+  - enabled: 1
+    path: Assets/Scenes/NeonCity/NeonCity5.unity
+    guid: f330f01b1dd1e064fa896ffdb89673e1
+  - enabled: 1
+    path: Assets/Scenes/NeonCity/NeonCity6.unity
+    guid: cc726136569f9b141bf2858d6c4c66f3
   m_configObjects: {}

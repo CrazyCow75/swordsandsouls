@@ -95,6 +95,7 @@ namespace Downpour.Entity.Player
         }
 
         public PlayerData.PlayerStats _updatePlayerStats() {
+            Debug.Log("UPDATE");
             m_currentPlayerStats = _playerData.BasePlayerStats;
 
             for(int i = 0; i < cards.Length; i++) { // Update based on cards
@@ -104,7 +105,7 @@ namespace Downpour.Entity.Player
                 }
             }
             // TODO: Update based on beads, buffs/debuffs
-            _healthSystem.SetMaxHealth(CurrentPlayerStats.MaxHealth);
+            _healthSystem.SetMaxHealth(m_currentPlayerStats.MaxHealth);
 
             return m_currentPlayerStats;
         }
