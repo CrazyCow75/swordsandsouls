@@ -45,7 +45,7 @@ namespace Downpour
         public void Save() {
             BinaryFormatter bf = new BinaryFormatter(); 
         FileStream file = File.Create(Application.persistentDataPath 
-                    + "/SwordsAndSoulsSave.dat"); 
+                    + "/NeonBlackoutSave.dat"); 
 
             bf.Serialize(file, GameData);
             file.Close();
@@ -56,12 +56,12 @@ namespace Downpour
 
         public bool Load() {
             if (File.Exists(Application.persistentDataPath 
-                    + "/SwordsAndSoulsSave.dat"))
+                    + "/NeonBlackoutSave.dat"))
             {
                 BinaryFormatter bf = new BinaryFormatter();
                 FileStream file = 
                         File.Open(Application.persistentDataPath 
-                        + "/SwordsAndSoulsSave.dat", FileMode.Open);
+                        + "/NeonBlackoutSave.dat", FileMode.Open);
                 GameData data = (GameData)bf.Deserialize(file);
 
                 file.Close();
@@ -141,6 +141,10 @@ namespace Downpour
             g.EquippedCard1 = -1;
             g.EquippedCard2 = -1;
             g.EquippedCard3 = -1;
+            g.UnlockedCards.Add(0);
+            g.UnlockedCards.Add(1);
+            g.UnlockedCards.Add(2);
+            g.UnlockedCards.Add(3);
             Debug.Log(GameData.SpawnAreaName);
             Save();
         }

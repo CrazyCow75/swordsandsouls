@@ -22,19 +22,19 @@ namespace Downpour
         public override PlayerData.PlayerStats getPlayerStatBuffs(PlayerData.PlayerStats playerStats, int level) {
             switch(level) {
                 case 1:
-                    playerStats.MaxHealth += 20;
+                    playerStats.MaxHealth += 10;
                     break;
                 case 2:
-                    playerStats.MaxHealth += 50;
+                    playerStats.MaxHealth += 25;
                     break;
                 case 3:
-                    playerStats.MaxHealth += 75;
+                    playerStats.MaxHealth += 50;
                     break;
                 case 4:
-                    playerStats.MaxHealth += 100;
+                    playerStats.MaxHealth += 75;
                     break;
                 case 5:
-                    playerStats.MaxHealth += 125;
+                    playerStats.MaxHealth += 100;
                     break;
             }
             

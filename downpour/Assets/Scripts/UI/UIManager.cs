@@ -26,8 +26,9 @@ namespace Downpour.UI
         }
 
         private void _onOpenInventory(bool clicking) {
-            if(clicking) {
+            if(clicking && GameManager.Instance.CurrentGameState == GameManager.GameState.Gameplay) {
                 inventory.inventoryDisplay.SetActive(!inventory.inventoryDisplay.activeInHierarchy);
+                inventory.refresh();
             }
         }
 

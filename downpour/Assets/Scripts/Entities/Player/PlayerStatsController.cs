@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using Downpour.Combat;
 using Downpour;
+using Downpour.UI;
 using Downpour.Scenes;
 
 namespace Downpour.Entity.Player
@@ -197,6 +198,8 @@ namespace Downpour.Entity.Player
         public void unlockCard(CardData c) {
             
             UnlockedCards.Add(c.id);
+
+            UIManager.Instance.inventory.refresh();
 
             setLevel(c.id, getLevel(c.id) + 1);
         }

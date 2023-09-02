@@ -21,19 +21,19 @@ namespace Downpour
             Debug.Log(level);
             switch(level) {
                 case 1:
-                    playerStats.damageMultiplier *= 1.5f;
+                    playerStats.damageMultiplier *= 1.3f;
                     break;
                 case 2:
-                    playerStats.damageMultiplier *= 1.65f;
+                    playerStats.damageMultiplier *= 1.5f;
                     break;
                 case 3:
-                    playerStats.damageMultiplier *= 1.8f;
+                    playerStats.damageMultiplier *= 1.7f;
                     break;
                 case 4:
-                    playerStats.damageMultiplier *= 2f;
+                    playerStats.damageMultiplier *= 1.9f;
                     break;
                 case 5:
-                    playerStats.damageMultiplier *= 2.5f;
+                    playerStats.damageMultiplier *= 2.25f;
                     break;
             }
             return playerStats;

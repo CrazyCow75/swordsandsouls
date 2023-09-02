@@ -53,8 +53,12 @@ namespace Downpour
             foreach(Card c in player.PlayerStatsController.cards) {
                 if(c == null) {
                     equipped[i].gameObject.SetActive(false);
+                    equippedBG[i].gameObject.SetActive(false);
+                        equippedLevel[i].gameObject.SetActive(false);
                 } else {
-                    equipped[i].gameObject.SetActive(true);
+                        equippedBG[i].gameObject.SetActive(true);
+                        equippedLevel[i].gameObject.SetActive(true);
+                        equipped[i].gameObject.SetActive(true);
                     equipped[i].sprite = c.m_CardData.image;
 
                     equippedBG[i].sprite = cardBackgrounds
@@ -93,7 +97,11 @@ namespace Downpour
                  foreach(Card c in player.PlayerStatsController.cards) {
                     if(c == null) {
                         equipped[i].gameObject.SetActive(false);
+                        equippedBG[i].gameObject.SetActive(false);
+                        equippedLevel[i].gameObject.SetActive(false);
                     } else {
+                        equippedBG[i].gameObject.SetActive(true);
+                        equippedLevel[i].gameObject.SetActive(true);
                         equipped[i].gameObject.SetActive(true);
                         equipped[i].sprite = c.m_CardData.image;
 
@@ -118,7 +126,11 @@ namespace Downpour
                  foreach(Card c in player.PlayerStatsController.cards) {
                         if(c == null) {
                             equipped[i].gameObject.SetActive(false);
+                            equippedBG[i].gameObject.SetActive(false);
+                            equippedLevel[i].gameObject.SetActive(false);
                         } else {
+                            equippedBG[i].gameObject.SetActive(true);
+                            equippedLevel[i].gameObject.SetActive(true);
                             equipped[i].gameObject.SetActive(true);
                             equipped[i].sprite = c.m_CardData.image;
 
