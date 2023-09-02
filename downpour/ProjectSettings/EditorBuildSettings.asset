@@ -41,4 +41,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NeonCity/NeonCity6.unity
     guid: cc726136569f9b141bf2858d6c4c66f3
+  - enabled: 1
+    path: Assets/Scenes/NeonCity/NeonCity7.unity
+    guid: 5ffc985c66bf0d54da537dad75c8d4f9
+  - enabled: 1
+    path: Assets/Scenes/NeonCity/NeonCity8.unity
+    guid: b1da67a3676076b47ad000224290fcdb
   m_configObjects: {}

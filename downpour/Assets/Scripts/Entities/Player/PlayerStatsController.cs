@@ -31,6 +31,9 @@ namespace Downpour.Entity.Player
 
         public event Action RestEvent;
 
+        public int collectedCells;
+        public int currentCells;
+
         public int money;
 
         protected override void Awake() {

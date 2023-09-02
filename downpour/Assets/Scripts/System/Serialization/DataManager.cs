@@ -123,6 +123,10 @@ namespace Downpour
 
             GameData.PlayerHealth = Player.Instance.PlayerStatsController.getHealth();
 
+            GameData.collectedCells = Player.Instance.PlayerStatsController.collectedCells;
+            GameData.currentCells = Player.Instance.PlayerStatsController.currentCells;
+            
+
             GameData.money = Player.Instance.PlayerStatsController.money;
 
             Save();

@@ -23,6 +23,9 @@ namespace Downpour
         public string SpawnAreaName;
         public int SpawnRoomId;
 
+        public int currentCells;
+        public int collectedCells;
+
         public int money;
     }
 }

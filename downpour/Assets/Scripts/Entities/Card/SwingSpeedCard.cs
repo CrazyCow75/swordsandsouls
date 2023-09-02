@@ -17,8 +17,29 @@ namespace Downpour
             return;
         }
         public override PlayerData.PlayerStats getPlayerStatBuffs(PlayerData.PlayerStats playerStats, int level) {
-            playerStats.SlashSpeed *= 0.85f;
-            playerStats.SlashCooldown *= 0.85f;
+            switch(level) {
+                case 1:
+                    playerStats.SlashSpeed *= 0.9f;
+                    playerStats.SlashCooldown *= 0.9f;
+                    break;
+                case 2:
+                    playerStats.SlashSpeed *= 0.75f;
+                    playerStats.SlashCooldown *= 0.75f;
+                    break;
+                case 3:
+                    playerStats.SlashSpeed *= 0.6f;
+                    playerStats.SlashCooldown *= 0.6f;
+                    break;
+                case 4:
+                    playerStats.SlashSpeed *= 0.5f;
+                    playerStats.SlashCooldown *= 0.5f;
+                    break;
+                case 5:
+                    playerStats.SlashSpeed *= 0.4f;
+                    playerStats.SlashCooldown *= 0.4f;
+                    break;
+            }
+            
             return playerStats;
         }
     }

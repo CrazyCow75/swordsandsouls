@@ -29,6 +29,9 @@ namespace Downpour
 
         public SceneReference thisScene;
 
+        public bool[] Collected;
+        public Collectable[] Collectables;
+
         protected override void Awake() {
             base.Awake();
         }
@@ -53,6 +56,11 @@ namespace Downpour
 
             Looted = new bool[CoinPiles.Length];
 
+            Collectables = FindObjectsOfType<Collectable>() as Collectable[];
+            System.Array.Sort(Collectables, (a, b) => a.name.CompareTo(b.name));
+
+            Collected = new bool[Collectables.Length];
+
             foreach(Enemy e in Enemies) {
                 e.EnemyDeathEvent += _handleEnemyDeath;
             }
@@ -63,6 +71,10 @@ namespace Downpour
 
             foreach(Coins e in CoinPiles) {
                 e.CoinDeathEvent += _handleCoinDeath;
+            }
+
+            foreach(Collectable e in Collectables) {
+                e.CollectEvent += _handleCollectDeath;
             }
 
             DataManager.Instance.LoadEvent += _handleLoadEvent; // TODO move this to another script that is made for handeling loads
@@ -143,14 +155,15 @@ namespace Downpour
                     continue;
                 }
                 if(t.gameObject.name == SceneLoader.Instance.currentSceneTransitionData.spawnPoint) {
-                    if(SceneLoader.Instance.currentSceneTransitionData.spawnPoint == "RespawnPoint") {
-                        OnRest();
-                    }
+                   
                     Player.Instance.transform.position = t.position;
                 }
             }
 
             Player.Instance.PlayerStatsController.setHealth(g.PlayerHealth);
+
+            Player.Instance.PlayerStatsController.collectedCells = g.collectedCells;
+            Player.Instance.PlayerStatsController.currentCells = g.currentCells;
 
             for(int i = 0; i < BreakableWalls.Length; i++) {
                 if(Broken[i]) {
@@ -170,9 +183,19 @@ namespace Downpour
                 }
             }
 
+            for(int i = 0; i < Collectables.Length; i++) {
+                if(Collected[i]) {
+                    Destroy(Collectables[i].gameObject);
+                }
+            }
+
             UIManager.Instance.inventory.refresh();
 
             Player.Instance.PlayerStatsController._updatePlayerStats();
+
+             if(SceneLoader.Instance.currentSceneTransitionData.spawnPoint == "RespawnPoint") {
+                        OnRest();
+                    }
         }
 
         private void _handleEnemyDeath(Enemy e) {
@@ -234,6 +257,25 @@ namespace Downpour
 
                     Looted[i] = true;
                     Player.Instance.PlayerStatsController.money += 300;
+
+                    return;
+                }
+                i++;
+            }
+            
+        }
+
+        private void _handleCollectDeath(Collectable e) {
+            int i = 0;
+            foreach(Collectable _e in Collectables) {
+                if(_e == null) {
+                    i++;
+                    continue;
+                }
+                if(_e.gameObject.GetInstanceID() == e.gameObject.GetInstanceID()) {
+                    // Debug.Log("Found Enemy");
+
+                    Collected[i] = true;
 
                     return;
                 }

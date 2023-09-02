@@ -144,4 +144,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slashBox: {fileID: 4624762219082707006}
-  damage: 2
+  damage: 8
