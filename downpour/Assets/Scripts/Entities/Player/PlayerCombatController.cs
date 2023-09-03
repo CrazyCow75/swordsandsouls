@@ -90,7 +90,12 @@ namespace Downpour.Entity.Player
             _increaseSlashCombo();
             SlashComboCounter = _playerStatsController.CurrentPlayerStats.ComboTime;
 
-            SlashCooldownCounter = _playerStatsController.CurrentPlayerStats.SlashCooldown;
+            float cooldown = _playerStatsController.CurrentPlayerStats.SlashCooldown;
+            if(_playerStatsController.weapon.m_CardData.id == 5) {
+                cooldown = _playerStatsController.CurrentPlayerStats.DiffusionCooldown;
+            }
+
+            SlashCooldownCounter = cooldown;
             CanSlash = false;
 
             Collider2D[] hits = _checkSlashCollisions();
@@ -103,8 +108,13 @@ namespace Downpour.Entity.Player
                     }
                 }
             }
+
+            float speed = _playerStatsController.CurrentPlayerStats.SlashSpeed;
+            if(_playerStatsController.weapon.m_CardData.id == 5) {
+                speed = _playerStatsController.CurrentPlayerStats.DiffusionSpeed;
+            }
             
-            yield return new WaitForSeconds(_playerStatsController.CurrentPlayerStats.SlashSpeed);
+            yield return new WaitForSeconds(speed);
 
             FinishSlashEvent?.Invoke();
 
@@ -118,10 +128,21 @@ namespace Downpour.Entity.Player
         private Collider2D[] _checkSlashCollisions() {
             PlayerData.ColliderBounds _colliderBoundsSource = _playerMovementController.GetColliderBounds();
             Vector2 boundsPosition = (_playerMovementController.FacingDirection == 1 ? _colliderBoundsSource.slashRightRect.position : _colliderBoundsSource.slashLeftRect.position) * transform.localScale;
+            
+            if(_playerStatsController.weapon.m_CardData.id == 5) {
+                boundsPosition = (_playerMovementController.FacingDirection == 1 ? _colliderBoundsSource.diffusionRightRect.position : _colliderBoundsSource.diffusionLeftRect.position) * transform.localScale;
+            }
+
+            var size = (_playerMovementController.FacingDirection == 1 ? _colliderBoundsSource.slashRightRect.size : _colliderBoundsSource.slashLeftRect.size);
+
+            if(_playerStatsController.weapon.m_CardData.id == 5) {
+                size = (_playerMovementController.FacingDirection == 1 ? _colliderBoundsSource.diffusionRightRect.size : _colliderBoundsSource.diffusionLeftRect.size);
+            }
+            
             Vector2 charPosition = transform.position;
 
             return Physics2D.OverlapBoxAll(charPosition + boundsPosition,
-                (_playerMovementController.FacingDirection == 1 ? _colliderBoundsSource.slashRightRect.size : _colliderBoundsSource.slashLeftRect.size), 0, Layers.HittableLayer);
+                size, 0, Layers.HittableLayer);
         }
 
         private void _increaseSlashCombo() {

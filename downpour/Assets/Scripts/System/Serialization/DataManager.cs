@@ -152,6 +152,8 @@ namespace Downpour
             g.UnlockedCards.Add(2);
             g.UnlockedCards.Add(3);
             g.UnlockedCards.Add(4);
+
+            g.UnlockedCards.Add(5); // TEMP
             
             g.EquippedWeapon = 4;
             Debug.Log(GameData.SpawnAreaName);

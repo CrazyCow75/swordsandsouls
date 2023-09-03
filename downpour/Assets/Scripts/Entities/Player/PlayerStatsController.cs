@@ -214,11 +214,11 @@ namespace Downpour.Entity.Player
             UnlockedCards.Add(c.id);
             UIManager.Instance.inventory.refresh();
 
-            if(c.isWeapon) {
+            if(!c.isWeapon) {
 
-            
-
-            setLevel(c.id, getLevel(c.id) + 1);
+            if(getLevel(c.id) < 20) {
+                setLevel(c.id, getLevel(c.id) + 1);
+            }
 
             }
         }

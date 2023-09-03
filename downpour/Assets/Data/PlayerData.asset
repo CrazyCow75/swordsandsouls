@@ -28,16 +28,28 @@ MonoBehaviour:
       height: 0.15
     slashRightRect:
       serializedVersion: 2
-      x: 0.7
+      x: 0.75
       y: 0
       width: 0.7
       height: 1.5
     slashLeftRect:
       serializedVersion: 2
-      x: -0.7
+      x: -0.75
       y: 0
       width: 0.7
       height: 1.5
+    diffusionRightRect:
+      serializedVersion: 2
+      x: 0.9
+      y: 0.1
+      width: 2.1
+      height: 1
+    diffusionLeftRect:
+      serializedVersion: 2
+      x: -0.9
+      y: 0.1
+      width: 2.1
+      height: 1
     handRightRect:
       serializedVersion: 2
       x: 0.3
@@ -67,6 +79,10 @@ MonoBehaviour:
     SlashBufferTime: 0.25
     SlashKnockbackMultiplier: 3
     SlashKnockbackTime: 0.1
+    DiffusionSpeed: 0.3
+    DiffusionCooldown: 0.5
+    DiffusionKnockbackMultiplier: 0
+    DiffusionKnockbackTime: 0
     DashCooldown: 0.25
     DashSpeed: 15
     DashLength: 0.15

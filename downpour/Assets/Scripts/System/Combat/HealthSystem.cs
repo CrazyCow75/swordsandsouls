@@ -11,7 +11,7 @@ namespace Downpour.Combat
         [field: SerializeField] public bool HealthPointsAreTrueHitAmount { get; private set; }
         [field: SerializeField] public int CurrentHealthPoints { get; private set; }
 
-        [field: SerializeField] public bool Invincible { get; private set; }
+        [field: SerializeField] public bool Invincible;
 
         public event Action DeathEvent;
         public event Action<int> DamageEvent;

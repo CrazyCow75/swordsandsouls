@@ -300,7 +300,11 @@ namespace Downpour.Entity.Player
         }
 
         public override void PlayStateAnimation() {
-            _playerAnimationController.PlayAnimation(_playerAnimationController.SlashAnimationClip, _playerStatsController.CurrentPlayerStats.SlashSpeed);
+            if(_playerStatsController.weapon.m_CardData.id == 4) {
+                _playerAnimationController.PlayAnimation(_playerAnimationController.SlashAnimationClip, _playerStatsController.CurrentPlayerStats.SlashSpeed);
+            } else if (_playerStatsController.weapon.m_CardData.id == 5) {
+                _playerAnimationController.PlayAnimation(_playerAnimationController.DiffusionAnimationClip, _playerStatsController.CurrentPlayerStats.DiffusionSpeed);
+            }
         }
 
         private void _enterDefaultState() {

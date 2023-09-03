@@ -293,6 +293,8 @@ MonoBehaviour:
     <Clip>k__BackingField: Idle
   <SlashAnimationClip>k__BackingField:
     <Clip>k__BackingField: Slash
+  <DiffusionAnimationClip>k__BackingField:
+    <Clip>k__BackingField: Diffusion
   <DashAnimationClip>k__BackingField:
     <Clip>k__BackingField: Idle
 --- !u!114 &8582994930062142451
@@ -310,6 +312,9 @@ MonoBehaviour:
   Invincible: 0
   iframeTime: 0.2
   iframeCounter: 0
+  collectedCells: 0
+  currentCells: 0
+  money: 0
 --- !u!114 &3717422133346305259
 MonoBehaviour:
   m_ObjectHideFlags: 0

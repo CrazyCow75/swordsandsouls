@@ -17,6 +17,10 @@ namespace Downpour.Entity.Player
             public Rect feetRect;
             public Rect slashRightRect;
             public Rect slashLeftRect;
+
+            public Rect diffusionRightRect;
+            public Rect diffusionLeftRect;
+
             public Rect handRightRect;
             public Rect handLeftRect;
         }
@@ -43,6 +47,7 @@ namespace Downpour.Entity.Player
 
             // what's the 4 there for?? where are these variables getting initialized??
             public int SlashDamage => (int)(4 * damageMultiplier);
+            public int DiffusionDamage => (int)(6 * damageMultiplier);
             // [field: SerializeField, Range(0, 4)] public int SlashLevel;
             // [field: SerializeField] public int[] BaseSlashDamageValues { get; private set; }
             [field: SerializeField] public float SlashSpeed;
@@ -53,6 +58,12 @@ namespace Downpour.Entity.Player
 
             [field: SerializeField] public float SlashKnockbackMultiplier;
             [field: SerializeField] public float SlashKnockbackTime;
+
+            [field: SerializeField] public float DiffusionSpeed;
+            [field: SerializeField] public float DiffusionCooldown;
+
+            [field: SerializeField] public float DiffusionKnockbackMultiplier;
+            [field: SerializeField] public float DiffusionKnockbackTime;
 
             [field: SerializeField] public float DashCooldown;
             [field: SerializeField] public float DashSpeed;
