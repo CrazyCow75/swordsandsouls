@@ -76,7 +76,7 @@ namespace Downpour
             }
         }
 
-        public Vector2 GetSlashEffectPosition() {
+        public override Vector2 GetSlashEffectPosition() {
             return slashPosition.position;
         }
 

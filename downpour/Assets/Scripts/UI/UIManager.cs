@@ -16,6 +16,10 @@ namespace Downpour.UI
         public CardUIManager inventory;
         public GameObject HUD;
         public GameObject MainMenu;
+
+        public void Quit() {
+            Application.Quit();
+        }
         private void Start() {
             InputReader.Instance.OpenInventoryEvent += _onOpenInventory;
             GameManager.Instance.sceneLoaded += onInit;

@@ -222,8 +222,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 99/99
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d65c171d1bd3b6045a81f44045a45972, type: 2}
+  m_sharedMaterial: {fileID: 6577285529382628639, guid: d65c171d1bd3b6045a81f44045a45972, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -247,8 +247,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 11
+  m_fontSizeBase: 11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -359,6 +359,7 @@ MonoBehaviour:
   cardBackground: {fileID: 1338509075629076128}
   cardLevel: {fileID: 1746573868690225642}
   image: {fileID: 999149446398896498}
+  isWeapon: 0
 --- !u!114 &5186864288365132016
 MonoBehaviour:
   m_ObjectHideFlags: 0

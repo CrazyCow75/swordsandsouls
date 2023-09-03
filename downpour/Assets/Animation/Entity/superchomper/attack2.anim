@@ -31,7 +31,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.73333335
+        time: 0.8333333
         value: 6
         inSlope: 0
         outSlope: 0
@@ -40,7 +40,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.65
+        time: 1.7833333
         value: 6
         inSlope: 0
         outSlope: 0
@@ -70,7 +70,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.73333335
+        time: 0.8333333
         value: -0.5
         inSlope: 0
         outSlope: 0
@@ -79,7 +79,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.65
+        time: 1.7833333
         value: -0.5
         inSlope: 0
         outSlope: 0
@@ -146,57 +146,57 @@ AnimationClip:
       value: {fileID: 452389509, guid: 40d1d81678de78c43b9eb96faaa1310c, type: 3}
     - time: 0.5833333
       value: {fileID: 678541872, guid: 40d1d81678de78c43b9eb96faaa1310c, type: 3}
-    - time: 0.73333335
+    - time: 0.8333333
       value: {fileID: 1841880118, guid: 64666fbc150738b44ba6af4ff517f562, type: 3}
-    - time: 0.81666666
+    - time: 0.9166667
       value: {fileID: 575047406, guid: 64666fbc150738b44ba6af4ff517f562, type: 3}
-    - time: 0.9
+    - time: 1
       value: {fileID: -1576630455, guid: 64666fbc150738b44ba6af4ff517f562, type: 3}
-    - time: 0.98333335
+    - time: 1.0833334
       value: {fileID: 1755559905, guid: 64666fbc150738b44ba6af4ff517f562, type: 3}
-    - time: 1.0666667
+    - time: 1.1666666
       value: {fileID: 927057567, guid: 64666fbc150738b44ba6af4ff517f562, type: 3}
-    - time: 1.15
+    - time: 1.25
       value: {fileID: 927057567, guid: 64666fbc150738b44ba6af4ff517f562, type: 3}
-    - time: 1.2333333
+    - time: 1.3333334
       value: {fileID: 1666856286, guid: 40d1d81678de78c43b9eb96faaa1310c, type: 3}
-    - time: 1.3
+    - time: 1.4
       value: {fileID: -1953891995, guid: 40d1d81678de78c43b9eb96faaa1310c, type: 3}
-    - time: 1.3833333
+    - time: 1.4833333
       value: {fileID: 452389509, guid: 40d1d81678de78c43b9eb96faaa1310c, type: 3}
-    - time: 1.45
+    - time: 1.55
       value: {fileID: 678541872, guid: 40d1d81678de78c43b9eb96faaa1310c, type: 3}
-    - time: 1.65
+    - time: 1.7833333
       value: {fileID: 1841880118, guid: 64666fbc150738b44ba6af4ff517f562, type: 3}
-    - time: 1.7333333
+    - time: 1.8666667
       value: {fileID: 575047406, guid: 64666fbc150738b44ba6af4ff517f562, type: 3}
-    - time: 1.8166667
+    - time: 1.95
       value: {fileID: -1576630455, guid: 64666fbc150738b44ba6af4ff517f562, type: 3}
-    - time: 1.9
+    - time: 2.0333333
       value: {fileID: 1755559905, guid: 64666fbc150738b44ba6af4ff517f562, type: 3}
-    - time: 2
+    - time: 2.1333334
       value: {fileID: 927057567, guid: 64666fbc150738b44ba6af4ff517f562, type: 3}
-    - time: 2.0833333
+    - time: 2.2166667
       value: {fileID: -73859123, guid: 40d1d81678de78c43b9eb96faaa1310c, type: 3}
-    - time: 2.15
+    - time: 2.2833333
       value: {fileID: 1666856286, guid: 40d1d81678de78c43b9eb96faaa1310c, type: 3}
-    - time: 2.2333333
-      value: {fileID: -1953891995, guid: 40d1d81678de78c43b9eb96faaa1310c, type: 3}
-    - time: 2.3
-      value: {fileID: 452389509, guid: 40d1d81678de78c43b9eb96faaa1310c, type: 3}
     - time: 2.3666666
+      value: {fileID: -1953891995, guid: 40d1d81678de78c43b9eb96faaa1310c, type: 3}
+    - time: 2.4333334
+      value: {fileID: 452389509, guid: 40d1d81678de78c43b9eb96faaa1310c, type: 3}
+    - time: 2.5
       value: {fileID: 678541872, guid: 40d1d81678de78c43b9eb96faaa1310c, type: 3}
-    - time: 2.5833333
+    - time: 2.7833333
       value: {fileID: 1841880118, guid: 64666fbc150738b44ba6af4ff517f562, type: 3}
-    - time: 2.6666667
+    - time: 2.8666666
       value: {fileID: 575047406, guid: 64666fbc150738b44ba6af4ff517f562, type: 3}
-    - time: 2.75
+    - time: 2.95
       value: {fileID: -1576630455, guid: 64666fbc150738b44ba6af4ff517f562, type: 3}
-    - time: 2.8333333
+    - time: 3.0333333
       value: {fileID: 1755559905, guid: 64666fbc150738b44ba6af4ff517f562, type: 3}
-    - time: 2.9166667
+    - time: 3.1166666
       value: {fileID: 927057567, guid: 64666fbc150738b44ba6af4ff517f562, type: 3}
-    - time: 3
+    - time: 3.2
       value: {fileID: 927057567, guid: 64666fbc150738b44ba6af4ff517f562, type: 3}
     attribute: m_Sprite
     path: 
@@ -287,7 +287,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 3.0166667
+    m_StopTime: 3.2166667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -317,7 +317,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.73333335
+        time: 0.8333333
         value: 6
         inSlope: 0
         outSlope: 0
@@ -326,7 +326,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.65
+        time: 1.7833333
         value: 6
         inSlope: 0
         outSlope: 0
@@ -356,7 +356,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.73333335
+        time: 0.8333333
         value: -0.5
         inSlope: 0
         outSlope: 0
@@ -365,7 +365,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.65
+        time: 1.7833333
         value: -0.5
         inSlope: 0
         outSlope: 0
@@ -429,49 +429,49 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.73333335
+  - time: 0.8333333
     functionName: bite2
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.15
+  - time: 1.25
     functionName: startTrack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.5333333
+  - time: 1.6333333
     functionName: stopTrack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.65
+  - time: 1.7833333
     functionName: bite2
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.0833333
+  - time: 2.2166667
     functionName: startTrack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.45
+  - time: 2.6166666
     functionName: stopTrack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.5833333
+  - time: 2.7833333
     functionName: bite2
     data: 
     objectReferenceParameter: {fileID: 0}

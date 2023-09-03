@@ -43,7 +43,7 @@ namespace Downpour.Entity.Enemy
             _knockbackCounter = _knockbackTime;
         }
 
-        public Vector2 GetSlashEffectPosition() {
+        public virtual Vector2 GetSlashEffectPosition() {
             return transform.position;
         }
 
