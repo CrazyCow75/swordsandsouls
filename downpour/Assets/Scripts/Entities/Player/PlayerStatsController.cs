@@ -26,6 +26,8 @@ namespace Downpour.Entity.Player
 
         public Card[] cards;
 
+        public Card weapon;
+
         public bool Invincible;
         public float iframeTime;
         public float iframeCounter;
@@ -166,42 +168,59 @@ namespace Downpour.Entity.Player
         }
 
         public void equipCard(Card c) {
-            for(int i = 0; i < cards.Length; i++) {
-                if(cards[i] == null) {
-                    continue;
+            if(!c.m_CardData.isWeapon) {
+                for(int i = 0; i < cards.Length; i++) {
+                    if(cards[i] == null) {
+                        continue;
+                    }
+
+                    if(cards[i].m_CardData.id == c.m_CardData.id) { // unequips
+                        cards[i] = null;
+                        _updatePlayerStats();
+                        return;
+                    }
                 }
 
-                if(cards[i].m_CardData.id == c.m_CardData.id) { // unequips
-                    cards[i] = null;
-                    _updatePlayerStats();
+                if(!UnlockedCards.Contains(c.m_CardData.id)) {
                     return;
                 }
-            }
 
-            if(!UnlockedCards.Contains(c.m_CardData.id)) {
-                return;
-            }
-
-             for(int i = 0; i < cards.Length; i++) {
-                if(cards[i] == null) {
-                    
-                    cards[i] = c;
-                    Debug.Log(i);
-                    _updatePlayerStats();
+                for(int i = 0; i < cards.Length; i++) {
+                    if(cards[i] == null) {
+                        
+                        cards[i] = c;
+                        //Debug.Log(i);
+                        _updatePlayerStats();
+                        return;
+                    }
+                }
+            } else {
+                if(!UnlockedCards.Contains(c.m_CardData.id)) {
                     return;
                 }
-            }
 
-            
+                weapon = c;
+                        //Debug.Log(i);
+                        _updatePlayerStats();
+                        return;
+                
+            }
         }
+            
+        
 
         public void unlockCard(CardData c) {
             
             UnlockedCards.Add(c.id);
-
             UIManager.Instance.inventory.refresh();
 
+            if(c.isWeapon) {
+
+            
+
             setLevel(c.id, getLevel(c.id) + 1);
+
+            }
         }
 
         public void setHealth(int h) {

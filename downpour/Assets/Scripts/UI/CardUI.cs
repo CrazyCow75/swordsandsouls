@@ -21,6 +21,8 @@ namespace Downpour
         public TextMeshProUGUI cardLevel;
         public Image image;
 
+        public bool isWeapon = false;
+
         private void Awake() {
             _originalScale = transform.localScale;
         }
@@ -28,11 +30,11 @@ namespace Downpour
         private void Update() {
             if(c!=null) {
 
-
+                if(!isWeapon) {
                 cardBackground.sprite = cardBackgrounds
                     [Player.Instance.PlayerStatsController.levelActual(Player.Instance.PlayerStatsController.getLevel(c.m_CardData.id)) - 1];
                 cardLevel.text = Player.Instance.PlayerStatsController.getLevel(c.m_CardData.id) + "/" + getCardsReq(Player.Instance.PlayerStatsController.getLevel(c.m_CardData.id));
-                
+                }
                 image.sprite = c.m_CardData.image;
             }
         }
@@ -52,6 +54,7 @@ namespace Downpour
         }
 
         public void onClick() {
+            //Debug.Log("Click Invoked");
             OnClick?.Invoke(c);
         }
 

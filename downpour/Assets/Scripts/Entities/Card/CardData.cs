@@ -11,6 +11,8 @@ namespace Downpour
         public int id;
         public Sprite image;
 
+        public bool isWeapon = false;
+
         public string cardDesc;
     }
 }

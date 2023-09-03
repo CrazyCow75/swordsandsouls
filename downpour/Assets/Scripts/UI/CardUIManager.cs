@@ -24,6 +24,10 @@ namespace Downpour
         public TextMeshProUGUI cardName;
         public TextMeshProUGUI cardDesc;
 
+        public Image equippedWeapon;
+        //public Image[] unlockedWeapons;
+        public Image weaponBackground;
+
         public TextMeshProUGUI equipText;
         private Card selectedCard;
 
@@ -48,13 +52,15 @@ namespace Downpour
             player.PlayerStatsController.equipCard(selectedCard);
             _onCardSelect(selectedCard);
 
+            Debug.Log("Equipped Weapon:" +  player.PlayerStatsController.weapon);
+
             int i = 0;
 
             foreach(Card c in player.PlayerStatsController.cards) {
                 if(c == null) {
                     equipped[i].gameObject.SetActive(false);
                     equippedBG[i].gameObject.SetActive(false);
-                        equippedLevel[i].gameObject.SetActive(false);
+                    equippedLevel[i].gameObject.SetActive(false);
                 } else {
                         equippedBG[i].gameObject.SetActive(true);
                         equippedLevel[i].gameObject.SetActive(true);
@@ -69,6 +75,10 @@ namespace Downpour
                 }
                 i++;
             }
+            if(!(player.PlayerStatsController.weapon == null))
+                    equippedWeapon.sprite = player.PlayerStatsController.weapon.m_CardData.image;
+
+            Debug.Log(player.PlayerStatsController.weapon.m_CardData.image);
         }
         private void Awake() {
             foreach(CardUI c in cardUIs) {
@@ -113,6 +123,8 @@ namespace Downpour
                     }
                     i++;
                 }
+                if(!(player.PlayerStatsController.weapon == null))
+                    equippedWeapon.sprite = player.PlayerStatsController.weapon.m_CardData.image;
 
                 _onCardSelect(cardUIs[0].c);
             }
@@ -143,23 +155,36 @@ namespace Downpour
                         i++;
                     }
 
+                    if(!(player.PlayerStatsController.weapon == null))
+                        equippedWeapon.sprite = player.PlayerStatsController.weapon.m_CardData.image;
+
                 _onCardSelect(cardUIs[0].c);
             }
         }
 
         private void _onCardSelect(Card c) {
+        
             cardImage.sprite = c.m_CardData.image;
+            //Debug.Log(c);
+
+            if(!c.m_CardData.isWeapon) {
 
             cardBg.sprite = cardBackgrounds
                         [Player.Instance.PlayerStatsController.levelActual(Player.Instance.PlayerStatsController.getLevel(c.m_CardData.id)) - 1];
                         
             cardLevel.text = Player.Instance.PlayerStatsController.getLevel(c.m_CardData.id) + "/" + getCardsReq(Player.Instance.PlayerStatsController.getLevel(c.m_CardData.id));
-
+            } else {
+                cardBg.sprite = weaponBackground.sprite;
+                cardLevel.text = "";
+            }
             cardName.text = c.m_CardData.CardName;
             cardDesc.text = c.m_CardData.cardDesc;
             selectedCard = c;
-            
-            equipText.text = player.PlayerStatsController.hasCardEquipped(c) ? "UNEQUIP" : "EQUIP";
+            if(!c.m_CardData.isWeapon) {
+                equipText.text = player.PlayerStatsController.hasCardEquipped(c) ? "UNEQUIP" : "EQUIP";
+            } else {
+                equipText.text = "EQUIP";
+            }
         }
 
         private void registerCards() {
@@ -167,6 +192,9 @@ namespace Downpour
             cardUIs[1].c = new MovementSpeedCard(cardDatas[1]);
             cardUIs[2].c = new SwingSpeedCard(cardDatas[2]);
             cardUIs[3].c = new HealthCard(cardDatas[3]);
+
+            cardUIs[4].c = new HealthCard(cardDatas[4]);
+            cardUIs[5].c = new HealthCard(cardDatas[5]);
         }
     }
 }

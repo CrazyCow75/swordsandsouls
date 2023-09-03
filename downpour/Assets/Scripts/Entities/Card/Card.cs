@@ -22,5 +22,9 @@ namespace Downpour
         public abstract void onUse(Player player);
 
         public abstract PlayerData.PlayerStats getPlayerStatBuffs(PlayerData.PlayerStats playerStats, int level);
+
+        public virtual void onWeaponUse(Player player, PlayerCombatController playerCombatController) {
+            
+        }
     }
 }

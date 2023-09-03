@@ -119,6 +119,12 @@ namespace Downpour
                 GameData.EquippedCard3 = -1;
             }
 
+            if(Player.Instance.PlayerStatsController.weapon != null) {
+                GameData.EquippedWeapon = Player.Instance.PlayerStatsController.weapon.m_CardData.id;
+            } else {
+                GameData.EquippedWeapon = -1;
+            }
+
             GameData.CardLevels = Player.Instance.PlayerStatsController.CardLevels;
 
             GameData.PlayerHealth = Player.Instance.PlayerStatsController.getHealth();
@@ -145,6 +151,9 @@ namespace Downpour
             g.UnlockedCards.Add(1);
             g.UnlockedCards.Add(2);
             g.UnlockedCards.Add(3);
+            g.UnlockedCards.Add(4);
+            
+            g.EquippedWeapon = 4;
             Debug.Log(GameData.SpawnAreaName);
             Save();
         }

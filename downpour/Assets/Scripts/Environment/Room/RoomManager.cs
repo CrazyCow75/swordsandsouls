@@ -143,6 +143,13 @@ namespace Downpour
                 if(c.c.m_CardData.id == g.EquippedCard3) {
                     p.cards[2] = c.c;
                 }
+
+                Debug.Log(c.c.m_CardData.id);
+
+                if(c.c.m_CardData.id == g.EquippedWeapon) {
+                    Debug.Log("FOUND WEAPON");
+                    p.weapon = c.c;
+                }
             }
 
             p.money = g.money;
