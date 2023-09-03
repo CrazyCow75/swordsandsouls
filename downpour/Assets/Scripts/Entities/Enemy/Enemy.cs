@@ -88,5 +88,9 @@ namespace Downpour.Entity.Enemy
         public virtual void OnUpdate() {
 
         }
+
+        public float getHealth() {
+            return _healthSystem.CurrentHealthPoints;
+        }
     }
 }

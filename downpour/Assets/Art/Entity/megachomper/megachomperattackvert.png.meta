@@ -123,7 +123,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1080
+        y: 720
         width: 640
         height: 360
       alignment: 0
@@ -144,7 +144,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 640
-        y: 1080
+        y: 720
         width: 640
         height: 360
       alignment: 0
@@ -165,7 +165,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1280
-        y: 1080
+        y: 720
         width: 640
         height: 360
       alignment: 0
@@ -185,8 +185,8 @@ TextureImporter:
       name: megachomperattackvert_3
       rect:
         serializedVersion: 2
-        x: 1920
-        y: 1080
+        x: 0
+        y: 360
         width: 640
         height: 360
       alignment: 0
@@ -206,8 +206,8 @@ TextureImporter:
       name: megachomperattackvert_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 720
+        x: 640
+        y: 360
         width: 640
         height: 360
       alignment: 0
@@ -227,8 +227,8 @@ TextureImporter:
       name: megachomperattackvert_5
       rect:
         serializedVersion: 2
-        x: 640
-        y: 720
+        x: 1280
+        y: 360
         width: 640
         height: 360
       alignment: 0
@@ -248,8 +248,8 @@ TextureImporter:
       name: megachomperattackvert_6
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 720
+        x: 0
+        y: 0
         width: 640
         height: 360
       alignment: 0
@@ -269,8 +269,8 @@ TextureImporter:
       name: megachomperattackvert_7
       rect:
         serializedVersion: 2
-        x: 1920
-        y: 720
+        x: 640
+        y: 0
         width: 640
         height: 360
       alignment: 0
@@ -290,8 +290,8 @@ TextureImporter:
       name: megachomperattackvert_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 360
+        x: 1280
+        y: 0
         width: 640
         height: 360
       alignment: 0
@@ -303,111 +303,6 @@ TextureImporter:
       bones: []
       spriteID: 649c697bebc15c54a993a6622d6c7fdd
       internalID: 678541872
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: megachomperattackvert_9
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 360
-        width: 640
-        height: 360
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 552939f30444fa14883ab017cf1d0799
-      internalID: -877121491
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: megachomperattackvert_10
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 360
-        width: 640
-        height: 360
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a4e9b2135c8bee04c91a1ff8dd618cae
-      internalID: 506481606
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: megachomperattackvert_11
-      rect:
-        serializedVersion: 2
-        x: 1920
-        y: 360
-        width: 640
-        height: 360
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f5f45b11b89627f488edfddf2015fbbe
-      internalID: -401534542
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: megachomperattackvert_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 640
-        height: 360
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6cd96ec0d3eff504ebea081f64f78c8a
-      internalID: 1963855443
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: megachomperattackvert_13
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 640
-        height: 360
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 27419ec0637e84c40a25c8433d6899ac
-      internalID: -1151382353
       vertices: []
       indices: 
       edges: []
@@ -425,10 +320,6 @@ TextureImporter:
     nameFileIdTable:
       megachomperattackvert_0: 963835742
       megachomperattackvert_1: -1150209526
-      megachomperattackvert_10: 506481606
-      megachomperattackvert_11: -401534542
-      megachomperattackvert_12: 1963855443
-      megachomperattackvert_13: -1151382353
       megachomperattackvert_2: 1840885723
       megachomperattackvert_3: 1163118560
       megachomperattackvert_4: -73859123
@@ -436,7 +327,6 @@ TextureImporter:
       megachomperattackvert_6: -1953891995
       megachomperattackvert_7: 452389509
       megachomperattackvert_8: 678541872
-      megachomperattackvert_9: -877121491
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
