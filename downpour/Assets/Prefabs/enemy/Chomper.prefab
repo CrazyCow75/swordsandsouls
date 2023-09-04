@@ -242,7 +242,7 @@ MonoBehaviour:
   <MaxHealthPoints>k__BackingField: 20
   <HealthPointsAreTrueHitAmount>k__BackingField: 0
   <CurrentHealthPoints>k__BackingField: 0
-  <Invincible>k__BackingField: 0
+  Invincible: 0
 --- !u!95 &1429485162666391070
 Animator:
   serializedVersion: 5
@@ -355,6 +355,11 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 0
     m_RotationOrder: 4
+  attackCounter: 0
+  idleCounter: 0
+  idleTime: 1
+  attackTime: 1
+  canDamagePlayer: 0
 --- !u!1 &7590460403164037970
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,13 @@ namespace Downpour
         private Vector3 originalPosition;
         public AnimationCurve bounceCurve;
 
+        [SerializeField] private float attackCounter;
+        [SerializeField] private float idleCounter;
+
+        public float idleTime;
+        public float attackTime;
+        public bool canDamagePlayer;
+
         private void Start() {
             originalPosition = transform.position;
         }
@@ -23,18 +30,31 @@ namespace Downpour
         {
             if(!detectedPlayer) {
                 return;
-            } else {
-                Collider2D c = Physics2D.OverlapCircle(transform.position, detectRad, Layers.PlayerLayer);
-                if(c == null) {
-                    detectedPlayer = false;
-                    animator.SetBool("attacking", false);
-
-                    transform.position = originalPosition;
-                }
             }
 
-            if(detectedPlayer) {
+            // if(detectedPlayer) {
+            //     animator.SetBool("attacking", true);
+            // }
+
+            if(idleCounter > 0f) {
+                idleCounter -= Time.deltaTime;
+                transform.position = originalPosition;
+                animator.SetBool("attacking", false);
+                return;
+            }
+            if(attackCounter > 0f) {
+                attackCounter -= Time.deltaTime;
                 animator.SetBool("attacking", true);
+                return;
+            }
+
+            if(canDamagePlayer) {
+                idleCounter = idleTime;
+                canDamagePlayer = false;
+                transform.rotation = Quaternion.identity;
+            } else {
+                attackCounter = attackTime;
+                canDamagePlayer = true;
             }
         }
 

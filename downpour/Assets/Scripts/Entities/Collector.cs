@@ -12,10 +12,10 @@ namespace Downpour
         public GameObject bingoBananza;
 
         public void OnInteract(Player player) {
-            int collected = player.PlayerStatsController.currentCells  - 1;
+            int collected = player.PlayerStatsController.currentCells;
             int floor = player.PlayerStatsController.collectedCells;
 
-            if(collected == -1) {
+            if(collected == 0) {
                 return;
             } else {
                 int index = floor;
