@@ -39,18 +39,21 @@ namespace Downpour
                 transform.Rotate(new Vector3(0, -90, 0), Space.Self);
             }
             if(canDamagePlayer) {
-                Collider2D c = Physics2D.OverlapBox(hitArea.offset * transform.localScale.x + (Vector2)(hitArea.transform.position), hitArea.size, 0f, Layers.PlayerLayer);
-
-                if(c!=null) {
-                    if(c.transform.TryGetComponent(out Player player)) {
-                        player.PlayerStatsController.TakeDamage(damage);
-                    }
-                }
+                
 
                 
                 if(!(windupCounter > 0f)) {
+                    Collider2D c = Physics2D.OverlapBox(hitArea.offset * transform.localScale.x + (Vector2)(hitArea.transform.position), hitArea.size, 0f, Layers.PlayerLayer);
+
+                    if(c!=null) {
+                        if(c.transform.TryGetComponent(out Player player)) {
+                            player.PlayerStatsController.TakeDamage(damage);
+                        }
+                    }
                     
                     _velocity = (Vector2)transform.right * speed;
+
+                    
                 }
             }
             if(idleCounter > 0f) {

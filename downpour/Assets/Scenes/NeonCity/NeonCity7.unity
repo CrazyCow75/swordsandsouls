@@ -27851,7 +27851,7 @@ PrefabInstance:
       objectReference: {fileID: 102900000, guid: 5ffc985c66bf0d54da537dad75c8d4f9, type: 3}
     - target: {fileID: 5528121991692423114, guid: c04493ed909c9d04fa8cccc052d379ea, type: 3}
       propertyPath: SpawnPoints.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5528121991692423114, guid: c04493ed909c9d04fa8cccc052d379ea, type: 3}
       propertyPath: <AreaName>k__BackingField
@@ -27865,6 +27865,10 @@ PrefabInstance:
       propertyPath: SpawnPoints.Array.data[1]
       value: 
       objectReference: {fileID: 546886618}
+    - target: {fileID: 5528121991692423114, guid: c04493ed909c9d04fa8cccc052d379ea, type: 3}
+      propertyPath: SpawnPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 654074294}
     - target: {fileID: 5528121991692423114, guid: c04493ed909c9d04fa8cccc052d379ea, type: 3}
       propertyPath: <RoomNumber>k__BackingField
       value: 7
