@@ -18,6 +18,8 @@ namespace Downpour
         [SerializeField] private float attackCounter;
         [SerializeField] private float idleCounter;
 
+        public bool toxic = false;
+
         public float idleTime;
         public float attackTime;
         public bool canDamagePlayer;
@@ -44,7 +46,7 @@ namespace Downpour
             }
             if(attackCounter > 0f) {
                 attackCounter -= Time.deltaTime;
-                animator.SetBool("attacking", true);
+                
                 return;
             }
 
@@ -55,6 +57,19 @@ namespace Downpour
             } else {
                 attackCounter = attackTime;
                 canDamagePlayer = true;
+                
+                
+
+                if(toxic) {
+                    if(Random.Range(0, 2) == 1) {
+                        animator.SetBool("attacking", false);
+                        animator.SetTrigger("blast");
+                    } else {
+                        animator.SetBool("attacking", true);
+                    }
+                } else {
+                    animator.SetBool("attacking", true);
+                }
             }
         }
 
