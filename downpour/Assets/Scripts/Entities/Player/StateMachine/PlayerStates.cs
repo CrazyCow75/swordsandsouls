@@ -155,7 +155,7 @@ namespace Downpour.Entity.Player
             _playerMovementController.setVelocity(_velocity);
             _playerMovementController.ResetCoyoteTime();
 
-            if(_playerMovementController.rbVelocityY <= 0) {
+            if(_playerMovementController.rbVelocityY < 0) {
                 _psm.ChangeState(_psm.FallState);
             }
             if(_psm.EnterFallState()) {
@@ -310,7 +310,7 @@ namespace Downpour.Entity.Player
         private void _enterDefaultState() {
             _playerCombatController.FinishSlashEvent -= _enterDefaultState;
             _playerCombatController.HitEvent -= _triggerKnockback;
-            if(_playerMovementController.rbVelocityY > 0f) {
+            if(_playerMovementController.rbVelocityY > 0f && !(_psm.JumpState.JumpStateJumpLogicHandler.getJumpTime() < _playerStatsController.CurrentPlayerStats.MinJumpTime)) {
                 _psm.ChangeState(_psm.JumpState);
                 return;
             }

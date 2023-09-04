@@ -123,7 +123,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7989751792294504421}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -141,7 +141,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!61 &6280108326273888841
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   <MaxHealthPoints>k__BackingField: 30
   <HealthPointsAreTrueHitAmount>k__BackingField: 0
   <CurrentHealthPoints>k__BackingField: 0
-  <Invincible>k__BackingField: 0
+  Invincible: 0
 --- !u!212 &3588595365938825433
 SpriteRenderer:
   m_ObjectHideFlags: 0

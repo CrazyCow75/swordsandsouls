@@ -81,6 +81,8 @@ namespace Downpour.Entity.Player
         }
 
         public bool EnterDashState() {
+            //Debug.Log("ENTER DASH STATE");
+
             if(!Player.PlayerMovementController.DesiredDash || !Player.PlayerMovementController.CanDash) {
                 return false;
             }

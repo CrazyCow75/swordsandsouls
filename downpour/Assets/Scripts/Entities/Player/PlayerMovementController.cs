@@ -62,7 +62,7 @@ namespace Downpour.Entity.Player {
 
         public bool DesiredDash { get; private set; }
         public float DashCooldownCounter { get; private set; }
-        public bool CanDash { get; private set; }
+        [field: SerializeField] public bool CanDash { get; private set; }
 
         public float DashBufferCounter { get; private set; }
         private bool _dashBuffered;
