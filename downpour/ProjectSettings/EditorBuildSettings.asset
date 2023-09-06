@@ -68,4 +68,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Junkyard/Junkyard0.unity
     guid: ec84a8266394bbc4097d10058bdfcf0f
+  - enabled: 1
+    path: Assets/Scenes/Junkyard/Junkyard1.unity
+    guid: 18ce9fa60444b1347bf788189442c3f4
+  - enabled: 1
+    path: Assets/Scenes/Junkyard/Junkyard2.unity
+    guid: 4cf7c78b92e1b9e49ab68bd4decf06b2
   m_configObjects: {}
