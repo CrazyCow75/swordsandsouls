@@ -195,6 +195,11 @@ namespace Downpour
 
             cardUIs[4].c = new HealthCard(cardDatas[4]);
             cardUIs[5].c = new HealthCard(cardDatas[5]);
+
+            cardUIs[6].c = new CritCard(cardDatas[6]);
+            cardUIs[7].c = new DodgeCard(cardDatas[7]);
+            cardUIs[8].c = new RevengeCard(cardDatas[8]);
+            cardUIs[9].c = new DefenseCard(cardDatas[9]);
         }
     }
 }

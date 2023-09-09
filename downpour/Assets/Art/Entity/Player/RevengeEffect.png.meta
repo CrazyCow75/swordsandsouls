@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0ced0e79f9d0ff3449c70ff0dbbbaed1
+guid: 346ebe0671a61df458bcf5d8148e375a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -131,232 +131,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: skeleboneshooter_0
+      name: RevengeEffect_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d8e8829e8ff7ee48b95d214b6dc79a6
+      internalID: -1648495022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevengeEffect_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d85f8bc127ecc364bbb382cf39cf2a92
+      internalID: 483190343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevengeEffect_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c52c86a2f7f2f3d4297f222e0e7e69e8
+      internalID: 784987905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevengeEffect_3
       rect:
         serializedVersion: 2
         x: 0
         y: 128
-        width: 256
-        height: 64
-      alignment: 9
-      pivot: {x: 0.85, y: 0.5}
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 773244269eb552f4698c501ffc8e7571
-      internalID: -2005072205
+      spriteID: 2fd00dc417367534ab3147bf6f775acf
+      internalID: 692337015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: skeleboneshooter_1
+      name: RevengeEffect_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 222b3f5210fcf7d40a31586987f605a1
+      internalID: 996217643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RevengeEffect_5
       rect:
         serializedVersion: 2
         x: 256
         y: 128
-        width: 256
-        height: 64
-      alignment: 9
-      pivot: {x: 0.85, y: 0.5}
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3c62d3b061609b4cb9e299d3ceb7ad7
-      internalID: -1977812733
+      spriteID: ef2c68fed5dd28a45a6b6358ca6f8443
+      internalID: -354009538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: skeleboneshooter_2
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 128
-        width: 256
-        height: 64
-      alignment: 9
-      pivot: {x: 0.85, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 01425adf309972543b4136c15dad7ff2
-      internalID: -1787145631
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: skeleboneshooter_3
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 128
-        width: 256
-        height: 64
-      alignment: 9
-      pivot: {x: 0.85, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4e34f6581a281a84e841065557497a2e
-      internalID: -1822016442
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: skeleboneshooter_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 256
-        height: 64
-      alignment: 9
-      pivot: {x: 0.85, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f4b5df56306724149a2ef77c8506e449
-      internalID: 174173901
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: skeleboneshooter_5
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 64
-        width: 256
-        height: 64
-      alignment: 9
-      pivot: {x: 0.85, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1423027f768b8f14b8785d05b1953d32
-      internalID: -202645362
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: skeleboneshooter_6
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 64
-        width: 256
-        height: 64
-      alignment: 9
-      pivot: {x: 0.85, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5e13e6478b9138d48aea0478f7301474
-      internalID: 1405843702
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: skeleboneshooter_7
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 64
-        width: 256
-        height: 64
-      alignment: 9
-      pivot: {x: 0.85, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b5f99492de2ac834aaa5c2cef1e96a5d
-      internalID: 1622553727
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: skeleboneshooter_8
+      name: RevengeEffect_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 64
-      alignment: 9
-      pivot: {x: 0.85, y: 0.5}
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82fff24e83a41b548bc8bef4c6cea6cb
-      internalID: -1158341820
+      spriteID: 35d204048ac5ae347aa4618ef688e36b
+      internalID: -807129525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: skeleboneshooter_9
+      name: RevengeEffect_7
       rect:
         serializedVersion: 2
-        x: 256
+        x: 128
         y: 0
-        width: 256
-        height: 64
-      alignment: 9
-      pivot: {x: 0.85, y: 0.5}
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bb945f38db3c9542a1ab26eba9647ad
-      internalID: -122214647
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: skeleboneshooter_10
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 256
-        height: 64
-      alignment: 9
-      pivot: {x: 0.85, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 600c5cdb36b34cc4d9c245ff75552db0
-      internalID: -1462756333
+      spriteID: d8b6048f8a3a83f48b402b4e2815a5a6
+      internalID: 725769395
       vertices: []
       indices: 
       edges: []
@@ -372,17 +309,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      skeleboneshooter_0: -2005072205
-      skeleboneshooter_1: -1977812733
-      skeleboneshooter_10: -1462756333
-      skeleboneshooter_2: -1787145631
-      skeleboneshooter_3: -1822016442
-      skeleboneshooter_4: 174173901
-      skeleboneshooter_5: -202645362
-      skeleboneshooter_6: 1405843702
-      skeleboneshooter_7: 1622553727
-      skeleboneshooter_8: -1158341820
-      skeleboneshooter_9: -122214647
+      RevengeEffect_0: -1648495022
+      RevengeEffect_1: 483190343
+      RevengeEffect_2: 784987905
+      RevengeEffect_3: 692337015
+      RevengeEffect_4: 996217643
+      RevengeEffect_5: -354009538
+      RevengeEffect_6: -807129525
+      RevengeEffect_7: 725769395
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

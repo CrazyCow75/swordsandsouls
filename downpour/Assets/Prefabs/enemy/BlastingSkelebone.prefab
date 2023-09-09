@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 2265398083387801671}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &4083414829439162958
 Rigidbody2D:
@@ -215,7 +215,7 @@ MonoBehaviour:
   _knockbackCounter: 0
   _knockbackTime: 0
   detectRad: 0
-  soul: {fileID: 0}
+  soul: {fileID: 2397823297072260038, guid: 97361b7ad55236e4fb28118130e7eb4a, type: 3}
   soulSpawnPoint: {fileID: 2521273890863290617}
   moneyDrop: 300
   idleTime: 1

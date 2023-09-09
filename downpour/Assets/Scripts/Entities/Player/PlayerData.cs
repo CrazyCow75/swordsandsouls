@@ -23,6 +23,8 @@ namespace Downpour.Entity.Player
 
             public Rect handRightRect;
             public Rect handLeftRect;
+
+            public Rect revengeRect;
         }
 
         [field: SerializeField] public ColliderBounds StandColliderBounds { get; private set; }
@@ -71,6 +73,11 @@ namespace Downpour.Entity.Player
             [field: SerializeField] public float DashBufferTime;
 
             public float damageMultiplier; 
+            public int damageReduction;
+
+            public int revengeDamage;
+            public int critChance;
+            public int dodgeChance;
         }
     }
 }

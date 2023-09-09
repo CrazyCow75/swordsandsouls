@@ -68,7 +68,9 @@ namespace Downpour.Entity.Player
                     .SetColor(GizmosColor.Player.attack)
                     .DrawWireSquare(position + (colliderBounds.diffusionLeftRect.min * scale), colliderBounds.diffusionLeftRect.size)
                     .SetColor(GizmosColor.Player.attack)
-                    .DrawWireSquare(position + (colliderBounds.diffusionRightRect.min * scale), colliderBounds.diffusionRightRect.size);
+                    .DrawWireSquare(position + (colliderBounds.diffusionRightRect.min * scale), colliderBounds.diffusionRightRect.size)
+                    .SetColor(GizmosColor.Player.attack)
+                    .DrawWireSquare(position + (colliderBounds.revengeRect.min * scale), colliderBounds.revengeRect.size);
             }
         }
         #endif

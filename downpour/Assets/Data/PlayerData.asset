@@ -62,6 +62,12 @@ MonoBehaviour:
       y: 0
       width: 0.15
       height: 0.6
+    revengeRect:
+      serializedVersion: 2
+      x: 0
+      y: 0.15
+      width: 3
+      height: 1.25
   <BasePlayerStats>k__BackingField:
     MaxHealth: 100
     MaxSpirit: 99
@@ -88,3 +94,7 @@ MonoBehaviour:
     DashLength: 0.15
     DashBufferTime: 0.25
     damageMultiplier: 1
+    damageReduction: 0
+    revengeDamage: 0
+    critChance: 0
+    dodgeChance: 0

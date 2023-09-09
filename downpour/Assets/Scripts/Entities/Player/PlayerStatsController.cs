@@ -39,6 +39,8 @@ namespace Downpour.Entity.Player
 
         public int money;
 
+        [SerializeField] private ParticleSystem _revengeParticle;
+
         protected override void Awake() {
             base.Awake();
 
@@ -95,9 +97,66 @@ namespace Downpour.Entity.Player
 
             iframeCounter = iframeTime;
 
-            // DataManager.Instance.currentPlayerHealth = getHealth();
+            bool dodge = UnityEngine.Random.Range(1, 101) <= _playerStatsController.CurrentPlayerStats.dodgeChance;
 
-            _healthSystem.TakeDamage(damage);
+            // DataManager.Instance.currentPlayerHealth = getHealth();
+            if(!dodge) {
+                _healthSystem.TakeDamage(Mathf.Max(damage - m_currentPlayerStats.damageReduction, 1));
+
+                
+            }
+
+            if(_playerStatsController.CurrentPlayerStats.revengeDamage != 0) {
+                revenge();
+            }
+        }
+
+        public void revenge() {
+            PlayerData.ColliderBounds _colliderBoundsSource = _playerMovementController.GetColliderBounds();
+            Vector2 boundsPosition = (_playerMovementController.FacingDirection == 1 ? _colliderBoundsSource.revengeRect.position : _colliderBoundsSource.revengeRect.position) * transform.localScale;
+             var size = (_playerMovementController.FacingDirection == 1 ? _colliderBoundsSource.revengeRect.size : _colliderBoundsSource.revengeRect.size);
+
+             Vector2 charPosition = transform.position;
+
+            Collider2D[] hits = Physics2D.OverlapBoxAll(charPosition + boundsPosition,
+                size, 0, Layers.HittableLayer);
+
+                _emitRevengeParticle();
+
+            if(hits.Length != 0) {
+                foreach(Collider2D hit in hits) {
+                    if(hit) {
+                        if(hit.transform.TryGetComponent(out IHittable hittable)) {
+                            var damage = _playerStatsController.CurrentPlayerStats.revengeDamage;
+
+                            hittable.OnHit(this.Player, damage, this.transform.position.x > hit.transform.position.x ? 1 : -1);
+                        }
+                    }
+                }
+            }
+
+        }
+
+        private void _emitRevengeParticle() {
+
+            var emitParams = new ParticleSystem.EmitParams();
+            emitParams.startSize = 0.33f;
+            emitParams.startLifetime = 0.25f;
+            emitParams.velocity = new Vector3(0f, 0f, 0f);
+            //emitParams.position = position;
+            
+            emitParams.position = transform.position;
+
+            // if(CurrentSlashComboAttack == 1) {
+            //     emitParams.rotation += (_playerMovementController.FacingDirection == 1) ? 75f : -75f;
+            // }
+
+            // Debug.Log(emitParams.position.y);
+            // Debug.Log(position.y);
+
+            emitParams.applyShapeToPosition = true;
+
+            _revengeParticle.Emit(emitParams, 1);
         }
 
         public PlayerData.PlayerStats _updatePlayerStats() {

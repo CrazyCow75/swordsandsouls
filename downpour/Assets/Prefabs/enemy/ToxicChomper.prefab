@@ -248,7 +248,7 @@ MonoBehaviour:
   _knockbackCounter: 0
   _knockbackTime: 0
   detectRad: 2.5
-  soul: {fileID: 221191194946865541, guid: c33f33b37927ea140bde5082d82e1da6, type: 3}
+  soul: {fileID: 1489302482311705663, guid: 479cbcb2d7671cc4b838a22a8de00e03, type: 3}
   soulSpawnPoint: {fileID: 149032220732552987}
   moneyDrop: 200
   animator: {fileID: 4607086901783948508}

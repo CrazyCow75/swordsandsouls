@@ -103,7 +103,16 @@ namespace Downpour.Entity.Player
                 foreach(Collider2D hit in hits) {
                     if(hit) {
                         if(hit.transform.TryGetComponent(out IHittable hittable)) {
-                            HitEvent?.Invoke(hittable, _playerStatsController.CurrentPlayerStats.SlashDamage, this.transform.position.x > hit.transform.position.x ? 1 : -1);
+                            var damage = _playerStatsController.CurrentPlayerStats.SlashDamage;
+                            if(_playerStatsController.weapon.m_CardData.id == 5) {
+                                damage = _playerStatsController.CurrentPlayerStats.DiffusionDamage;
+                            }
+
+                            bool crit = UnityEngine.Random.Range(1, 101) <= _playerStatsController.CurrentPlayerStats.critChance;
+
+                            damage *= crit ? 3 : 1;
+
+                            HitEvent?.Invoke(hittable, damage, this.transform.position.x > hit.transform.position.x ? 1 : -1);
                         }
                     }
                 }
