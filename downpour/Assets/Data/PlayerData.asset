@@ -89,10 +89,10 @@ MonoBehaviour:
     DiffusionCooldown: 0.5
     DiffusionKnockbackMultiplier: 0
     DiffusionKnockbackTime: 0
-    DashCooldown: 0.2
+    DashCooldown: 0.35
     DashSpeed: 17
     DashLength: 0.15
-    DashBufferTime: 0.25
+    DashBufferTime: 0.35
     damageMultiplier: 1
     damageReduction: 0
     revengeDamage: 0
