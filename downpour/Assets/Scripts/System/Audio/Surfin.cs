@@ -6,7 +6,7 @@ namespace Downpour
 {
     public class Surfin : MonoBehaviour
     {   
-        
+
         public AudioSource audioSource;
 
         public void playSurfin() {
@@ -22,6 +22,7 @@ namespace Downpour
         {
             GetComponent<AudioSource>().volume = newValue;
         }
+
 
         // Update is called once per frame
         void Update()
