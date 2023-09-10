@@ -71,6 +71,7 @@ namespace Downpour.Entity.Player
             [field: SerializeField] public float DashSpeed;
             [field: SerializeField] public float DashLength;
             [field: SerializeField] public float DashBufferTime;
+            [field: SerializeField] public bool HasAirDash;
 
             public float damageMultiplier; 
             public int damageReduction;
@@ -78,6 +79,7 @@ namespace Downpour.Entity.Player
             public int revengeDamage;
             public int critChance;
             public int dodgeChance;
+            public int regen;
         }
     }
 }

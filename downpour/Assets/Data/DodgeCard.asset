@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9bc430f662a51468c698d2ba22d3c7, type: 3}
   m_Name: DodgeCard
   m_EditorClassIdentifier: 
-  CardName: Stabber Soul
+  CardName: Stabber Energy
   id: 7
   image: {fileID: 21300000, guid: 320cf4d5a2b1b234e8cc38ff6f592517, type: 3}
   isWeapon: 0

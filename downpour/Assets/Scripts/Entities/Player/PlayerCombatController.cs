@@ -180,6 +180,8 @@ namespace Downpour.Entity.Player
 
             _emitSlashParticle(hittable.GetSlashEffectPosition());
 
+            _playerStatsController.heal(_playerStatsController.CurrentPlayerStats.regen);
+
             CameraManager.Instance.CameraShaker.Shake(_slashHitEffectShakeDuration, _slashHitEffectShakeMagnitude);
         }
 

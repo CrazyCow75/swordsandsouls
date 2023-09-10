@@ -48,6 +48,18 @@ namespace Downpour
             }
         }
 
+        public void Update() {
+            if(GameManager.Instance.CurrentGameState == GameManager.GameState.Gameplay) {
+                foreach(CardUI c in cardUIs) {
+                    if(player.PlayerStatsController.UnlockedCards.Contains(c.c.m_CardData.id)) {
+                        c.gameObject.SetActive(true);
+                    } else {
+                        c.gameObject.SetActive(false);
+                    }
+                }
+            }
+        }
+
         public void onEquip() {
             player.PlayerStatsController.equipCard(selectedCard);
             _onCardSelect(selectedCard);
@@ -200,6 +212,12 @@ namespace Downpour
             cardUIs[7].c = new DodgeCard(cardDatas[7]);
             cardUIs[8].c = new RevengeCard(cardDatas[8]);
             cardUIs[9].c = new DefenseCard(cardDatas[9]);
+
+            cardUIs[10].c = new DoubleJumpCard(cardDatas[10]);
+            cardUIs[11].c = new RegenCard(cardDatas[11]);
+
+            cardUIs[12].c = new HealthCard(cardDatas[12]);
+            cardUIs[13].c = new HealthCard(cardDatas[13]);
         }
     }
 }

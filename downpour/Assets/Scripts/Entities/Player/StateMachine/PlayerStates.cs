@@ -139,6 +139,13 @@ namespace Downpour.Entity.Player
                 return;
             }
 
+            if(_playerStatsController.CurrentPlayerStats.HasAirDash) {
+                if(_psm.EnterDashState()) {
+                    return;
+                }
+            }
+            
+
             _psm.RunState.RunStateRunLogicHandler.SetDesiredVelocity(_playerMovementController, _playerStatsController);
         }
 
@@ -252,6 +259,12 @@ namespace Downpour.Entity.Player
 
             if(_psm.EnterSlashState()) {
                 return;
+            }
+
+            if(_playerStatsController.CurrentPlayerStats.HasAirDash) {
+                if(_psm.EnterDashState()) {
+                    return;
+                }
             }
             // check sliding wall
 

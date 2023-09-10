@@ -25,16 +25,16 @@ namespace Downpour
                     playerStats.critChance += 15;
                     break;
                 case 2:
-                    playerStats.damageReduction += 25;
+                    playerStats.critChance += 25;
                     break;
                 case 3:
-                    playerStats.damageReduction += 35;
+                    playerStats.critChance += 35;
                     break;
                 case 4:
-                    playerStats.damageReduction += 45;
+                    playerStats.critChance += 45;
                     break;
                 case 5:
-                    playerStats.damageReduction += 60;
+                    playerStats.critChance += 60;
                     break;
             }
             

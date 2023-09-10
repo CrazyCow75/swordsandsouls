@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9bc430f662a51468c698d2ba22d3c7, type: 3}
   m_Name: DefenseCard
   m_EditorClassIdentifier: 
-  CardName: Blastbones Soul
+  CardName: Blastbones Energy
   id: 9
   image: {fileID: 21300000, guid: 52addbd451934224d94dd380beeb2d5d, type: 3}
   isWeapon: 0

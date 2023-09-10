@@ -15,7 +15,7 @@ namespace Downpour
         public BoxCollider2D slashBox;
          public BoxCollider2D slashBox2;
 
-        bool trackingPlayer;
+        public bool trackingPlayer;
         public float slashDistance;
 
         private Vector3 originalPosition;

@@ -9,6 +9,8 @@ namespace Downpour
     {
         public int[] rewards = new int[15];
 
+        public CardData bingo;
+
         public GameObject bingoBananza;
 
         public void OnInteract(Player player) {
@@ -23,6 +25,10 @@ namespace Downpour
                 for(int i = index; i < floor + collected; i++) {
                     Debug.Log(i + " Reward Collected");
                     player.PlayerStatsController.money += rewards[i];
+
+                    if(rewards[i] == 0) {
+                        player.PlayerStatsController.unlockCard(bingo);
+                    }
                 }
             }
 

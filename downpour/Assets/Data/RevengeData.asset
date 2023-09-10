@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f9bc430f662a51468c698d2ba22d3c7, type: 3}
   m_Name: RevengeData
   m_EditorClassIdentifier: 
-  CardName: Biter Soul
+  CardName: Biter Energy
   id: 8
   image: {fileID: 21300000, guid: ab782cc865879924ca57490f69256655, type: 3}
   isWeapon: 0

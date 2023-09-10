@@ -93,6 +93,7 @@ MonoBehaviour:
     DashSpeed: 17
     DashLength: 0.15
     DashBufferTime: 0.35
+    HasAirDash: 0
     damageMultiplier: 1
     damageReduction: 0
     revengeDamage: 0

@@ -103,7 +103,7 @@ namespace Downpour.Entity.Player
             if(!dodge) {
                 _healthSystem.TakeDamage(Mathf.Max(damage - m_currentPlayerStats.damageReduction, 1));
 
-                
+                Debug.Log(Mathf.Max(damage - m_currentPlayerStats.damageReduction, 1) + " " + damage + " " + m_currentPlayerStats.damageReduction);
             }
 
             if(_playerStatsController.CurrentPlayerStats.revengeDamage != 0) {
@@ -284,6 +284,10 @@ namespace Downpour.Entity.Player
 
         public void setHealth(int h) {
             _healthSystem.SetHealth(h);
+        }
+
+        public void heal(int h) {
+            setHealth(Mathf.Min(_healthSystem.CurrentHealthPoints + h, CurrentPlayerStats.MaxHealth));
         }
 
         public void Rest(Respawn rPoint) {
