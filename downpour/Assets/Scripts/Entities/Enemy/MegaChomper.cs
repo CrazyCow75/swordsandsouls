@@ -36,8 +36,8 @@ namespace Downpour
                 return;
             }
             
-            LightItUp lightitup = new LightItUp();
-            lightitup.PlayLightItUp();
+            // LightItUp lightitup = new LightItUp();
+            // lightitup.PlayLightItUp();
 
             if(trackingPlayer) {
                 Vector2 pos = Player.Instance.transform.position;

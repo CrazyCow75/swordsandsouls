@@ -33,6 +33,11 @@ namespace Downpour.Entity.Player
         [SerializeField] private float _slashHitEffectShakeDuration;
         [SerializeField] private float _slashHitEffectShakeMagnitude;
 
+        public GameObject seekingBullet;
+        public GameObject bomb;
+        public Transform firePoint;
+        public Transform firePointRight;
+
         private void Start() {
             
             CurrentSlashComboAttack = 0;
@@ -94,26 +99,66 @@ namespace Downpour.Entity.Player
             if(_playerStatsController.weapon.m_CardData.id == 5) {
                 cooldown = _playerStatsController.CurrentPlayerStats.DiffusionCooldown;
             }
+            if(_playerStatsController.weapon.m_CardData.id == 12) {
+                cooldown = _playerStatsController.CurrentPlayerStats.BulletCooldown;
+            }
+            if(_playerStatsController.weapon.m_CardData.id == 13) {
+                cooldown = _playerStatsController.CurrentPlayerStats.BombCooldown;
+            }
 
             SlashCooldownCounter = cooldown;
             CanSlash = false;
 
-            Collider2D[] hits = _checkSlashCollisions();
-            if(hits.Length != 0) {
-                foreach(Collider2D hit in hits) {
-                    if(hit) {
-                        if(hit.transform.TryGetComponent(out IHittable hittable)) {
-                            var damage = _playerStatsController.CurrentPlayerStats.SlashDamage;
-                            if(_playerStatsController.weapon.m_CardData.id == 5) {
-                                damage = _playerStatsController.CurrentPlayerStats.DiffusionDamage;
+            if(!(_playerStatsController.weapon.m_CardData.id == 13) && !(_playerStatsController.weapon.m_CardData.id == 12)) {
+                
+            
+                Collider2D[] hits = _checkSlashCollisions();
+                if(hits.Length != 0) {
+                    foreach(Collider2D hit in hits) {
+                        if(hit) {
+                            if(hit.transform.TryGetComponent(out IHittable hittable)) {
+                                var damage = _playerStatsController.CurrentPlayerStats.SlashDamage;
+                                if(_playerStatsController.weapon.m_CardData.id == 5) {
+                                    damage = _playerStatsController.CurrentPlayerStats.DiffusionDamage;
+                                }
+
+                                bool crit = UnityEngine.Random.Range(1, 101) <= _playerStatsController.CurrentPlayerStats.critChance;
+
+                                damage *= crit ? 3 : 1;
+
+                                HitEvent?.Invoke(hittable, damage, this.transform.position.x > hit.transform.position.x ? 1 : -1);
                             }
-
-                            bool crit = UnityEngine.Random.Range(1, 101) <= _playerStatsController.CurrentPlayerStats.critChance;
-
-                            damage *= crit ? 3 : 1;
-
-                            HitEvent?.Invoke(hittable, damage, this.transform.position.x > hit.transform.position.x ? 1 : -1);
                         }
+                    }
+                }
+
+            } else {
+                if((_playerStatsController.weapon.m_CardData.id == 13)) {
+                GameObject go = Instantiate(seekingBullet, _playerMovementController.FacingDirection == -1 ? firePoint.position : firePointRight.position, Quaternion.identity);
+                bool crit = UnityEngine.Random.Range(1, 101) <= _playerStatsController.CurrentPlayerStats.critChance;
+                go.GetComponent<seekingbullet>().damage = _playerStatsController.CurrentPlayerStats.BulletDamage;
+                if(crit) {
+                    go.GetComponent<seekingbullet>().damage *= 3;
+                }
+
+                go.transform.localScale = this.transform.localScale;
+                if(_playerMovementController.FacingDirection == -1) {
+                Vector3 newRotation = new Vector3(0, 0, 180);
+                go.transform.eulerAngles = newRotation;
+                }
+                } else {
+                    GameObject go = Instantiate(bomb, _playerMovementController.FacingDirection == -1 ? firePoint.position : firePointRight.position, Quaternion.identity);
+                    bool crit = UnityEngine.Random.Range(1, 101) <= _playerStatsController.CurrentPlayerStats.critChance;
+                    go.GetComponent<bomb>().damage = UnityEngine.Random.Range(_playerStatsController.CurrentPlayerStats.BombDamageMin, _playerStatsController.CurrentPlayerStats.BombDamageMax + 1);
+                    if(crit) {
+                        go.GetComponent<bomb>().damage *= 3;
+                    }
+
+                    go.transform.localScale = this.transform.localScale;
+
+                    if(_playerMovementController.FacingDirection == -1) {
+                        Vector3 newRotation = new Vector3(0, 0, 180);
+                        go.transform.eulerAngles = newRotation;
                     }
                 }
             }
@@ -121,6 +166,12 @@ namespace Downpour.Entity.Player
             float speed = _playerStatsController.CurrentPlayerStats.SlashSpeed;
             if(_playerStatsController.weapon.m_CardData.id == 5) {
                 speed = _playerStatsController.CurrentPlayerStats.DiffusionSpeed;
+            }
+            if(_playerStatsController.weapon.m_CardData.id == 12) {
+                speed = _playerStatsController.CurrentPlayerStats.BulletSpeed;
+            }
+            if(_playerStatsController.weapon.m_CardData.id == 13) {
+                speed = _playerStatsController.CurrentPlayerStats.BombSpeed;
             }
             
             yield return new WaitForSeconds(speed);
@@ -185,7 +236,7 @@ namespace Downpour.Entity.Player
             CameraManager.Instance.CameraShaker.Shake(_slashHitEffectShakeDuration, _slashHitEffectShakeMagnitude);
         }
 
-        private void _emitSlashParticle(Vector3 position) {
+        public void _emitSlashParticle(Vector3 position) {
 
             var emitParams = new ParticleSystem.EmitParams();
             emitParams.startSize = 2.5f;

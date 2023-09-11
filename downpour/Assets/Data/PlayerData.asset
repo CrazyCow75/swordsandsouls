@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3367eaa66f28a8499909c435ed957a0, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  DrawGizmos: 1
+  DrawGizmos: 0
   <StandColliderBounds>k__BackingField:
     bounds:
       serializedVersion: 2
@@ -87,6 +87,10 @@ MonoBehaviour:
     SlashKnockbackTime: 0.1
     DiffusionSpeed: 0.3
     DiffusionCooldown: 0.5
+    BulletSpeed: 0.35
+    BulletCooldown: 0.4
+    BombSpeed: 0.5
+    BombCooldown: 1.2
     DiffusionKnockbackMultiplier: 0
     DiffusionKnockbackTime: 0
     DashCooldown: 0.35
@@ -99,3 +103,4 @@ MonoBehaviour:
     revengeDamage: 0
     critChance: 0
     dodgeChance: 0
+    regen: 0

@@ -63,6 +63,13 @@ namespace Downpour.Entity.Player
 
             [field: SerializeField] public float DiffusionSpeed;
             [field: SerializeField] public float DiffusionCooldown;
+            [field: SerializeField] public float BulletSpeed;
+            [field: SerializeField] public float BulletCooldown;
+            [field: SerializeField] public float BombSpeed;
+            [field: SerializeField] public float BombCooldown;
+            [field: SerializeField] public int BulletDamage  => (int)(2 * damageMultiplier);
+            [field: SerializeField] public int BombDamageMin => (int)(1 * damageMultiplier);
+            [field: SerializeField] public int BombDamageMax => (int)(20 * damageMultiplier);
 
             [field: SerializeField] public float DiffusionKnockbackMultiplier;
             [field: SerializeField] public float DiffusionKnockbackTime;

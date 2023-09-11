@@ -102,7 +102,7 @@ namespace Downpour.Entity.Player
             // DataManager.Instance.currentPlayerHealth = getHealth();
             if(!dodge) {
                 _healthSystem.TakeDamage(Mathf.Max(damage - m_currentPlayerStats.damageReduction, 1));
-
+                CameraManager.Instance.CameraShaker.Shake(0.2f, 2f);
                 Debug.Log(Mathf.Max(damage - m_currentPlayerStats.damageReduction, 1) + " " + damage + " " + m_currentPlayerStats.damageReduction);
             }
 
