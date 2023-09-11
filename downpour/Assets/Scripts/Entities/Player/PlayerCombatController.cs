@@ -37,6 +37,8 @@ namespace Downpour.Entity.Player
         public GameObject bomb;
         public Transform firePoint;
         public Transform firePointRight;
+         public ParticleSystem explosionParticle;
+    
 
         private void Start() {
             
@@ -99,10 +101,10 @@ namespace Downpour.Entity.Player
             if(_playerStatsController.weapon.m_CardData.id == 5) {
                 cooldown = _playerStatsController.CurrentPlayerStats.DiffusionCooldown;
             }
-            if(_playerStatsController.weapon.m_CardData.id == 12) {
+            if(_playerStatsController.weapon.m_CardData.id == 13) {
                 cooldown = _playerStatsController.CurrentPlayerStats.BulletCooldown;
             }
-            if(_playerStatsController.weapon.m_CardData.id == 13) {
+            if(_playerStatsController.weapon.m_CardData.id == 12) {
                 cooldown = _playerStatsController.CurrentPlayerStats.BombCooldown;
             }
 
@@ -167,10 +169,10 @@ namespace Downpour.Entity.Player
             if(_playerStatsController.weapon.m_CardData.id == 5) {
                 speed = _playerStatsController.CurrentPlayerStats.DiffusionSpeed;
             }
-            if(_playerStatsController.weapon.m_CardData.id == 12) {
+            if(_playerStatsController.weapon.m_CardData.id == 13) {
                 speed = _playerStatsController.CurrentPlayerStats.BulletSpeed;
             }
-            if(_playerStatsController.weapon.m_CardData.id == 13) {
+            if(_playerStatsController.weapon.m_CardData.id == 12) {
                 speed = _playerStatsController.CurrentPlayerStats.BombSpeed;
             }
             
@@ -260,6 +262,27 @@ namespace Downpour.Entity.Player
             emitParams.applyShapeToPosition = true;
 
             _slashHitParticle.Emit(emitParams, 1);
+        }
+        public void emitExplosionParticle(Vector3 position) {
+
+            var emitParams = new ParticleSystem.EmitParams();
+            emitParams.startSize = 2f;
+            emitParams.startLifetime = 0.25f;
+            emitParams.velocity = new Vector3(0f, 0f, 0f);
+            //emitParams.position = position;
+            
+            emitParams.position = new Vector3(position.x, position.y, 0f);
+
+            // if(CurrentSlashComboAttack == 1) {
+            //     emitParams.rotation += (_playerMovementController.FacingDirection == 1) ? 75f : -75f;
+            // }
+
+            // Debug.Log(emitParams.position.y);
+            // Debug.Log(position.y);
+
+            emitParams.applyShapeToPosition = true;
+
+            explosionParticle.Emit(emitParams, 1);
         }
     }
 }

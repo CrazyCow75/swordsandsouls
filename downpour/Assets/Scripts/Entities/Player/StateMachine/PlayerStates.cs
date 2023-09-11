@@ -317,6 +317,10 @@ namespace Downpour.Entity.Player
                 _playerAnimationController.PlayAnimation(_playerAnimationController.SlashAnimationClip, _playerStatsController.CurrentPlayerStats.SlashSpeed);
             } else if (_playerStatsController.weapon.m_CardData.id == 5) {
                 _playerAnimationController.PlayAnimation(_playerAnimationController.DiffusionAnimationClip, _playerStatsController.CurrentPlayerStats.DiffusionSpeed);
+            } else if(_playerStatsController.weapon.m_CardData.id == 12) {
+                _playerAnimationController.PlayAnimation(_playerAnimationController.ShootAnimationClip, _playerStatsController.CurrentPlayerStats.BombSpeed);
+            } else {
+                _playerAnimationController.PlayAnimation(_playerAnimationController.ShootAnimationClip, _playerStatsController.CurrentPlayerStats.BulletSpeed);
             }
         }
 

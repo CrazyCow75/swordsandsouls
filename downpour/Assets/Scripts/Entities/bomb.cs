@@ -17,6 +17,7 @@ namespace Downpour
  
  
     public int damage;
+   
 
  
         void Start()
@@ -50,11 +51,11 @@ namespace Downpour
 
                                         hittable.OnHit(Player.Instance, damage, this.transform.position.x > hit.transform.position.x ? 1 : -1);
 
-                                        
+                                         Player.Instance.PlayerCombatController._emitSlashParticle(hittable.GetSlashEffectPosition());
 
                                         Player.Instance.PlayerStatsController.heal(Player.Instance.PlayerStatsController.CurrentPlayerStats.regen);
 
-                                        CameraManager.Instance.CameraShaker.Shake(0.2f, 3.5f);
+                                        
 
                                         
                                     }
@@ -63,7 +64,8 @@ namespace Downpour
 
                             
                         }
-
+                        Player.Instance.PlayerCombatController.emitExplosionParticle(transform.position);
+                        CameraManager.Instance.CameraShaker.Shake(0.2f, 2f);
 
                         Destroy(gameObject);
         }
