@@ -22,16 +22,16 @@ namespace Downpour
                     playerStats.regen += 1;
                     break;
                 case 2:
-                    playerStats.regen += 2;
+                    playerStats.regen += 1;
                     break;
                 case 3:
-                    playerStats.regen += 3;
+                    playerStats.regen += 2;
                     break;
                 case 4:
-                    playerStats.regen += 4;
+                    playerStats.regen += 2;
                     break;
                 case 5:
-                    playerStats.regen += 5;
+                    playerStats.regen += 3;
                     break;
             }
             

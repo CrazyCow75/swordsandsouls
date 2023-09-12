@@ -95,4 +95,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Junkyard/Junkyard9.unity
     guid: a511dcd24b874f444ac3bb1b968a09bf
+  - enabled: 1
+    path: Assets/Scenes/NeonCity/NeonCity15.unity
+    guid: 3452f2b443645564e840c51f5e7641ca
   m_configObjects: {}

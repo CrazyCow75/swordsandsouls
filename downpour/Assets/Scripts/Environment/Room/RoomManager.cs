@@ -32,6 +32,8 @@ namespace Downpour
         public bool[] Collected;
         public Collectable[] Collectables;
 
+    
+
         protected override void Awake() {
             base.Awake();
         }

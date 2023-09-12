@@ -35,15 +35,17 @@ namespace Downpour
         void Update()
         {
             
-            if(target.x != 0 && target.y != 0) {
-                transform.LookAt(target);
-                transform.Rotate(new Vector3(0, -90, 0), Space.Self);
-                //rb.velocity = transform.up * speed;
-            }
+            
  
             rb.velocity = transform.right * speed;
 
             target = GetClosestEnemy();
+
+            if(!(target.x == 0 && target.y == 0)) {
+                transform.LookAt(target);
+                transform.Rotate(new Vector3(0, -90, 0), Space.Self);
+                //rb.velocity = transform.up * speed;
+            }
 
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.3f, Layers.HittableLayer);
             
@@ -72,7 +74,7 @@ namespace Downpour
         Vector2 GetClosestEnemy()
         {
             Collider2D[] enemies = Physics2D.OverlapCircleAll(transform.position, 10f, Layers.HittableLayer);
-
+            //Debug.Log(enemies + " " + enemies.Length);
             Vector2 tMin = new Vector2(0f, 0f);
             float minDist = Mathf.Infinity;
             Vector2 currentPos = transform.position;
@@ -88,11 +90,12 @@ namespace Downpour
                     if (dist < minDist)
                     {
                         tMin = t.gameObject.GetComponent<IHittable>().GetSlashEffectPosition();
+                        //Debug.Log(t.gameObject.GetComponent<IHittable>().GetSlashEffectPosition() + "hitpos");
                         minDist = dist;
                     }
                 }
             }
-
+            
             return tMin;
         }
     

@@ -28,7 +28,7 @@ namespace Downpour
 
 
         public bool CanInteract(Player player) {
-            if(player.PlayerStatsContrroller.getLevel(13) < 20) {
+            if(player.PlayerStatsController.getLevel(13) < 20) {
                 return true;
             }
             return false;
