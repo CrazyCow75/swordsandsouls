@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using Downpour.Input;
 using Downpour.Scenes;
 using System;
+using System.Diagnostics;
 
 namespace Downpour.Entity.Player {
     [RequireComponent(typeof(Rigidbody2D))]
@@ -70,6 +71,8 @@ namespace Downpour.Entity.Player {
         public event Action<float> DashEvent;
         public event Action FinishDashEvent;
 
+        public ParticleSystem dust;
+
         // Initialization
         protected override void Awake() {
             base.Awake();
@@ -108,21 +111,57 @@ namespace Downpour.Entity.Player {
         }
 
         private void Update() {
-            if(DashBufferCounter > 0) {
+            if (DashBufferCounter > 0) {
                 DashBufferCounter -= Time.deltaTime;
             } else {
                 _dashBuffered = false;
             }
 
-            if(DashCooldownCounter > 0) {
+            if (DashCooldownCounter > 0) {
                 CanDash = false;
                 DashCooldownCounter -= Time.deltaTime;
             } else {
                 CanDash = true;
             }
 
-            if(!((_playerStateMachine.CurrentState is PlayerSlashState) || (_playerStateMachine.CurrentState is PlayerDashState)) && _dashBuffered) {
+            if (!((_playerStateMachine.CurrentState is PlayerSlashState) || (_playerStateMachine.CurrentState is PlayerDashState)) && _dashBuffered) {
                 DesiredDash = true;
+            }
+
+            if ((_playerStateMachine.CurrentState is PlayerRunState))
+            {
+                var emitParams = new ParticleSystem.EmitParams();
+                emitParams.startSize = 0.1f;
+                emitParams.startLifetime = 0.2f;
+                emitParams.velocity = new Vector3(_playerMovementController.FacingDirection == -1 ? 5f: -5f, 4f, 0f);
+                //emitParams.position = position;
+
+                emitParams.position = new Vector3(_playerMovementController.FacingDirection == -1 ? transform.position.x+0.7f : transform.position.x - 0.7f, transform.position.y-0.4f, 0f);
+
+                //if (_playerMovementController.FacingDirection == -1)
+                //{
+                  //  emitParams.rotation = 245f;
+                //}
+
+                // if(CurrentSlashComboAttack == 1) {
+                //     emitParams.rotation += (_playerMovementController.FacingDirection == 1) ? 75f : -75f;
+                // }
+
+                // Debug.Log(emitParams.position.y);
+                // Debug.Log(position.y);
+
+                emitParams.applyShapeToPosition = true;
+                dust.Emit(emitParams, 1);
+                Vector3 newRot = new Vector3(0f, 0f, 0f);
+                if (FacingDirection == 1)
+                    newRot = new Vector3(0f, 0f, -10f);
+                else
+                    newRot = new Vector3(0f, 0f, 10f);
+
+                _playerSpriteTransform.eulerAngles = newRot;
+            } else
+            {
+                _playerSpriteTransform.eulerAngles = new Vector3(0f, 0f, 0f);
             }
         }
 
