@@ -333,9 +333,15 @@ MonoBehaviour:
   <DiffusionAnimationClip>k__BackingField:
     <Clip>k__BackingField: Diffusion
   <DashAnimationClip>k__BackingField:
-    <Clip>k__BackingField: Idle
+    <Clip>k__BackingField: Dash
   <ShootAnimationClip>k__BackingField:
     <Clip>k__BackingField: Shoot
+  <RunAnimationClip>k__BackingField:
+    <Clip>k__BackingField: Run
+  <JumpAnimationClip>k__BackingField:
+    <Clip>k__BackingField: Jump
+  <FallAnimationClip>k__BackingField:
+    <Clip>k__BackingField: Fall
 --- !u!114 &8582994930062142451
 MonoBehaviour:
   m_ObjectHideFlags: 0

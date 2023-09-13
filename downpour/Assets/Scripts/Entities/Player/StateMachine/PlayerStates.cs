@@ -71,7 +71,7 @@ namespace Downpour.Entity.Player
         }
 
         public override void PlayStateAnimation() {
-            _playerAnimationController.PlayAnimation(_playerAnimationController.IdleAnimationClip);
+            _playerAnimationController.PlayAnimation(_playerAnimationController.RunAnimationClip);
         }
 
         public override void Update() {
@@ -130,7 +130,7 @@ namespace Downpour.Entity.Player
         }
 
         public override void PlayStateAnimation() {
-            _playerAnimationController.PlayAnimation(_playerAnimationController.IdleAnimationClip);
+            _playerAnimationController.PlayAnimation(_playerAnimationController.JumpAnimationClip);
         }
 
         public override void Update() {
@@ -249,7 +249,7 @@ namespace Downpour.Entity.Player
         }
 
         public override void PlayStateAnimation() {
-            _playerAnimationController.PlayAnimation(_playerAnimationController.IdleAnimationClip);
+            _playerAnimationController.PlayAnimation(_playerAnimationController.FallAnimationClip);
         }
 
         public override void Update() {

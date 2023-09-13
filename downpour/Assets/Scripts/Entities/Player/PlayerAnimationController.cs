@@ -14,6 +14,9 @@ namespace Downpour.Entity.Player
         [field: SerializeField] public PlayerAnimationClip DiffusionAnimationClip { get; private set; }
         [field: SerializeField] public PlayerAnimationClip DashAnimationClip { get; private set; }
         [field: SerializeField] public PlayerAnimationClip ShootAnimationClip { get; private set; }
+        [field: SerializeField] public PlayerAnimationClip RunAnimationClip { get; private set; }
+        [field: SerializeField] public PlayerAnimationClip JumpAnimationClip { get; private set; }
+        [field: SerializeField] public PlayerAnimationClip FallAnimationClip { get; private set; }
 
         public string CurrentAnimation { get; private set; }
 

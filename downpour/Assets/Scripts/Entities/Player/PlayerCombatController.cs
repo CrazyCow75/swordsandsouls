@@ -109,6 +109,7 @@ namespace Downpour.Entity.Player
             }
 
             SlashCooldownCounter = cooldown;
+            
             CanSlash = false;
 
             if(!(_playerStatsController.weapon.m_CardData.id == 13) && !(_playerStatsController.weapon.m_CardData.id == 12)) {
