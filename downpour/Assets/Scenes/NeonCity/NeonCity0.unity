@@ -333,6 +333,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 534966950}
     m_Modifications:
+    - target: {fileID: 3387437659146528487, guid: 301d74a1506b7d94c9b8cc84f20cdf03, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 4256109381627331269, guid: 301d74a1506b7d94c9b8cc84f20cdf03, type: 3}
       propertyPath: m_Name
       value: Poker (1)

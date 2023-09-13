@@ -235,7 +235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7055013625944959077
 Transform:
   m_ObjectHideFlags: 0
@@ -316,6 +316,7 @@ GameObject:
   - component: {fileID: 2426503211994401036}
   - component: {fileID: 6989904340515281640}
   - component: {fileID: 8567940392159591628}
+  - component: {fileID: 1734961994270208922}
   m_Layer: 0
   m_Name: InteractableButton
   m_TagString: Untagged
@@ -363,7 +364,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 6577285529382628639, guid: d65c171d1bd3b6045a81f44045a45972, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -407,8 +408,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: F
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d65c171d1bd3b6045a81f44045a45972, type: 2}
+  m_sharedMaterial: {fileID: 6577285529382628639, guid: d65c171d1bd3b6045a81f44045a45972, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -477,3 +478,15 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 6989904340515281640}
   m_maskType: 0
+--- !u!210 &1734961994270208922
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8463355254784241256}
+  m_Enabled: 1
+  m_SortingLayerID: 502939179
+  m_SortingLayer: 11
+  m_SortingOrder: 2
+  m_SortAtRoot: 0

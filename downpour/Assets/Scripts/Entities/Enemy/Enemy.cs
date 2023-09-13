@@ -22,7 +22,7 @@ namespace Downpour.Entity.Enemy
 
         private Rigidbody2D _rb;
 
-        protected bool detectedPlayer = false;
+        public bool detectedPlayer = false;
         public float detectRad;
 
         public event Action<Enemy> EnemyDeathEvent;

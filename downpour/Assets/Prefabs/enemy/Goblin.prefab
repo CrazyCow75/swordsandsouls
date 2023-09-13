@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 6929026386312157327}
   - component: {fileID: 4963956487853384539}
   - component: {fileID: 6049554141623765964}
+  - component: {fileID: 6701885993613379724}
   m_Layer: 7
   m_Name: Goblin
   m_TagString: Untagged
@@ -202,7 +203,7 @@ MonoBehaviour:
   <MaxHealthPoints>k__BackingField: 20
   <HealthPointsAreTrueHitAmount>k__BackingField: 0
   <CurrentHealthPoints>k__BackingField: 0
-  <Invincible>k__BackingField: 0
+  Invincible: 0
 --- !u!114 &6929026386312157327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +219,7 @@ MonoBehaviour:
   _knockbackMultiplier: 5
   _knockbackCounter: 0
   _knockbackTime: 0.15
+  detectedPlayer: 0
   detectRad: 5
   soul: {fileID: 3961502656733078879, guid: 7bcd3e8c5a81e634798ea5b6dbcf9576, type: 3}
   soulSpawnPoint: {fileID: 8365119835516876946}
@@ -270,7 +272,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -302,3 +304,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6701885993613379724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8340105003061760989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 0000000081b6bb7a673b9fd24159153993aea291a1081748ef977b00bb1add5cff1d5ac5cdea0a131fd6e6692b3efa1d
+  m_ShapePath:
+  - {x: -0.18485928, y: -0.35953248, z: 0}
+  - {x: -0.39280343, y: 0.25140148, z: 0}
+  - {x: 0.30962563, y: 0.26803696, z: 0}
+  - {x: 0.3428967, y: -0.29299033, z: 0}
+  m_ShapePathHash: -1033421523
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -111140
+  m_LocalBounds:
+    m_Center: {x: -0.024953365, y: -0.045747757, z: 0}
+    m_Extent: {x: 0.36785007, y: 0.31378472, z: 0}

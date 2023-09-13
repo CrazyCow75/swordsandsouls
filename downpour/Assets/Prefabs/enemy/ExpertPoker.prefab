@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 6259656660156237784}
   - component: {fileID: 8902466526864904410}
   - component: {fileID: 6266681003202783510}
+  - component: {fileID: 6462066491564924743}
   m_Layer: 7
   m_Name: ExpertPoker
   m_TagString: Untagged
@@ -223,7 +224,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -291,6 +292,7 @@ MonoBehaviour:
   _knockbackMultiplier: 12
   _knockbackCounter: 0
   _knockbackTime: 0.1
+  detectedPlayer: 0
   detectRad: 5
   soul: {fileID: 7673854567115532492, guid: a7095cad1954d7b4a85a714bd379907d, type: 3}
   soulSpawnPoint: {fileID: 4086234249285778652}
@@ -306,3 +308,33 @@ MonoBehaviour:
   windupCounter: 0
   canDamagePlayer: 0
   speed: 15
+--- !u!114 &6462066491564924743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9200728446184305084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 0000000081b6bb7a673b9fd24159153993aea291a1081748ef977b00bb1add5cff1d5ac5cdea0a131fd6e6692b3efa1d
+  m_ShapePath:
+  - {x: 0.2226882, y: -0.33699894, z: 0}
+  - {x: 0.17696428, y: 0.14267093, z: 0}
+  - {x: -0.9085512, y: 0.08551568, z: 0}
+  - {x: -0.88568926, y: -0.24555051, z: 0}
+  m_ShapePathHash: -1300867107
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -108194
+  m_LocalBounds:
+    m_Center: {x: -0.3429315, y: -0.097164005, z: 0}
+    m_Extent: {x: 0.5656197, y: 0.23983493, z: 0}

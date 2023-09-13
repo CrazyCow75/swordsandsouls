@@ -214,7 +214,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -325,6 +325,7 @@ MonoBehaviour:
   _knockbackMultiplier: 0
   _knockbackCounter: 0
   _knockbackTime: 0
+  detectedPlayer: 0
   detectRad: 8.5
   soul: {fileID: 4880483297598184626, guid: e00e55a3aaef91d4b98b75375ad9745d, type: 3}
   soulSpawnPoint: {fileID: 4785812140977239415}
@@ -335,6 +336,7 @@ MonoBehaviour:
   attack3damage: 20
   slashBox: {fileID: 1496751115907593242}
   slashBox2: {fileID: 1555468566432675540}
+  trackingPlayer: 0
   slashDistance: 1
   bounceCurve:
     serializedVersion: 2
