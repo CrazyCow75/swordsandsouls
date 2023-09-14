@@ -72,6 +72,7 @@ namespace Downpour.Entity.Player {
         public event Action FinishDashEvent;
 
         public ParticleSystem dust;
+        public ParticleSystem dashParticle;
 
         // Initialization
         protected override void Awake() {
@@ -130,13 +131,58 @@ namespace Downpour.Entity.Player {
 
             if ((_playerStateMachine.CurrentState is PlayerRunState))
             {
-                var emitParams = new ParticleSystem.EmitParams();
-                emitParams.startSize = 0.1f;
-                emitParams.startLifetime = 0.2f;
+               var emitParams = new ParticleSystem.EmitParams();
+                emitParams.startSize = 0.25f;
+                emitParams.startLifetime = 0.15f;
                 emitParams.velocity = new Vector3(_playerMovementController.FacingDirection == -1 ? 5f: -5f, 4f, 0f);
                 //emitParams.position = position;
 
-                emitParams.position = new Vector3(_playerMovementController.FacingDirection == -1 ? transform.position.x+0.7f : transform.position.x - 0.7f, transform.position.y-0.4f, 0f);
+                emitParams.position = new Vector3(_playerMovementController.FacingDirection == -1 ? transform.position.x+0.6f : transform.position.x - 0.6f, transform.position.y-0.4f, 0f);
+
+                //if (_playerMovementController.FacingDirection == -1)
+                //{
+                  //  emitParams.rotation = 245f;
+                //}
+
+                // if(CurrentSlashComboAttack == 1) {
+                //     emitParams.rotation += (_playerMovementController.FacingDirection == 1) ? 75f : -75f;
+                // }
+
+                // Debug.Log(emitParams.position.y);
+                // Debug.Log(position.y);
+ 
+                emitParams.applyShapeToPosition = true;
+                dust.Emit(emitParams, 1);
+
+                var rotation = _playerSpriteTransform.rotation;
+
+                Vector3 newRot = new Vector3(0f, 0f, 0f);
+                if (FacingDirection == 1)
+                    newRot = new Vector3(0f, 0f, -5f);
+                else
+                    newRot = new Vector3(0f, 0f, 5f);
+
+                //_playerSpriteTransform.eulerAngles = newRot;
+
+                _playerSpriteTransform.rotation = Quaternion.Lerp(rotation, Quaternion.Euler(newRot), 10.0f * Time.deltaTime);
+            } else
+            {
+                Vector3 newRot = new Vector3(0, 0, 0);
+                var rotation = _playerSpriteTransform.rotation;
+
+                _playerSpriteTransform.eulerAngles = newRot;
+                _playerSpriteTransform.rotation = Quaternion.Lerp(rotation, Quaternion.Euler(newRot), 10.0f * Time.deltaTime);
+            }
+        }
+
+        public void emitJumpParticle() {
+            var emitParams = new ParticleSystem.EmitParams();
+                emitParams.startSize = 0.35f;
+                emitParams.startLifetime = 0.2f;
+                emitParams.velocity = new Vector3(0f, 2f, 0f);
+                //emitParams.position = position;
+
+                emitParams.position = new Vector3(transform.position.x, transform.position.y-0.5f, 0f);
 
                 //if (_playerMovementController.FacingDirection == -1)
                 //{
@@ -151,18 +197,7 @@ namespace Downpour.Entity.Player {
                 // Debug.Log(position.y);
 
                 emitParams.applyShapeToPosition = true;
-                dust.Emit(emitParams, 1);
-                Vector3 newRot = new Vector3(0f, 0f, 0f);
-                if (FacingDirection == 1)
-                    newRot = new Vector3(0f, 0f, -10f);
-                else
-                    newRot = new Vector3(0f, 0f, 10f);
-
-                _playerSpriteTransform.eulerAngles = newRot;
-            } else
-            {
-                _playerSpriteTransform.eulerAngles = new Vector3(0f, 0f, 0f);
-            }
+                dust.Emit(emitParams, 5);
         }
 
         // <summary>
@@ -180,6 +215,31 @@ namespace Downpour.Entity.Player {
 
         private void _handleJumpInput(bool startingJump) {
             DesiredJump = startingJump;
+        }
+
+        public void emitDashParticles() {
+            var emitParams = new ParticleSystem.EmitParams();
+                emitParams.startSize = 0.3f;
+                emitParams.startLifetime = 0.25f;
+                emitParams.velocity = new Vector3(_playerMovementController.FacingDirection == -1 ? 6f: -6f, 3f, 0f);
+                //emitParams.position = position;
+
+                emitParams.position = new Vector3(_playerMovementController.FacingDirection == -1 ? transform.position.x+0.6f : transform.position.x - 0.6f, transform.position.y-0.4f, 0f);
+
+                //if (_playerMovementController.FacingDirection == -1)
+                //{
+                  //  emitParams.rotation = 245f;
+                //}
+
+                // if(CurrentSlashComboAttack == 1) {
+                //     emitParams.rotation += (_playerMovementController.FacingDirection == 1) ? 75f : -75f;
+                // }
+
+                // Debug.Log(emitParams.position.y);
+                // Debug.Log(position.y);
+ 
+                emitParams.applyShapeToPosition = true;
+                dust.Emit(emitParams, 1);
         }
 
         private void _handleJumpData() {
@@ -303,7 +363,9 @@ namespace Downpour.Entity.Player {
         }
 
         public IEnumerator Dash() {
+            
             DashEvent?.Invoke(_playerStatsController.CurrentPlayerStats.DashSpeed);
+            
             
             _dashBuffered = false;
 

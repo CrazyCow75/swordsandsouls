@@ -192,6 +192,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2419065489839826924, guid: e012895a97226a8458947b1683974fa5, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.31132078
+      objectReference: {fileID: 0}
+    - target: {fileID: 2419065489839826924, guid: e012895a97226a8458947b1683974fa5, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.25111252
+      objectReference: {fileID: 0}
+    - target: {fileID: 2419065489839826924, guid: e012895a97226a8458947b1683974fa5, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.27813953
+      objectReference: {fileID: 0}
     - target: {fileID: 5016193224334805882, guid: e012895a97226a8458947b1683974fa5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -534,6 +546,11 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!20 &924575540 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2419065489839826924, guid: e012895a97226a8458947b1683974fa5, type: 3}
+  m_PrefabInstance: {fileID: 338058788}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1085488329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -648,6 +665,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 128574285361840933, guid: ae3c0a108a54e384994573104e670a39, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 924575540}
+    - target: {fileID: 128574285361840933, guid: ae3c0a108a54e384994573104e670a39, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 128574285361840933, guid: ae3c0a108a54e384994573104e670a39, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1895759887
+      objectReference: {fileID: 0}
     - target: {fileID: 129925794350215157, guid: ae3c0a108a54e384994573104e670a39, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -495

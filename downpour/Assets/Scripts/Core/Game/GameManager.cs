@@ -32,6 +32,8 @@ namespace Downpour {
 
             // Physics2D.IgnoreLayerCollision(8, 9);
             SceneManager.sceneLoaded += onInit;
+
+            Screen.SetResolution(1280, 720, false);
         }
 
         // public void ChangeToGameState() {

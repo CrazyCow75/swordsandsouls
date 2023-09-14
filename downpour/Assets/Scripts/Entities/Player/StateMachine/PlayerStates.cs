@@ -127,6 +127,7 @@ namespace Downpour.Entity.Player
             base.Enter(previousState);
             
             _playerMovementController.SetColliderBounds(_player.PlayerData.StandColliderBounds);
+            _playerMovementController.emitJumpParticle();
         }
 
         public override void PlayStateAnimation() {
@@ -272,6 +273,7 @@ namespace Downpour.Entity.Player
             _playerMovementController.setVelocity(new Vector2(_playerMovementController.rbVelocityX, Mathf.Min(_playerMovementController.rbVelocityY, _playerStatsController.CurrentPlayerStats.MaxFallSpeed)));
             
             if(_playerMovementController.Grounded) {
+                _playerMovementController.emitJumpParticle();
                 _psm.EnterDefaultState();
             }
 
@@ -391,6 +393,7 @@ namespace Downpour.Entity.Player
             Vector2 velocity = new Vector2(direction * _playerStatsController.CurrentPlayerStats.DashSpeed, 0f);
 
             _playerMovementController.setVelocity(velocity);
+            _playerMovementController.emitDashParticles();
         }
 
         private void _enterDefaultState() {

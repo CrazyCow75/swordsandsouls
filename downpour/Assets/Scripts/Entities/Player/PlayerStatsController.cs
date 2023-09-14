@@ -41,6 +41,8 @@ namespace Downpour.Entity.Player
 
         [SerializeField] private ParticleSystem _revengeParticle;
 
+        public ParticleSystem hitParticle;
+
         protected override void Awake() {
             base.Awake();
 
@@ -94,6 +96,8 @@ namespace Downpour.Entity.Player
             if(Invincible) {
                 return;
             }
+
+            hitParticle.Play();
 
             iframeCounter = iframeTime;
 
