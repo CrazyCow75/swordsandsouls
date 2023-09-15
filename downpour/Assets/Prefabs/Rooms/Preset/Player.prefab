@@ -5187,7 +5187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Invincible: 0
-  iframeTime: 0.2
+  iframeTime: 0.5
   iframeCounter: 0
   collectedCells: 0
   currentCells: 0

@@ -58,6 +58,8 @@ namespace Downpour.Entity.Player
 
             _healthSystem.DeathEvent += _invokeDeathEvent;
             _healthSystem.DamageEvent += _invokeDamageEvent;
+
+            CameraManager.Instance.CameraShaker.Shake(0f, 0f);
         }
 
         private void Start() {
@@ -106,7 +108,7 @@ namespace Downpour.Entity.Player
             // DataManager.Instance.currentPlayerHealth = getHealth();
             if(!dodge) {
                 _healthSystem.TakeDamage(Mathf.Max(damage - m_currentPlayerStats.damageReduction, 1));
-                CameraManager.Instance.CameraShaker.Shake(0.2f, 2f);
+                CameraManager.Instance.CameraShaker.Shake(0.5f, 4f);
                 Debug.Log(Mathf.Max(damage - m_currentPlayerStats.damageReduction, 1) + " " + damage + " " + m_currentPlayerStats.damageReduction);
             }
 
