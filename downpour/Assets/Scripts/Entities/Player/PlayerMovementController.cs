@@ -74,6 +74,9 @@ namespace Downpour.Entity.Player {
         public ParticleSystem dust;
         public ParticleSystem dashParticle;
 
+        public AudioSource dashSFX;
+        public AudioSource jumpSFX;
+
         // Initialization
         protected override void Awake() {
             base.Awake();
@@ -177,6 +180,7 @@ namespace Downpour.Entity.Player {
 
         public void emitJumpParticle() {
             var emitParams = new ParticleSystem.EmitParams();
+            
                 emitParams.startSize = 0.35f;
                 emitParams.startLifetime = 0.2f;
                 emitParams.velocity = new Vector3(0f, 2f, 0f);
@@ -220,6 +224,7 @@ namespace Downpour.Entity.Player {
         public void emitDashParticles() {
             var emitParams = new ParticleSystem.EmitParams();
                 emitParams.startSize = 0.3f;
+                dashSFX.Play();
                 emitParams.startLifetime = 0.25f;
                 emitParams.velocity = new Vector3(_playerMovementController.FacingDirection == -1 ? 6f: -6f, 3f, 0f);
                 //emitParams.position = position;

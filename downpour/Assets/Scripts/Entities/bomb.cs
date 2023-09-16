@@ -55,7 +55,7 @@ namespace Downpour
 
                                         Player.Instance.PlayerStatsController.heal(Player.Instance.PlayerStatsController.CurrentPlayerStats.regen);
 
-                                        
+                                        Player.Instance.PlayerCombatController.hitSFX.Play();
 
                                         
                                     }

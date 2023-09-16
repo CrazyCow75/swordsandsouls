@@ -61,6 +61,7 @@ namespace Downpour
                                 Player.Instance.PlayerStatsController.heal(Player.Instance.PlayerStatsController.CurrentPlayerStats.regen);
 
                                 CameraManager.Instance.CameraShaker.Shake(0.1f, 1f);
+                                Player.Instance.PlayerCombatController.hitSFX.Play();
 
                                 Destroy(gameObject);
                             }

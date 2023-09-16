@@ -39,6 +39,11 @@ namespace Downpour.Entity.Player
 
         public int money;
 
+        public AudioSource collectSFX;
+        public AudioSource onHitSFX;
+        public AudioSource dieSFX;
+        public AudioSource restSFX;
+
         [SerializeField] private ParticleSystem _revengeParticle;
 
         public ParticleSystem hitParticle;
@@ -84,11 +89,14 @@ namespace Downpour.Entity.Player
 
             string aN = g.SpawnAreaName;
             int rN = g.SpawnRoomId;
+            dieSFX.Play();
 
             SceneLoader.Instance.LoadScene(aN + "" + rN, SceneLoader.FromSpawnPoint("RespawnPoint"));
+
         }
 
         private void _invokeDamageEvent(int damage) {
+
             PlayerDamagedEvent?.Invoke(damage);
         }
 
@@ -96,6 +104,7 @@ namespace Downpour.Entity.Player
             if(Invincible) {
                 return;
             }
+            onHitSFX.Play();
 
             hitParticle.Play();
 
@@ -273,7 +282,7 @@ namespace Downpour.Entity.Player
         
 
         public void unlockCard(CardData c) {
-            
+            collectSFX.Play();
             UnlockedCards.Add(c.id);
             UIManager.Instance.inventory.refresh();
 
@@ -295,6 +304,7 @@ namespace Downpour.Entity.Player
         }
 
         public void Rest(Respawn rPoint) {
+            restSFX.Play();
             RestEvent?.Invoke();
         }
 

@@ -123,7 +123,7 @@ namespace Downpour
                     Killed = roomData.killed;
                     Broken = roomData.broken;
                     Looted = roomData.looted;
-                    
+                    Collected = roomData.collected;
 
                     break;
                 }

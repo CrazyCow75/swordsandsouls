@@ -128,6 +128,7 @@ namespace Downpour.Entity.Player
             
             _playerMovementController.SetColliderBounds(_player.PlayerData.StandColliderBounds);
             _playerMovementController.emitJumpParticle();
+            _playerMovementController.jumpSFX.Play();
         }
 
         public override void PlayStateAnimation() {

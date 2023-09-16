@@ -38,6 +38,9 @@ namespace Downpour.Entity.Player
         public Transform firePoint;
         public Transform firePointRight;
          public ParticleSystem explosionParticle;
+
+         public AudioSource hitSFX;
+         public AudioSource attackSFX;
     
 
         private void Start() {
@@ -111,6 +114,7 @@ namespace Downpour.Entity.Player
             SlashCooldownCounter = cooldown;
             
             CanSlash = false;
+            attackSFX.Play();
 
             if(!(_playerStatsController.weapon.m_CardData.id == 13) && !(_playerStatsController.weapon.m_CardData.id == 12)) {
                 
@@ -130,6 +134,8 @@ namespace Downpour.Entity.Player
                                 damage *= crit ? 3 : 1;
 
                                 HitEvent?.Invoke(hittable, damage, this.transform.position.x > hit.transform.position.x ? 1 : -1);
+
+                                hitSFX.Play();
                             }
                         }
                     }

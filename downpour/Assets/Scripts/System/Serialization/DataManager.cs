@@ -92,6 +92,7 @@ namespace Downpour
                 r.killed = RoomManager.Instance.Killed;
                 r.broken = RoomManager.Instance.Broken;
                 r.looted = RoomManager.Instance.Looted;
+                r.collected = RoomManager.Instance.Collected;
 
                 r.roomID = RoomManager.Instance.RoomNumber;
                 r.areaName = RoomManager.Instance.AreaName;
@@ -168,6 +169,7 @@ namespace Downpour
                     roomData.killed = r.killed;
                     roomData.broken = r.broken;
                     roomData.looted = r.looted;
+                    roomData.collected = r.collected;
                     
 
                     return;
@@ -186,6 +188,8 @@ namespace Downpour
             public bool[] broken;
             public bool[] looted;
             public int roomID;
+
+public bool[] collected;
             public string areaName;
         }
     }
